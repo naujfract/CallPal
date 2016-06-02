@@ -1,0 +1,165 @@
+/*General*/
+
+.SignUpButton {
+  box-shadow: none !important;
+  background: none;
+  background-color: #219E52;
+  border-radius: 5px;
+  margin: 0 !important;
+  /*width: 75%;*/
+  border: 0;
+  line-height: 3;
+  min-height: 15px;
+  /*padding: 5px;*/
+  vertical-align: middle !important;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+
+  /*color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  vertical-align: middle !important;
+  border: 0;
+  box-shadow: 0 0 4px #797979 !important;
+  line-height: 3;
+  min-height: 15px !important;
+  font-size: 12px;
+  background-image: url('../../web-assets/img/ui/glass-header.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5px;
+  margin: 20px !important;
+  width: 75%;*/
+}
+
+.signupPane .sms-error {
+  padding-left: 13px;
+  padding-bottom: 13px;
+}
+
+/*SignUpPopUpCountries*/
+
+.SignUpPopUpCountries .search {
+  text-align: left;
+}
+
+.SignUpPopUpCountries .list {
+  max-height: 299px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 25px;
+}
+
+.SignUpPopUpCountries .list .country {
+  padding: 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: white;
+}
+
+.SignUpPopUpCountries .list img {
+  width: 40px;
+  height: 27px;
+  margin-right: 10px;
+}
+
+.SignUpPopUpCountries .list .caption {
+  margin-left: 56px;
+  margin-top: -25px;
+}
+
+/*SignUpCountryModal*/
+
+.SignUpCountryModal {
+  background: linear-gradient(to left bottom, #35b162, #cdd437);
+}
+
+.SignUpCountryModal ion-header-bar,
+.SignUpCountryModal .list-inset {
+  background-color: transparent;
+}
+
+.SignUpCountryModal .phone-box {
+  background-color: transparent;
+  border: none;
+  width: 75%;
+  margin: auto auto 25px auto;
+  padding: 0;
+}
+
+.SignUpCountryModal .phone-prefix {
+  background-color: rgba(127, 142, 127,0.7);
+  border: none;
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.SignUpCountryModal .phone-number {
+  background-color: #a7d071;
+  border-radius: 2px;
+}
+
+/*Old*/
+
+.signupPane {
+  /*    background: linear-gradient( top, #35b162, #cdd437);
+      background: -webkit-linear-gradient( top, #35b162, #cdd437);*/
+  text-align: center;
+  color: #fff;
+  font-size: 10px !important;
+}
+
+.signupPane .form-input,
+.signupPane .item-input,
+.signupPane .signup-button,
+.signupPane select {
+  background-color: #a7d071;
+  margin-bottom: 25px;
+  -webkit-box-shadow: inset 0 0 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 10px;
+}
+
+.signupPane select[name="country"], .signupPane select[name="language"], .signupPane select {
+  border: 0;
+}
+
+.signupPane .form-input.first {
+  margin-top: 25px;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.signupPane p {
+  margin-bottom: 25px;
+  color: #009540;
+}
+
+.signupPane .password-status {
+  position: absolute;
+  right: 14%;
+  top: 60px;
+  bottom: 0;
+  height: 25px;
+  margin-top: 7px;
+  margin-right: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.signupPane #username,
+.signupPane #password {
+  font-size: 12px;
+}

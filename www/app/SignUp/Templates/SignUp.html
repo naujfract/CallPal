@@ -1,0 +1,28 @@
+<ion-view title="New Account">
+
+  <ion-header-bar align-title="center" class="bar-callpal">
+
+    <button class="button button-clear" ng-click="back()">{{ 'w_general_actions.back' | translate }}</button>
+
+    <h1 class="title" translate="w_login.signin_callpal"></h1>
+
+  </ion-header-bar>
+
+  <ion-content padding="true" class="signupPane">
+
+    <input id="username" class="form-input first" autocapitalize="none" type="email"
+           name="username" ng-model="signupData.username"
+           placeholder="{{ 'w_general_actions.email' | translate }}">
+
+    <input id="password" class="form-input" type="{{showpassword ? 'text' : 'password'}}"
+           name="password" autocapitalize="none"
+           ng-model="signupData.password" placeholder="{{ 'w_login.password_minimun' | translate:{ characters: 6 } }}">
+
+    <img class="password-status" ng-src="{{password_status}}" ng-click="hide_show_password();"/>
+
+    <a class="button SignUpButton" ng-click="NextShowCountryPhoneModal()"
+       translate="w_general_actions.next">Next</a>
+
+  </ion-content>
+
+</ion-view>

@@ -1,0 +1,23 @@
+<ion-view title="Blocked Contacts" ng-init="init()">
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <button class="button button-clear" ng-click="gotoSetting('accountinfo')">{{ 'w_general_actions.back' | translate }}</button>
+    <h1 class="title">{{ 'w_settings.options.account_info.blocked_numbers.title' | translate }}</h1>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+  <ion-content padding="true" class="settingsPane blocknumber" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+    <!-- List of Blocked Users -->
+    <ion-scroll ng-if="blocked_contact_list.length">
+      <ion-list ng-repeat="blocked_contact in blocked_contact_list">
+        <ion-item class="item-button-right">
+          <span class="number">{{ blocked_contact.displayName }}</span>
+          <a href="" ng-click="showConfirm(blocked_contact)" prevent-on-offline="click"><i class="ion-android-remove-circle"></i></a>
+        </ion-item>
+      </ion-list>
+      <br />
+    </ion-scroll>
+    <center><p ng-if="!blocked_contact_list.length">{{ 'w_settings.options.account_info.blocked_numbers.empty' | translate }}</p></center>
+  </ion-content>
+</ion-view>

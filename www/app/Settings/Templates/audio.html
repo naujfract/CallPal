@@ -1,0 +1,25 @@
+<ion-view title="Audio Settings">
+	<ion-header-bar align-title="center" class="bar-callpal">
+      <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+      <h1 class="title">Call Audio</h1>
+    </ion-header-bar>
+    <ion-content padding="true" class="settingsPane audio" ng-init="initAudio()" ng-show="show">
+
+      <h1>Adjust Audio Settings</h1>
+
+      <div class="range volume">
+        <i class="icon ion-volume-low"></i>
+        <input type="range" name="speakerVolume" ng-model="settingsAudio['speakerVolume']" on-release="onRelease()">
+        <i class="icon ion-volume-high"></i>
+      </div>
+
+      <div class="range mic">
+        <i class="icon ion-ios-mic-off"></i>
+        <input type="range" name="micVolume" ng-model="settingsAudio['micVolume']" on-release="onRelease()">
+        <i class="icon ion-ios-mic"></i>
+      </div>
+
+      <!-- <a class="button" ng-click="changeSettingsAudio()">Save</a> -->
+
+    </ion-content>
+</ion-view>

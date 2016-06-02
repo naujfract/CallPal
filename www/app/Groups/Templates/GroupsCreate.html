@@ -1,0 +1,126 @@
+<ion-view title="Groups" class="groupsPane" hide-tabs>
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <div class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear" ng-click="navigate_to('app.contacts')">{{ 'w_general_actions.back' |
+                translate }}
+            </button>
+        </div>
+        <h1 class="title">{{ 'w_groups.select_members' | translate }}</h1>
+
+        <div class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear button-icon ion-ios-search" ng-click="search.enable('search-group-input')"></button>
+        </div>
+
+        <div class="bar-header item-input-inset search-bar" ng-show="search.isEnabled">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input id="search-group-input" ng-model="search.query" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+            </label>
+            <button class="button button-clear button-icon" ng-click="search.disable()"><i
+                    class="icon ion-android-close"></i></button>
+        </div>
+
+    </ion-header-bar>
+
+
+
+
+    <ion-content padding="true" class="has-header">
+
+
+        <!-- <ion-scroll style="height:100%"> -->
+        <ion-refresher pulling-text="{{ 'w_contacts.pull_to_refresh' | translate }}" on-refresh="contacts.refresh(true)"
+                       refreshing-text="{{ 'w_contacts.refresher_text' | translate }}"></ion-refresher>
+
+        <ion-list class="list">
+
+            <ion-item class="item-container" item-width="99%"
+                      item-height="50px" collection-repeat="contact in contacts.list | filter:search.query"
+                      ng-ifs="contact.extension || contact.hasSpeedDial">
+                <div>
+                <!-- <ion-checkbox id="{{ $index }}" ng-model="contact.isChecked" ng-disabled="!contact.username && !contact.hasSpeedDial"> -->
+
+                    <!-- add button "format to call" if no username and phone number is not formatted -->
+                    <!-- <button ng-click="contacts.call(contact)" ng-show="!contact.username"
+                            ng-class="contact.hasSpeedDial != null ? 'contact-button-active' : 'contact-button-inactive'"
+                            prevent-on-offline="click"> Call Pal
+                    </button> -->
+                    <a class="item item-avatar" href="#">
+
+                        <div ng-if="!contact.extension" class="no-callpal-egg">
+                            {{ contact.displayName | getInitials }}
+                            <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                        </div>
+
+                        <div ng-if="contact.extension && !contact.avatar" class="no-callpal-egg">
+                            <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                            <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image style="height: 20px">
+                        </div>
+
+                        <img class="small-avatar" ng-if="contact.avatar" ng-src="{{ contact.avatar }}"/>
+
+                              <span class="col col-80 text-left">
+                                  <i ng-show="contact.isFavorite" class="icon ion-android-star"> </i>
+                                  {{ contact.displayName || contact.phoneNumbers[0].number }}
+                              </span>
+                    </a>
+
+                    <!-- open selection only if phone.length > 1, otherwise add to array -->
+                    <button class="button group-add ion-android-add" ng-click="group.selectNumber(contact)"></button>
+                    <!--<button ng-if="contact.username || contact.hasSpeedDial" class="button group-add ion-android-add" ng-click="group.selectNumber(contact)"></button>-->
+                    <!--<button ng-if="!contact.username && !contact.hasSpeedDial" class="button group-add-disabled">Fix</button>-->
+                    <button ng-show="contact.isChecked" class="button group-add-checked ion-checkmark" ng-click="group.removeFromGroupCall(contact)"></button>
+                    <!--<button ng-show="contact.username || contact.hasSpeedDial && !contact.isChecked" class="button group-add ion-android-add" ng-click="addToGroupCall($index)"></button>-->
+                    <!--<button ng-show="!contact.username && !contact.hasSpeedDial" class="button group-add-disabled" ng-click="openCorrectionTool()">Fix</button>-->
+                </div>
+                <!-- </ion-checkbox> -->
+            </ion-item>
+
+        </ion-list>
+
+
+
+    </ion-content>
+
+
+    <div class="tabs tabs-callpal tabs-icon-top hide-on-keyboard-open" style="background: rgba(0,0,0,0.4);" hide-tabs>
+
+        <a class="tab-item" ng-click="group.create_schedule()">
+            <i class="icon ion-android-time"></i>
+
+            <p> {{ 'w_groups.schedule' | translate }} </p>
+        </a>
+        <a class="tab-item border" ng-click="group.instantCall()">
+            <i class="icon ion-android-call"></i>
+
+            <p> {{ 'w_groups.call_pals' | translate }} </p>
+        </a>
+        <!--<a class="tab-item border" ng-click="goToCallPal()" ui-sref-active="current">-->
+            <!--<i class="icon ion-person-stalker">-->
+            <!--</i>-->
+            <!--<p>Members</p>-->
+        <!--</a>-->
+
+    </div>
+
+
+</ion-view>
+
+
+<style>
+
+    .accordion-toggle {
+        cursor: pointer;
+        margin: 0;
+    }
+
+    .accordion-content {
+        display: none;
+    }
+
+    .accordion-content.default {
+        display: block;
+    }
+
+</style>

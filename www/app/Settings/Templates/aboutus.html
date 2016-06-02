@@ -1,0 +1,16 @@
+<ion-view title="About Us">
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+        <h1 class="title">{{ 'w_settings.options.about_us.title' | translate }}</h1>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+    </ion-header-bar>
+    <ion-content padding="true" class="settingsPane aboutus" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+        <ion-scroll style="height: 75vh">
+            <p> {{ 'w_settings.options.about_us.mission' | translate }} </p>
+        </ion-scroll>
+        <!--<a class="button" ng-click="gotoSetting('advertise')" prevent-on-offline="click">{{ 'w_settings.options.about_us.sponsor' | translate }}</a>-->
+    </ion-content>
+</ion-view>

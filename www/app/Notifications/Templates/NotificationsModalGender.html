@@ -1,0 +1,35 @@
+<div class="modal NotificationsModalGender">
+
+  <ion-content class="padding-top">
+
+    <div class="text-center" ng-hide="show_thanks">
+      <div class="h3">{{ 'w_notifications.select_gender' | translate }}</div>
+    </div>
+
+    <div class="text-center" ng-show="show_thanks">
+      <div class="h3">{{ 'w_notifications.thank_you' | translate }}</div>
+    </div>
+
+    <br>
+
+    <div class="text-center" ng-click="gender.save('male')">
+      <div class="h4">{{ 'w_notifications.male' | translate }}</div>
+      <img id='male' ng-src="{{gender.avatars.male}}" style="max-width: 50% !important;"/>
+    </div>
+
+    <br>
+
+    <div class="text-center" ng-click="gender.save('female')">
+      <div class="h4">{{ 'w_notifications.female' | translate }}</div>
+      <img id="female" ng-src="{{gender.avatars.female}}" style="max-width: 50% !important;"/>
+    </div>
+
+  </ion-content>
+
+</div>
+
+<style>
+  .NotificationsModalGender {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+</style>

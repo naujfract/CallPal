@@ -1,0 +1,37 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<ion-view title="Network Status">
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <button class="button button-clear" ng-click="gotoSetting('accountinfo')">{{ 'w_general_actions.back' | translate }}</button>
+    <h1 class="title">{{ 'w_settings.options.account_info.network_status.title' | translate }}</h1>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+  <ion-content padding="true" class="settingsPane networkstatus" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+
+    <!-- Call Stats -->
+    <ion-list class="stats">
+      <ion-item class="stat">
+        <span class="type left">{{ 'w_settings.options.account_info.network_status.calls_out' | translate }}</span>
+        <span class="result right">{{ out.length > 0 ? out : 'w_general_actions.none' | translate }} </span>
+      </ion-item>
+      <ion-item class="stat">
+        <span class="type left">{{ 'w_settings.options.account_info.network_status.calls_in' | translate }}</span>
+        <span class="result right">{{ cin.length > 0 ? cin : 'w_general_actions.none' | translate }} </span>
+      </ion-item>
+    </ion-list>
+
+    <!-- Pie Chart >
+    <pie-chart data="countries" options="options"></pie-chart>
+
+    <!-- Key >
+    <ion-list class="keys">
+      <ion-item ng-repeat="country in countries">
+        <i class="key" style='background: {{country.classColor}}'></i>
+        <span class="caption">{{country.value}}% calls to {{ getCountryName(country.label) }}</span>
+      </ion-item>
+    </ion-list-->
+
+  </ion-content>
+</ion-view>

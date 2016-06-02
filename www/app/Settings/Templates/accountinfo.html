@@ -1,0 +1,60 @@
+<ion-view title="Account Info">
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+        <h1 class="title">{{ 'w_settings.options.account_info.title' | translate }}</h1>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+    </ion-header-bar>
+
+    <ion-content padding="true" class="settingsPane accountinfo" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+
+        <div class="list card" style="background: transparent; color: white;">
+            <!--div class="row">
+                <h4>{{ user_data.getName()}}</h4>
+            </div-->
+            <div class="item item-body">
+                <a ng-hide="!user_data.name" href="#" class="item item-icon-left" style="height: 40px; background: transparent !important; color: white;" >
+                    <i class="icon ion-person"></i>
+                    <p style="float: right;">{{ user_data.name }}</p>
+                </a>
+                <a ng-hide="!user_data.email" href="#" class="item item-icon-left" style="background: transparent !important; color: white;" >
+                    <i class="icon ion-ios-email"></i>
+                    <p style="float: right;">{{ user_data.email }}</p>
+                </a>
+                <a href="#" class="item item-icon-left" style="background: transparent !important; color: white;">
+                    <i class="icon ion-ios-telephone"></i>
+                    <p style="float: right;">{{ user_data.phone }}</p>
+                </a>
+                <a href="#" class="item item-icon-left" style="background: transparent !important; color: white;">
+                    <i class="icon ion-ios-flag"></i>
+                    <p style="float: right;">{{ user_data.countryName }}</p>
+                </a>
+                <!-- <a href="#" class="item item-icon-left" style="background: transparent !important; color: white;">
+                    <i class="icon ion-star"></i>
+                    <p style="float: right;">{{ user_data.getCredits()}}</p>
+                </a> -->
+            </div>
+        </div>
+
+        <!--svg class="egg_shape_svg">
+        <defs>
+        <clipPath id="egg_shape">
+            <path transform="scale(0.66) translate(20, 40)" d="M182.16,161.142c0,50.303-40.777,91.08-91.08,91.08S0,211.445,0,161.142C0,110.84,40.777,0,91.08,0
+                  S182.16,110.84,182.16,161.142z"/>
+        </clipPath>
+        </defs>
+        </svg-->
+
+        <ion-list>
+            <ion-item ng-click="gotoSetting('changepassword')" ng-if="user_data.signUpAction.toLowerCase() === 'callpal'">{{ 'w_settings.options.account_info.password.title' | translate }}<i class="ion-ios-arrow-forward"></i></ion-item>
+            <ion-item ng-click="gotoSetting('updateprofile')" prevent-on-offline="click">{{ 'w_settings.options.account_info.update_profile.title' | translate }} <i class="ion-ios-arrow-forward"></i></ion-item>
+            <ion-item ng-click="gotoSetting('networkstatus')">{{ 'w_settings.options.account_info.network_status.title' | translate }} <i class="ion-ios-arrow-forward"></i></ion-item>
+            <ion-item ng-click="gotoSetting('blocknumber')">{{ 'w_settings.options.account_info.blocked_numbers.title' | translate }} <i class="ion-ios-arrow-forward"></i></ion-item>
+        </ion-list>
+
+    </ion-content>
+
+</ion-view>

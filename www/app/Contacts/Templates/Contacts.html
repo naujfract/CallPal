@@ -1,0 +1,113 @@
+<ion-view title="Contacts">
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+
+        <div class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear" ng-click="contacts.open_groups()" prevent-on-offline="click">
+                <i class="icon ion-ios-people"> </i> {{ 'w_groups.title' | translate }}
+            </button>
+        </div>
+        <h1 class="title" translate="w_contacts.title" ng-hide="search.isEnabled">{{ 'w_contacts.title' | translate
+            }}</h1>
+
+        <div class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear button-icon ion-ios-search"
+                    ng-click="search.enable('search-contact-input')"></button>
+        </div>
+
+        <div class="bar-header item-input-inset search-bar" ng-show="search.isEnabled">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input id="search-contact-input" ng-model="search.query" type="search"
+                       placeholder="{{ 'w_general_actions.search' | translate }}">
+            </label>
+
+            <button class="button button-clear ion-android-microphone" ng-show="search.if_is_android()"
+                    ng-click="voiceRecognition.start()"></button>
+
+            <button class="button button-clear cancel" ng-click="search.disable()">{{ 'w_general_actions.cancel' |
+                translate }}
+            </button>
+        </div>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+            <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+
+    </ion-header-bar>
+
+    <ion-content class="contactsPane" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }" keep-scroll>
+
+        <ion-refresher pulling-text="{{ 'w_contacts.pull_to_refresh' | translate }}" on-refresh="contacts.refresh(true)"
+                       refreshing-text="{{ 'w_contacts.refresher_text' | translate }}"></ion-refresher>
+
+        <ion-list ng-if="contacts.list.length != 0">
+
+            <ion-item item-height="50px"
+                      collection-repeat="contact in contacts.list | filter:search.query">
+
+                <div ng-if="contact.displayName != null">
+                    <a class="item item-avatar" href="#" ng-click="open_contact(contact)"
+                       on-hold="goToContactWithOptions(contact)">
+
+                        <div ng-if="!contact.extension" class="no-callpal-egg">
+                            {{ contact.displayName | getInitials }}
+                            <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                        </div>
+
+                        <div ng-if="contact.extension && !contact.avatar" class="no-callpal-egg">
+                            <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                            <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image style="height: 20px">
+                        </div>
+
+                        <!--   <img class="small-avatar" ng-if="!contact.avatar" ng-src="./img/egg-outline.png" non-loaded-image> -->
+                        <img class="small-avatar" ng-if="contact.extension && contact.avatar"
+                             ng-src="{{ contact.avatar}}?123" non-loaded-image/>
+
+                    <span class="col col-50 text-left">
+                      <i ng-show="contact.isFavorite" class="icon ion-android-star"> </i>
+                      {{ contact.displayName || contact.phoneNumbers[0].number }}
+                        <!-- <br> -->
+                        <!-- {{ contact.phoneNumbers[0].number}} -->
+                    </span>
+                    </a>
+
+                    <!-- Initiate Video Call -->
+                    <button ng-show="contact.username" class="contact-button-video"
+                            prevent-on-offline="click"
+                            ng-click="contacts.callpal(contact, 'video')">
+                        <i class="icon ion-ios-videocam"></i>
+                    </button>
+
+                    <!-- Show the camera without username -->
+                    <button ng-show="!contact.username" class="contact-button-video"
+                            prevent-on-offline="click"
+                            ng-click="contacts.invite(contact)">
+                        <i class="icon ion-ios-videocam-outline" style="color: #A7BDB9;" ></i>
+                    </button>
+
+
+                    <!-- If the user has username call callpal direct -->
+                    <button ng-click="contacts.callpal(contact)" ng-show="contact.username"
+                            prevent-on-offline="click" class="contact-button-active"> Call Pal
+                    </button>
+
+                    <!-- If the user does not have username allow to create the speedDial -->
+                    <button ng-click="contacts.call(contact)" ng-show="!contact.username"
+                            ng-class="contact.hasSpeedDial != null ? 'contact-button-active' : 'contact-button-inactive'"
+                            prevent-on-offline="click"> Call Pal
+                    </button>
+
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list>
+            <div class="text-center" ng-if="!contacts.list.length || contacts.list.length === 0">
+                <p>{{ 'w_contacts.empty' | translate }}</p>
+            </div>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<div class="CallPopUpCountries">
+
+  <label class="item-input-wrapper">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" class="search" placeholder="{{ 'w_general_actions.country'  | translate }}" ng-model='countries.search.caption'>
+  </label>
+
+  <div class="list">
+    <div class="item country" ng-repeat="country in countries.list | usFirst | filter:countries.search" ng-click="countries.select(country)">
+      <img class="flag-mini" ng-src="{{ flag.url }}{{ country.code | lowercase }}.{{ flag.extension }}">
+
+      <div class="caption">{{country.caption}}</div>
+    </div>
+  </div>
+
+</div>

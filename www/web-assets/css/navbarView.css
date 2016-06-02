@@ -1,0 +1,27 @@
+// navbarView styles
+.callpal-navbar {
+    background-color: #2fb064 !important;
+}
+.bar-header {
+    background-color: #2fb064 !important;
+    box-shadow: inset 0px -1px 4px #82E7A3 !important;
+    /*border: 0 !important;*/
+    color: #fff !important;
+    font-size: 5em;
+    text-align: center !important;
+}
+.bar .title {
+    /*width: 100% !important;*/
+    /*position: relative !important;*/
+    /*text-align: center !important;*/
+    /*margin: 0 !important;*/
+    /*margin-left: 10px;*/
+    top: 5px !important;
+}
+.bar .button.back-button {
+    position: absolute !important;
+    left: .5em !important;
+    color: #fff !important;
+    float: left;
+    margin: 0 !important;
+}

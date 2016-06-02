@@ -1,0 +1,100 @@
+/*Login page styles*/
+.pane {
+  /*    background: linear-gradient( top, #35b162, #cdd437);
+      background: -webkit-linear-gradient( top, #35b162, #cdd437);*/
+}
+
+.signupPane {
+  /*    background: linear-gradient( top, #35b162, #cdd437);
+      background: -webkit-linear-gradient( top, #35b162, #cdd437);*/
+  text-align: center;
+  color: #fff;
+  font-size: 10px !important;
+}
+
+/*.signupPane a.button {
+    padding-top: 2px;
+    color: #fff;
+    text-transform: uppercase;
+    background-image: -webkit-linear-gradient(top, #FDB575 0%, #FF831A 27%);
+    background: transparent;
+    border-color: #bc8657;
+    letter-spacing: 1px;
+    width: 225px;
+    line-height:43px;
+    min-height: 20px !important;
+    vertical-align: middle !important;
+    box-shadow: 0px 0px 4px #797979 !important;
+    border: 0;
+    margin-top: 3em;
+}*/
+.signupPane .form-input, .signupPane .signup-button, .signupPane select {
+  background-color: #a7d071;
+  margin-bottom: 25px;
+  border-radius: 1px;
+  -webkit-box-shadow: 0px 0px 0px 1px #6E9033;
+  -webkit-box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 10px;
+}
+
+.signupPane select[name="country"], .signupPane select[name="language"], .signupPane select {
+  /*text-indent: 45%;*/
+  border: 0;
+}
+
+.signupPane .form-input.first {
+  margin-top: 25px;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.signupPane a.button {
+  color: #fff;
+  text-transform: uppercase;
+  background: transparent;
+  letter-spacing: 1px;
+  width: 75%;
+  vertical-align: middle !important;
+  border: 0;
+  /*margin-top: 3em;*/
+  box-shadow: 0px 0px 4px #797979 !important;
+  line-height: 3;
+  min-height: 15px !important;
+  font-size: 10px;
+  background-image: url('../../web-assets/img/ui/glass-header.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.signupPane p {
+  margin-bottom: 25px;
+  color: #009540;
+}
+
+.signupPane  img {
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  bottom: 0;
+  height: 25px;
+  margin-top: 7px;
+  margin-right: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.signupPane  #username,
+.signupPane  #password {
+  font-size: 12px
+}

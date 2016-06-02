@@ -1,0 +1,8 @@
+.ion-content ion-item{
+    margin: 0 0 0 2% !important;
+    width: 96%!important;
+}
+
+.item i{
+    color: #fff; 
+}

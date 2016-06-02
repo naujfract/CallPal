@@ -1,0 +1,188 @@
+<ion-view title="My Nest" class="nest-page detail my-interest">
+  <ion-header-bar align-title="left" class="bar-callpal animated slideInDown">
+    <div class="buttons">
+      <button class="button button-clear button-icon back" ng-click="detail.hide()">
+      </button>
+    </div>
+    <h1 class="title" translate="w_nest.title" ui-sref="nest-home"></h1>
+    <div class="buttons">
+      <button class="button button-clear button-icon close" ng-click="detail.hide()">
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content ng-if="detail.content.media_title != '' && detail.content.media_description != '' && detail.content.media_image_desktop != ''"
+               padding="true" scroll="false" class="content-detail animated slideInUp has-header">
+    <ion-scroll delegate-handle="interests" zooming="false" direction="y" style="height: 82vh; margin: 0; position: relative;">
+      <div class="card-content" ng-class="detail.cardContentClass">
+
+        <!--<div class="media" style="background-image: url({{detail.content.media_image_desktop}});"></div>-->
+        <img ng-src="{{detail.content.media_image_desktop}}" style="width: 100%;">
+        <div class="header-content">
+          <h2>{{detail.content.media_title}}</h2>
+          <!--<span class="date">{{detail.content.start_at | date:'longDate'}}</span>-->
+        </div>
+        <p class="description">{{detail.content.media_description}}</p>
+        <iframe ng-if="detail.content.video_link"
+                type="text/html"
+                class="video-detail"
+                width="{{detail.video.width}}"
+                height="{{detail.video.height}}"
+                src="{{detail.content.video_link}}"
+                frameborder="0"
+                fs="0"/>
+      </div>
+    </ion-scroll>
+    <div ng-class="detail.actions.box.class" class="actions-container animated {{detail.actions.box.classByType}}">
+      <div ng-if="detail.actions.type == 'share'">
+        <h3 translate="w_nest.share_with_pals"></h3>
+
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="{{detail.search_placeholder_translate}}.." ng-model="details.search.query" ng-change="main.search()">
+            <i class="icon ion-search placeholder-icon"></i>
+          </label>
+        </div>
+
+        <ion-scroll delegate-handle="interests" zooming="false" direction="y" style="height: 40vh; margin: 0 1em;" class="contacts-list" on-scroll="contacts.hide()">
+          <ion-list>
+            <ion-checkbox ng-repeat="contact in contacts.list | filter:details.search.query | orderBy: ['hasSpeedDial','displayName'] | unique: 'displayName' track by $index"
+                          ng-model="contact.selected"
+                          ng-click="contacts.addToShare(contact)"
+                          class="{{contact.style}}">
+                          {{ contact.displayName || contact.phoneNumbers[0].number }}
+                        </ion-checkbox>
+          </ion-list>
+        </ion-scroll>
+
+        <button ng-click="detail.share(detail.content)"
+                class="button button-block button-positive icon-left ion-android-share-alt hide-on-keyboard-open"
+                translate="w_nest.share"></button>
+        <div class="actions-share">
+          <button ng-click="detail.share_with_pals()" class="button button-icon icon accept"></button>
+          <button ng-click="detail.cancel_share()"class="button button-icon icon cancel"></button>
+        </div>
+      </div>
+
+      <div ng-if="detail.actions.type == 'express'">
+        <h3 translate="w_nest.express_yourself"></h3>
+
+        <hscroller class="express-scroll">
+          <hcard ng-repeat="expression in detail.expressions"
+                 index="{{$index}}"
+                 title="{{expression.translated}}"
+                 type="express"
+                 image="{{expression.icon}}"
+                 class="expression"
+                 ng-click="detail.setExpression(expression)"
+                 ng-class="{active: expression.id == detail.selectedExpression}"></hcard>
+        </hscroller>
+
+        <textarea name="comment" id="comment-textarea"
+            ng-model="detail.comment">
+        </textarea>
+
+
+        <div class="actions-share hide-on-keyboard-open">
+          <button ng-click="detail.send_express()" class="button button-icon icon accept"></button>
+          <button ng-click="detail.cancel_share()"class="button button-icon icon cancel"></button>
+        </div>
+      </div>
+
+      <div ng-if="detail.actions.type == 'archive'" class="archive-box">
+        <i class="icon ion-checkmark-round"></i>
+        <p translate="w_nest.saved_gallery"></p>
+      </div>
+    </div>
+  </ion-content>
+  <div ng-if="detail.content.media_title == '' && detail.content.media_description == '' && detail.content.media_image_desktop == ''"
+               padding="true" scroll="false" class="animated slideInUp has-header content-without-content">
+    <div class="card-content without-content" ng-class="detail.cardContentClass">
+      <img ng-src="{{detail.content.media_image_mobile}}" style="width: 100%;">
+    </div>
+    <div ng-class="detail.actions.box.class" class="actions-container without-content animated {{detail.actions.box.classByType}}">
+      <div ng-if="detail.actions.type == 'share'">
+        <h3 translate="w_nest.share_with_pals"></h3>
+
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="{{detail.search_placeholder_translate}}..." ng-model="details.search.query" ng-change="main.search()">
+            <i class="icon ion-search placeholder-icon"></i>
+          </label>
+        </div>
+
+        <ion-scroll delegate-handle="interests" zooming="false" direction="y" style="height: 40vh; margin: 0 1em;" class="contacts-list" on-scroll="contacts.hide()">
+          <ion-list>
+            <ion-checkbox ng-repeat="contact in contacts.list | filter:details.search.query | orderBy: ['hasSpeedDial','displayName'] | unique: 'displayName' track by $index"
+                          ng-model="contact.selected"
+                          ng-click="contacts.addToShare(contact)"
+                          class="{{contact.style}}">
+                          {{ contact.displayName || contact.phoneNumbers[0].number }}
+                        </ion-checkbox>
+          </ion-list>
+        </ion-scroll>
+
+        <button ng-click="detail.share(detail.content)"
+                class="button button-block button-positive icon-left ion-android-share-alt hide-on-keyboard-open"
+                translate="w_nest.share"></button>
+        <div class="actions-share hide-on-keyboard-open">
+          <button ng-click="detail.share_with_pals()" class="button button-icon icon accept"></button>
+          <button ng-click="detail.cancel_share()"class="button button-icon icon cancel"></button>
+        </div>
+      </div>
+
+      <div ng-if="detail.actions.type == 'express'">
+        <h3 translate="w_nest.express_yourself"></h3>
+
+        <hscroller class="express-scroll">
+          <hcard ng-repeat="expression in detail.expressions"
+                 index="{{$index}}"
+                 title="{{expression.translated}}"
+                 type="express"
+                 image="{{expression.icon}}"
+                 class="expression"
+                 ng-click="detail.setExpression(expression)"
+                 ng-class="{active: expression.id == detail.selectedExpression}"></hcard>
+        </hscroller>
+
+        <textarea name="comment" id="comment-textarea"
+            ng-model="detail.comment">
+        </textarea>
+
+
+        <div class="actions-share hide-on-keyboard-open">
+          <button ng-click="detail.send_express()" class="button button-icon icon accept"></button>
+          <button ng-click="detail.cancel_share()"class="button button-icon icon cancel"></button>
+        </div>
+      </div>
+
+      <div ng-if="detail.actions.type == 'archive'" class="archive-box">
+        <i class="icon ion-checkmark-round"></i>
+        <p translate="w_nest.saved_gallery"></p>
+      </div>
+    </div>
+  </div>
+  <ion-footer-bar class="animated slideInUp hide-on-keyboard-open" align-title="left" class="bar-assertive">
+    <div class="row content-actions">
+      <div class="col">
+        <button class="button share"
+                ng-class="{'active': detail.activeAction == 'share'}"
+                ng-click="detail.show_actions('share')"></button>
+      </div>
+      <div class="col">
+        <button class="button archive"
+                ng-class="{'active': detail.activeAction == 'archive'}"
+                ng-click="detail.show_actions('archive')"></button>
+      </div>
+      <div class="col">
+        <button class="button express"
+                ng-class="{'active': detail.activeAction == 'express'}"
+                ng-click="detail.show_actions('express')"></button>
+      </div>
+      <div class="col" ng-if="detail.content.from != 'channel'">
+        <button class="button delete"
+                ng-class="{'active': detail.activeAction == 'delete'}"
+                ng-click="detail.delete_content()"></button>
+      </div>
+    </div>
+  </ion-footer-bar>
+</ion-view>

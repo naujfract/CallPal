@@ -1,0 +1,25 @@
+<div class="SignUpPopUpCountries LoginPopUpCountries">
+
+    <label class="item-input-wrapper" style="background-color: #B2E66D">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="search" class="search" placeholder="Country" ng-model='search.caption'>
+    </label>
+
+    <div class="list">
+        <div class="item country" ng-repeat="country in countries | filter:search | usFirst"
+             ng-click="list_countries.set_country_code(country)">
+            <!--<img ng-src="http://www.geonames.org/flags/m/{{getCountryLowerCase(country.code)}}.png" -->
+            <!--style="border-radius: 70px; height: 40px; width: 40px;">-->
+            <img class="flag-mini" ng-src="{{ flag.url }}{{ country.code | lowercase }}.{{ flag.extension }}">
+            <!--<img ng-src="http://testenvwelcome.callpalnetwork.com/flags-mini/{{list_countries.getCountryLowerCase(country.code)}}.png"-->
+                 <!--class="flag-mini">-->
+            <!--<img ng-src="http://www.geonames.org/flags/m/{{list_countries.getCountryLowerCase(country.code)}}.png"-->
+                 <!--style="height: 51px; width: 36px; display: block; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;">-->
+
+
+            <!--<img ng-src="http://localhost:4567/{{getCountryLowerCase(country.code)}}.png" style="border-radius: 70px; height: 40px; width: 40px;">-->
+            <div class="caption" style="margin-left: 56px; margin-top: -25px;">{{ country.caption }}</div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,30 @@
+<ion-modal-view class="groupsPane">
+
+    <ion-header-bar>
+        <h1 class="title">{{ 'w_groups.setup_title' | translate }}</h1>
+        <button class="button button-clear button-positive button-icon ion-close"
+                ng-click="group.edit_hide_modal()"></button>
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+        <div class="text-center">
+            <div class="h4"><i class="icon ion-clock"></i> {{ group.timestamp | datetimeFormat }}</div>
+            <div date-picker="group.timestamp" view="date" id="setupDate"
+                 min-date="minDate" max-date="maxDate"></div>
+        </div>
+
+    </ion-content>
+
+    <div>
+        <p class="float-button-caption animated zoomIn" hide-in-time>
+            {{ 'w_groups.change_date' | translate }}
+        </p>
+        <button class="float-button button  animated zoomIn important"
+                ng-click="group.edit_save_change_date(group.timestamp)"
+                ng-disabled="pendingRequests()">
+            <i class="icon ion-android-done"> </i>
+        </button>
+    </div>
+
+</ion-modal-view>

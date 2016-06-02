@@ -1,0 +1,45 @@
+<div class="modal ContactsModalShare">
+
+  <ion-header-bar align-title="center" class="bar-callpal">
+
+    <div class="buttons" ng-hide="addMembers.search">
+      <button class="button button-clear" ng-click="addMembers.close()">{{ 'w_general_actions.back' | translate }}</button>
+    </div>
+
+    <h1 class="title" ng-hide="addMembers.search">Select Contact</h1>
+
+    <div class="buttons" ng-hide="addMembers.search">
+      <button class="button button-clear button-icon ion-ios-search" ng-click="addMembers.enableSearch()"></button>
+    </div>
+
+
+    <div class="bar-header item-input-inset search-bar" ng-show="addMembers.search">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input ng-model="addMembers.query" type="search" placeholder="Search">
+      </label>
+      <button class="button button-clear button-icon cancel" ng-click="addMembers.disableSearch()"><i
+        class="icon ion-android-close"></i></button>
+    </div>
+
+  </ion-header-bar>
+
+  <ion-content class="padding">
+
+
+    <ion-list class="list">
+
+      <ion-item class="item item-button-right" ng-click="addMembers.add(contact)"
+                collection-repeat="contact in addMembers.list | filter:addMembers.query | orderBy: ['hasSpeedDial','displayName'] | unique: 'displayName' track by $index">
+
+        <div class="avatar" style="float: left"></div>
+        <span class="name">{{contact.displayName}}</span>
+        <span class="number">{{contact.phoneNumbers | joinByProperty:', ':'number' }}</span>
+
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+
+</div>

@@ -1,0 +1,157 @@
+<ion-view title="Make a Call" class="homePane">
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <button class="button button-clear button-icon" ng-click="navigate_to('app.notifications')"
+                prevent-on-offline="click">
+            <i class="icon ion-android-notifications">
+                <span ng-if="notifications.list.length > 0"
+                      class="badge badge-assertive">{{ notifications.list.length}}</span>
+            </i>
+        </button>
+
+        <h1 class="title">
+            <img class="logo" src="web-assets/img/logo-new.png">
+        </h1>
+
+        <div class="buttons">
+
+            <button class="button button-clear button-icon" ui-sref="nest-home" prevent-on-offline="click">
+                <img ng-src="web-assets/img/nest/nest.svg" ui-sref="nest-home"
+                     style="height: 25px; margin-right: 3px; margin-top: 3px; border-radius: 50%;">
+            </button>
+        </div>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+            <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+
+      <check-connection></check-connection>
+    </ion-header-bar>
+
+    <ion-content id="country-modal" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }" scroll="false">
+
+        <div class="widget widget-favorites" style="margin-bottom: 0; height:15vh; min-height:144px !important;">
+            <div class="widget-header"><i class="" translate="w_main.favorites"></i></div>
+            <div class="widget-body">
+                <!--<ion-spinner ng-if="reloading.favorites"></ion-spinner>-->
+                <div ng-if="favorites.length" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" ng-repeat="fav in favorites"
+                             style="border-right: 1px solid rgba(255,255,255,0.2);">
+                            <div class="favorite" on-tap="callContact(fav)" prevent-on-offline="click">
+                                <p>{{fav.displayName}}</p>
+                                <img class="small-avatar" ng-if="!fav.avatar" ng-src="./img/egg-outline.png"
+                                     non-loaded-image>
+                                <img class="small-avatar" ng-if="fav.avatar" ng-src="{{ fav.avatar}}"
+                                     style="background-image: none;  border-radius: 50%;" non-loaded-image/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center" ng-if="!reloading.favorites &&!favorites.length"
+                   translate="w_main.favorites_empty"></p>
+            </div>
+        </div>
+
+        <div class="widget widget-call-group" style="height:15vh; min-height:105px !important;">
+            <div class="widget-header"><i class="" translate="w_main.group_calls"></i></div>
+            <div class="widget-body">
+                <div ng-if="groups.length" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div ng-repeat="group in groups track by group.key" class="swiper-slide"
+                             style="border-right: 1px solid rgba(255,255,255,0.2);">
+                            <div class="group" ng-click="main_groups.show(group)"
+                                 on-hold="main_groups.menu(group, $index)"
+                                 prevent-on-offline="click">
+
+                                <p style="margin: 0;" class="group-title">{{ group.name}}</p>
+
+                                <p style="margin: 0;"> {{ group.timestamp | date:'mediumDate' }}</p>
+
+                                <p style="margin: 0;"> {{ group.timestamp | date:'shortTime' }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="!groups.length">
+                    <!-- <p style="text-align: center" ng-if="!groups.length" translate="w_main.group_calls_empty"></p> -->
+                    <button class="btn_new_group" ng-click="navigate_to('app.groups-create')"
+                            prevent-on-offline="click">
+                        {{ 'w_groups.new' | translate }}
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="widget widget-call-history">
+            <div class="widget-header"><i class="" translate="w_main.group_call_history"></i> </div>
+            <div class="widget-body">
+                <ion-spinner class="padding-top" ng-if="reloading.callHistory"></ion-spinner>
+                <div ng-if="calls.length && calls.length > 0" class="list">
+                    <ion-scroll class="call-history-scroll" locking="false" zooming="false">
+                        <ion-list>
+                            <ion-item class="item-container" ng-repeat="record in calls"
+                                      on-hold="calls_history.menu(record, $index)">
+                                <a class="item item-avatar" href="#"
+                                   prevent-on-offline="click"
+                                   on-tap="calls_history.call(record)">
+
+                                   <div ng-if="!record.members[0].extension && !record.avatar" class="no-callpal-egg">
+                                        {{ contact.displayName | getInitials }}
+                                        <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                                    </div>
+
+                                    <div ng-if="record.members[0].extension && !record.avatar" class="no-callpal-egg">
+                                        <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                                        <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image
+                                             style="height: 20px">
+                                    </div>
+
+                                    <img class="small-avatar" ng-if="record.avatar" ng-src="{{ record.avatar}}"
+                                         non-loaded-image/>
+
+                                    <div class="col padding-top text-left" ng-if="record.members[0].displayName">
+                                        <span>{{record.members| joinByProperty:', ':'displayName'}}</span>
+                                        <br>
+                                        <small> {{record.date | date: 'MMM d h:mm a' }}</small>
+
+                                        <div class="call-time right">
+                                            <i class="icon ion-android-call"
+                                               ng-class="{ 'col-offset-20': phone_platform == 'ios', 'col-offset-33' : phone_platform != 'ios' }"></i>&nbsp;
+                                            {{record.duration| timeToSecondAndMinutes:true}}
+                                            <i class="col-bottom icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col padding-top text-left" ng-if="!record.members[0].displayName">
+                                        <span>{{record.members | joinByProperty:', ':'landline_number'}}</span>
+                                        <br>
+                                        <small> {{record.date| date: 'MMM d h:mm a' }}</small>
+                                        <i class="icon ion-android-call"
+                                           ng-class="{ 'col-offset-20': phone_platform == 'ios', 'col-offset-33' : phone_platform != 'ios' }"></i>&nbsp;
+                                        {{record.duration| timeToSecondAndMinutes:true}}
+                                        <i class="col-bottom icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"></i>
+                                    </div>
+
+                                </a>
+                            </ion-item>
+                        </ion-list>
+
+                    </ion-scroll>
+
+                </div>
+                <p style="text-align: center" class="padding-top" ng-if="!reloading.callHistory && (!calls.length || calls.length === 0)"
+                   translate="w_main.group_call_history_empty"></p>
+            </div>
+        </div>
+    </ion-content>
+
+    <button class="float-button button important animated zoomIn"
+            ng-click="countries.show()" prevent-on-offline="click"
+            ng-class="{ opacity:scrolling }"
+            style="display: block; width: 58px !important; height: 79px !important; background-color: #FF831A; -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px !important; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40% !important;">
+        <i class="icon icon ion-android-call"> </i>
+    </button>
+
+</ion-view>

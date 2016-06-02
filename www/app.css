@@ -1,0 +1,317 @@
+/*Bars*/
+
+.bar-header {
+  background-color: transparent !important;
+  background-image: none;
+}
+
+/*Content*/
+
+p, h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+  color: white !important;
+}
+
+/*Buttons*/
+
+/* Button Default*/
+
+.button-callpal {
+  margin: 5px auto;
+  color: #fff;
+  background: transparent url('./img/glass.png') no-repeat;
+  background-size: cover;
+  border: 0;
+  box-shadow: 0 0 4px #797979 !important;
+  font-size: 12px;
+  letter-spacing: 3px;
+  line-height: 3;
+  padding: 5px;
+  vertical-align: middle !important;
+  min-height: 15px !important;
+  width: 75%;
+}
+
+/* Button Important*/
+
+.button-callpal.important {
+  background-color: #FF831A;
+}
+
+/* Button Danger*/
+
+.button-callpal.danger {
+  background-color: #EC0007;
+}
+
+/* Button Small*/
+
+.button-callpal.small {
+  width: auto;
+  padding: 0 10px;
+  letter-spacing: 0;
+  line-height: 2;
+  vertical-align: top !important;
+}
+
+.button-callpal.footer {
+  margin-top: -10px;
+  width: 100%;
+}
+
+.float-button-add {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  position: fixed !important;
+  bottom: 100px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  height: 64px !important;
+  min-height: 64px !important;
+  width: 64px !important;
+  min-width: 64px !important;
+  z-index: 999999;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  color: #f1f1f1 !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+}
+
+.float-button {
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  position: fixed !important;
+  bottom: 20px; /* Adjust to where you want it */
+  right: 20px; /* Adjust to where you want it */
+  height: 64px !important;
+  min-height: 64px !important;
+  width: 64px !important;
+  min-width: 64px !important;
+  z-index: 999999;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  color: #f1f1f1 !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+}
+
+.float-button > i::before {
+  display: inline-block;
+  padding: 0 0 1px 4px;
+  vertical-align: inherit;
+  line-height: 41px;
+  pointer-events: none;
+  font-size: 30px;
+}
+
+.float-button-caption {
+  bottom: 25px;
+  right: 95px;
+  position: absolute;
+  font-size: 14px;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.36);
+  border-radius: 5px;
+}
+
+.float-button-small {
+  position: relative !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  width: 44px !important;
+  min-height: 44px !important;
+  bottom: 0;
+  right: auto !important;
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+
+/*Avatar*/
+
+.small-avatar {
+    /*max-height: 55px!important;
+    height: 55px!important;
+    max-width: 50px!important;
+    width: 50px!important;
+    border-radius: 50px;
+    margin: -5px!important;*/
+
+    max-height: 40px!important;
+    height: 40px!important;
+    max-width: 40px!important;
+    width: 40px!important;
+    border-radius: 50px;
+    /*margin: -5px!important;*/
+    margin: -9px!important;
+
+  /* Egg */
+  /*background-image: url('./img/egg-outline.png');
+  background-size: 66%;
+  background-repeat: no-repeat;
+  background-position: 6px 0px;*/
+}
+
+/*List*/
+
+.list .item{
+    background-color: transparent;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+a.item, label.item{
+    border:none!important;
+}
+
+ion-item span{
+    /*margin: 4% 0 0 0;*/
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.padding{
+    padding: 2% 0!important;
+}
+
+/*.list .item {
+  min-height: 52px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #fff;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.list .item label {
+  border-bottom: none !important;
+}
+
+.list .item {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+}
+
+.list .item .text-left {
+  margin-left: 50px;
+}
+
+.list .item .text-right {
+  margin-left: 50px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+
+/*Modal*/
+
+.modal .title,
+.modal .button,
+.modal .white {
+  color: white !important;
+}
+
+/*PopUP*/
+
+.popup-title {
+  font-size: 20px;
+}
+
+/*General*/
+
+.danger {
+  background-color: #EC0007;
+}
+
+.important {
+  background-color: #FF831A;
+}
+
+.success {
+  background-color: #77D877;
+}
+
+/*Tabs*/
+
+.tabs-callpal > .tab-item {
+  border: none !important;
+}
+
+/*DatePicker*/
+
+.date-picker {
+  background-color: transparent;
+  color: white;
+  font-weight: bolder;
+}
+
+.date-picker table {
+  width: 100% !important;
+}
+
+.date-picker [ng-click="next()"],
+.date-picker [ng-click="prev()"],
+.date-picker [ng-click="next(10)"],
+.date-picker [ng-click="prev(10)"],
+.date-picker [ng-click="next(24)"],
+.date-picker [ng-click="prev(24)"]
+{
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/*Search*/
+
+.search-bar i.ion-ios-search  {
+  font-size: 20px;
+}
+
+/*Offline Bar*/
+.bar-offline {
+    height: 25px;
+    background-color: rgba(255, 49, 26, 0.66);
+}
+
+.bar-offline h3 {
+    font-size: 13px!important;
+    color: #fff !important;
+    font-weight: bold;
+    margin: -10px 0 0 0!important;
+}
+
+/*Poor connection Bar*/
+.bar-poor-connection {
+  height: 25px;
+  background-color: #ffc900;
+}
+.bar-poor-connection h3 {
+  font-size: 13px!important;
+  color: #fff !important;
+  font-weight: bold;
+  margin: -10px 0 0 0!important;
+}
+
+/*Fix for the ion-radios visibility on click*/
+.item-radio input:checked + .radio-content .radio-icon {
+    /* show the checkmark icon when its checked */
+    visibility: visible!important;
+}
+
+.black-font{
+    color: black!important;
+}
+
+.spinner-right-margin{
+    margin: 0 0 0 46%;
+}

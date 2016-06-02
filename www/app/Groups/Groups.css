@@ -1,0 +1,309 @@
+/* Phone selection */
+.item-content {
+    background-color: transparent !important;
+}
+
+.item-content span {
+    color: white !important;
+}
+
+
+/*div.radio-content i.radio-icon {
+    border-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 110px;
+
+}*/
+
+label.item.item-radio {
+    background: transparent;
+}
+
+.callpal-tab-view.view-stretch {
+  height: 100% !important;
+}
+.callpal-tab-view.view-stretch .groupsPane ion-content {
+  height: calc(100% - 103px);
+}
+
+
+/*List*/
+
+
+
+
+
+.numberCircle {
+    border-radius: 50%;
+
+    width: 56px;
+    height: 56px;
+    padding: 10px;
+
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    text-align: center;
+
+    font: 32px Arial, sans-serif;
+}
+
+
+#group_name {
+    width: 97%;
+    margin-left: 4px;
+    margin-right: 4px;
+    border-radius: 2px;
+}
+
+.groupsPane .list .item .button {
+  box-shadow: .7px 1px 1px rgba(10,23,36,0.3) !important;
+  position: absolute;
+  top: 6px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  min-width: 30px;
+  min-height: 20px;
+  line-height: 35px;
+  font-size: 12px;
+  border-radius: 25px;
+  border: none;
+  padding: 3px;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 99;
+  font-family: 'Brandon_bld';
+}
+
+.groupsPane .list .item .button.group-add {
+  padding-top: 4px;
+  font-size: 19px;
+  background-color: #2698E9;
+}
+
+.groupsPane .list .item .button.group-add-disabled {
+  background-color: #4f8568;
+}
+
+.groupsPane .list .item .button.group-add-checked {
+  background-color: #1EA434;
+  padding-top: 4px;
+  font-size: 15px;
+}
+
+.groupsPane .list .item .button.remove-from-group {
+  background-color: #DE0715;
+  padding-top: 4px;
+  font-size: 17px;
+}
+
+.groupsPane #reminder.reminder-item {
+  height: 50px;
+  margin-bottom: 2px;
+  /* background-color: azure; */
+  background: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+
+.platform-ios .groupsPane #reminder.reminder-item.item.item-toggle.toggle-large div {
+  margin: 0;
+}
+
+.platform-ios .groupsPane #reminder .toggle .track .handle {
+  top: 7px;
+  left: 5px;
+}
+
+.platform-ios .groupsPane #reminder.reminder-item.item.item-toggle .toggle .track {
+  height: 20px;
+  background-color: #D2D2D2;
+  border: none;
+  margin-top: 5px;
+}
+
+.platform-ios .groupsPane #reminder.reminder-item.item.item-toggle .toggle input:checked + .track {
+  background-color: #4cd964;
+}
+
+.platform-ios .groupsPane #reminder.reminder-item.item.item-toggle .toggle input:checked + .track .handle {
+  -webkit-transform: translate3d(24px, 0, 0);
+  transform: translate3d(24px, 0, 0);
+}
+
+.groupsPane .reminder-item>div {
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+
+.groupsPane .reminder-item .toggle {
+    top: 10px;
+}
+
+.groupsPane .reminder-item .handle {
+    top: 10px;
+}
+
+.groupsPane .reminder-item input:checked + .track .handle {
+  background-color: #fff;
+}
+
+
+
+/*.groupsPane .list .item {
+  min-height: 52px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.groupsPane .list .item label {
+  border-bottom: none !important;
+}
+
+.groupsPane .list .item span.number {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.groupsPane .list .item span {
+  display: block;
+  margin-left: 73px;
+}*/
+
+/*Controls*/
+
+#setupDate {
+  background-color: transparent;
+  color: white;
+  font-weight: bolder;
+}
+
+#setupDate table {
+  width: 100% !important;
+}
+
+#setupDate [ng-click="next()"],
+#setupDate [ng-click="prev()"],
+#setupDate [ng-click="next(10)"],
+#setupDate [ng-click="prev(10)"],
+#setupDate [ng-click="next(24)"],
+#setupDate [ng-click="prev(24)"]
+{
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.groupsPane ion-item{
+/*    margin: 0 0 0 2%;
+    width: 96%!important;*/
+}
+
+.groupsPane ion-item a{
+    /*margin: -2% 0 0 0;*/
+  /*margin-top: 4px;*/
+}
+
+.groupsPane ion-item a span {
+  margin-top: 14px !important;
+}
+
+.groupsPane.modal button {
+  color: #fff !important;
+}
+
+
+/* Groups Show Styles */
+.groupsPane .group-header {
+  font-size: 22px;
+  position: relative;
+  top: 15px;
+}
+.groupsPane .group-header div.h4 {
+  font-size: 14px !important;
+  margin-top: 4px !important;
+}
+.groupsPane .showGroup ion-item {
+  padding: 10px;
+}
+.groupsPane .showGroup ion-item.reminder {
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  /*margin-bottom: 30px;*/
+  background-color: rgba(0,0,0,0.1);
+  /*display: none;*/
+}
+
+
+div#reminder.item.item-toggle.toggle-large > div {
+    margin: 20px;
+}
+
+.groupsPane .showGroup ion-item.reminder span {
+  position: relative;
+  top: 7px;
+}
+.groupsPane .showGroup ion-item.reminder label {
+  float: right;
+  position: relative;
+  top: 2px;
+}
+.groupsPane .showGroup ion-item.reminder label div.track {
+  border-color: rgba(0,0,0,0) !important;
+  background-color: rgba(0,0,0,0.5) !important;
+}
+.groupsPane .showGroup ion-item span.add {
+  padding-left: 10px;
+  position: absolute;
+  top: -2px;
+  right: 15px;
+  font-size: 24px;
+}
+.groupsPane .showGroup ion-item.member {
+  background-color: rgba(0,0,0,0.1);
+  height: 55px !important;
+  padding: 0;
+}
+.groupsPane ion-header-bar button.ion-edit {
+  font-size: 24px !important;
+  margin-right: 7px;
+}
+
+.groupsPane ion-header-bar button.ion-edit::before {
+  font-size: 24px !important;
+} 
+
+.groupsPane .showGroup .item-input {
+  padding: 0;
+  margin-bottom: 5px;
+}
+.groupsPane .showGroup .item-input input {
+  margin-right: 15px;
+}
+
+.groupsPane .list .item div.no-callpal-egg {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+    border: 1px solid white;
+    max-height: 55px!important;
+    height: 40px!important;
+    max-width: 45px!important;
+    width: 34px!important;
+    -webkit-border-radius: 50%/60% 60% 40% 40%;
+    -moz-border-radius: 50%/60% 60% 40% 40%;
+    border-radius: 50%/60% 60% 40% 40%;
+    text-align: center;
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.groupsPane .item-checkbox {
+   padding-left: 53px;
+}

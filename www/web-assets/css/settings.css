@@ -1,0 +1,510 @@
+/* Settings Section */
+.settingsPane {
+  padding: 15px;
+  color: #fff !important;
+}
+
+.settingsPane a.button {
+  display: block;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 15px;
+  line-height: 3;
+  padding: 0 !important;
+  color: #fff;
+  text-transform: uppercase;
+  background-image: url('../../web-assets/img/ui/glass-header.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: 1px;
+  width: 100%;
+  min-height: 20px !important;
+  vertical-align: middle !important;
+  box-shadow: 0px 0px 4px #797979 !important;
+  border: 0;
+  margin-top: 15px;
+  min-height: 15px !important;
+  font-size: 10px !important;
+  line-height: 3;
+}
+
+.settingsPane .subheader {
+  width: 100%;
+}
+
+/* Main Menu / Menu Styles */
+.settingsPane .list {
+  /*margin: 0px 5%;*/
+}
+
+.settingsPane ion-list ion-item {
+  background-color: transparent;
+  border: none;
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  font-size: 14px;
+}
+
+.settingsPane ion-list ion-item:last-child {
+  border-bottom: none !important;
+}
+
+.settingsPane ion-list ion-item i {
+  position: absolute;
+  right: 0;
+  font-size: 22px;
+}
+
+.settingsPane ion-list ion-item.disabled {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* About Us */
+.settingsPane.aboutus .scroll {
+  height: 100%;
+}
+
+.settingsPane.aboutus p {
+  margin: 5%;
+  color: #fff;
+  line-height: 1.7;
+  font-size: 13px;
+}
+
+.settingsPane.aboutus ion-scroll {
+  height: calc(100% - 75px);
+}
+
+.settingsPane.aboutus a.button,
+.settingsPane.advertise a.button {
+  display: block;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 15px;
+  line-height: 3;
+  padding: 0 !important;
+  color: #fff;
+  text-transform: uppercase;
+  background-image: url('../../web-assets/img/ui/glass-header.png');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+  letter-spacing: 1px;
+  width: 70%;
+  min-height: 20px !important;
+  vertical-align: middle !important;
+  box-shadow: 0px 0px 4px #797979 !important;
+  border: 0;
+  margin-top: 15px;
+  min-height: 15px !important;
+  font-size: 10px !important;
+  line-height: 3;
+}
+
+/* Advertise With Us */
+.settingsPane.advertise {
+  padding: 0 !important;
+}
+
+.settingsPane.advertise p {
+  margin: 8%;
+  font-size: 13px;
+  color: #fff;
+  line-height: 1.7;
+}
+
+.settingsPane.advertise img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Change Password */
+.settingsPane.changepassword {
+  /*color: #fff;*/
+  padding-top: 27px;
+}
+
+.settingsPane.changepassword input[type='password'] {
+  background-color: #a7d071;
+  margin-bottom: 15px;
+  border-radius: 1px;
+  box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: 75%;
+  font-size: 10px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.settingsPane.changepassword a.button {
+  width: 75%;
+  margin-top: 10px;
+  margin-top: 35px;
+}
+
+/* Network Status */
+.settingsPane.networkstatus .stats .stat {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+}
+
+.settingsPane.networkstatus .stats div {
+  margin-bottom: 30px;
+}
+
+.settingsPane.networkstatus .keys ion-item {
+  padding: 0;
+  border: none;
+  margin-bottom: 7px;
+  font-size: 13px;
+}
+
+.settingsPane.networkstatus .keys .list {
+  margin-bottom: 10px;
+}
+
+.settingsPane.networkstatus .keys ion-item i.key {
+  width: 17px;
+  height: 17px;
+  position: relative;
+  display: inline-block;
+  top: 5px;
+  margin-right: 8px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.4);
+  margin-bottom: 2px;
+}
+
+.settingsPane.networkstatus .keys ion-item i.key.orange {
+  background-color: #F89000;
+}
+
+.settingsPane.networkstatus .keys ion-item i.key.blue {
+  background-color: #64F8D7;
+}
+
+.settingsPane.networkstatus .keys ion-item i.key.yellow {
+  background-color: #D9FA00;
+}
+
+/* Block Number */
+.settingsPane.blocknumber ion-list ion-item {
+  /*padding-left: 4px;*/
+  /*border-bottom: 1px solid rgba(255,255,255,0.5) !important;*/
+}
+
+.settingsPane.blocknumber .new input[type='text'] {
+  background-color: #a7d071;
+  border-radius: 1px;
+  box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: calc(100% - 40px);
+  font-size: 10px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  text-align: left;
+  float: left;
+}
+
+.settingsPane.blocknumber .scroll {
+  height: 100%;
+}
+
+.settingsPane.blocknumber ion-scroll {
+  height: calc(100% - 60px);
+  clear: both;
+}
+
+.settingsPane.blocknumber .new button.add {
+  border: none;
+  background-color: transparent;
+  font-size: 35px;
+  float: right;
+  width: 40px;
+  padding-right: 0;
+  top: -7px;
+  position: relative;
+  right: -2px;
+}
+
+.settingsPane.blocknumber .new {
+  overflow: hidden;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settingsPane.blocknumber ion-list ion-item i {
+  position: absolute;
+  font-size: 30px;
+  top: 5px;
+  right: 3px;
+}
+
+input::-webkit-input-placeholder {
+  text-align: left !important;
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Notification */
+.settingsPane.notifications {
+  /*padding: 0;*/
+}
+
+.settingsPane.notifications .list {
+  /*margin-top: 10px;*/
+}
+
+.settingsPane.notifications .list .item {
+  padding: 15px 15px;
+  background-color: transparent;
+  padding-right: 0;
+  padding-left: 5px;
+  /*border-bottom: 1px solid rgba(255,255,255,0.5) !important;*/
+}
+
+.settingsPane.notifications .list .item i {
+  left: 0;
+  right: auto;
+}
+
+.settingsPane.notifications .list .item span {
+  padding-left: 45px;
+}
+
+.settingsPane.notifications .list .item label {
+  border: none;
+  padding: 7px 0px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.settingsPane.notifications span.selection {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Audio */
+.settingsPane h1 {
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.settingsPane.audio .range.volume,
+.settingsPane.audio .range.mic {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.settingsPane.audio .range.mic {
+  border-bottom: 0;
+}
+
+/* Background */
+.settingsPane.background img {
+  width: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.settingsPane.background a.button {
+  width: 80%;
+}
+
+/*.settingsPane.background div.row div {
+    margin-left: auto;
+    margin-right: auto;
+}*/
+.settingsPane.background div.row {
+  /*margin-left: auto;*/
+  /*margin-right: auto;*/
+  /*width: 259px;*/
+}
+
+.settingsPane.background div.container {
+  max-width: 260px;
+  width: 83%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settingsPane.background .column {
+  display: table-cell;
+}
+
+.settingsPane.background .column img:nth-child(2),
+.settingsPane.background .column img:nth-child(3) {
+  margin-top: -25%;
+}
+
+/* Call History */
+.settingsPane.callhistory {
+  padding: 0;
+}
+
+.settingsPane.callhistory .list .item .icon,
+.settingsPane.callhistory .list .item .details {
+  display: inline-block;
+}
+
+.settingsPane.callhistory .list .item .icon {
+  position: relative;
+  top: 2px;
+  margin-right: 15px;
+}
+
+.settingsPane.callhistory i {
+  display: block;
+  position: relative;
+}
+
+.settingsPane.callhistory span {
+  display: block;
+}
+
+.settingsPane.callhistory span.time {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  font-size: 10px;
+  text-align: right;
+}
+
+/* Outgoing Call Classes */
+.settingsPane.callhistory .list .item.outgoing .icon i.ion-ios-telephone {
+  font-size: 40px;
+}
+
+.settingsPane.callhistory .list .item.outgoing .icon i.ion-arrow-right-a {
+  position: absolute;
+  left: 17px;
+  top: 1px;
+  font-size: 14px;
+}
+
+/* Incoming Call Classes */
+.settingsPane.callhistory .list .item.incoming .icon i.ion-ios-telephone {
+  font-size: 40px;
+}
+
+.settingsPane.callhistory .list .item.incoming .icon i.ion-arrow-left-a {
+  position: absolute;
+  left: 17px;
+  top: 1px;
+  font-size: 14px;
+}
+
+/* Missed Call Classes */
+.settingsPane.callhistory .list .item.missed .icon i.ion-ios-telephone-outline {
+  font-size: 40px;
+}
+
+.settingsPane.callhistory .list .item.missed .icon i.ion-close {
+  position: absolute;
+  left: 18px;
+  top: 1px;
+  font-size: 12px;
+}
+
+/* Update Profile Classes */
+.settingsPane.updateprofile {
+  padding: 0;
+}
+
+.settingsPane.updateprofile input[type='text'],
+.settingsPane.updateprofile input[type='number'],
+.settingsPane.updateprofile select {
+  background-color: #a7d071;
+  margin-bottom: 15px;
+  border-radius: 1px;
+  box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 10px !important;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.settingsPane.updateprofile select {
+  /*float: left;*/
+  font-size: 16px;
+  border-radius: 0;
+  border: none;
+  width: 110px;
+  height: 60px;
+  margin: 2px !important;
+
+}
+
+.settingsPane.updateprofile option {
+  text-align: center;
+
+}
+
+.settingsPane.updateprofile #year {
+  display: inline;
+}
+
+.settingsPane.updateprofile #birth {
+  text-align: center;
+  /*margin-top: 10px;*/
+  padding: 10px;
+  width: 100%;
+}
+
+.settingsPane.updateprofile select.gender {
+  width: 100%;
+}
+
+.settingsPane.updateprofile #sex {
+  text-align: center;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.settingsPane.updateprofile #name {
+  padding: 10px;
+  text-align: center;
+}
+
+.settingsPane.updateprofile #birth select,
+.settingsPane.updateprofile #birth input {
+  display: table-cell;
+
+}
+
+.settingsPane.updateprofile #sex,
+.settingsPane.updateprofile #birth,
+.settingsPane.updateprofile #name {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin-top: 15px;*/
+  /*margin-bottom: 15px;*/
+}
+
+.settingsPane.updateprofile h1 {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 0;
+  font-weight: normal;
+}

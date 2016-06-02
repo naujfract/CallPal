@@ -1,0 +1,65 @@
+<ion-modal-view class="groupsPane">
+
+    <ion-header-bar align-title="center">
+
+        <div class="buttons">
+            <button class="button button-clear button-positive button-icon"
+                    ng-click="group.create_hide()">{{ 'w_general_actions.back' | translate }}
+            </button>
+        </div>
+
+        <h1 class="title">{{ 'w_groups.setup_title' | translate }}</h1>
+
+    </ion-header-bar>
+
+    <ion-content class="padding">
+
+
+        <div class="text-center">
+            <div class="h4">{{ 'w_groups.name' | translate }}</div>
+            <label class="item item-input" id="group_name">
+                <input type="text" ng-model="group.name" placeholder="{{ 'w_groups.name_example' | translate }}">
+            </label>
+        </div>
+
+        <div class="text-center">
+            <div class="h4"><i class="icon ion-clock"></i> {{ group.timestamp | datetimeFormat }}</div>
+
+            <ion-toggle class="reminder-item" id="reminder" ng-checked="group.reminder" ng-model="group.reminder"
+                        style="background: transparent; border: none; color: white">{{ 'w_groups.enable_reminder' |
+                translate }}
+            </ion-toggle>
+
+            <div date-picker="group.timestamp" view="date" id="setupDate"
+                 min-date="minDate" max-date="maxDate"></div>
+        </div>
+
+        <div class="text-center">
+            <div class="h4">{{ 'w_groups.members' | translate }}</div>
+        </div>
+
+        <ion-list class="list">
+            <ion-item class="item-container" item-height="55px"
+                      ng-repeat="contact in group.selected_members | filter:search.query | orderBy: ['hasSpeedDial','displayName'] | unique: 'displayName' track by $index"
+                      ng-if="contact.extension || contact.hasSpeedDial">
+                <a class="item item-avatar" href="#">
+                    <img class="small-avatar" ng-if="!contact.avatar" ng-src="./img/egg-outline.png">
+                    <img class="small-avatar" ng-if="contact.avatar" ng-src="{{ contact.avatar }}"/>
+                    <span class="col col-80 text-left"
+                          style="margin-top: 15px !important;"> {{ contact.displayName }} </span>
+                </a>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+
+
+    <p class="float-button-caption animated zoomIn" hide-in-time>
+        {{ 'w_general_actions.save' | translate }}
+    </p>
+    <button class="float-button button  animated zoomIn important" ng-click="group.create_save_schedule()" ng-disabled="pendingRequests()">
+        <i class="icon ion-android-done"> </i>
+    </button>
+
+
+</ion-modal-view>

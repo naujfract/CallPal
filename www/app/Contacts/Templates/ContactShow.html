@@ -1,0 +1,92 @@
+<div ng-class="details.landline_suggestion ? 'modal landline_suggestion' : ''">
+    <!-- Avatar -->
+    <div class="avatar-image-front"></div>
+
+
+    <div on-touch="details.imageTouch()" on-release="details.endImageTouch()" class="avatar-image"
+         ng-class="{dragged: dragged}"
+         style="background-image: url({{ details.contact.avatar != null && details.contact.avatar || './web-assets/img/logo-parrot.png'}})"></div>
+
+    <!--img ng-src="{{ details.contact.avatar != null && details.contact.avatar || 'img/egg-outline.png'}}"
+         non-loaded-image class="avatar-image"/-->
+
+    <ion-header-bar>
+        <div class="top-fade"></div>
+
+        <label class="back-title" ng-click="details.back()">{{ 'w_general_actions.back' | translate }}</label>
+
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+            <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+
+        <a class="more-svg svg" ng-click="options.show(details.contact)" prevent-on-offline="click"></a>
+
+        <!--<check-connection></check-connection>-->
+
+        <label ng-class="{nameDragged: dragged}" class="contact-name">{{ details.contact.displayName || details.contact.phoneNumbers[0].number }}</label>
+
+    </ion-header-bar>
+
+
+  <ion-content ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }"
+                 class="details-container background-gradient-{{ getSelectedBackground() }}">
+
+        <ion-refresher pulling-text="{{ 'w_contacts.pull_to_refresh' | translate }}"
+                       refreshing-text="{{ 'w_contacts.refresher_text' | translate }}"
+                       on-refresh="details.refresh_contact()"></ion-refresher>
+
+        <!-- Call app-to-app -->
+        <!-- <div class="callpall-button-container" prevent-on-offline="click"
+             ng-if="details.contact.username != null"
+             ng-hide="details.landline_suggestion" ng-click="details.callpal()">
+            <a class="call-svg svg callpal-button"></a>
+            <label class="call-pal-label">Call Pal</label>
+        </div> -->
+
+        <!-- Call LandLine -->
+        <div class="list">
+            <div class="item phone-item callpal" ng-if="details.contact.username != null">
+                    <span ng-click="details.call_landline($index)" prevent-on-offline="click">
+                        CallPal
+                    </span>
+
+                <a class="ion-ios-telephone-outline svg right phone-button" ng-click="details.callpal('voice')"
+                   prevent-on-offline="click">
+                </a>
+
+                <a class="ion-ios-videocam-outline svg right video-button" ng-click="details.callpal('video')"
+                   prevent-on-offline="click">
+                </a>
+
+            </div>
+
+            <div class="item phone-item" ng-repeat="number in details.contact.phoneNumbers track by $index">
+
+                <a class="edit-svg svg right"
+                   ng-click="correctionTool.show(details.contact, $index);" prevent-on-offline="click">
+                </a>
+
+                <a class="ion-ios-telephone svg right phone-button" ng-show="number.fixed"
+                   ng-click="details.call_landline($index)" prevent-on-offline="click">
+                </a>
+
+                    <span ng-click="details.call_landline($index)" prevent-on-offline="click">
+                        {{ showCountryName(number.number)}}{{ number.number}}
+                    </span>
+
+                <!-- <a class="ion-ios-videocam svg right video-button" ng-click="details.call_landline($index)" prevent-on-offline="click">
+                </a> -->
+
+            </div>
+
+        </div>
+
+    </ion-content>
+
+</div>
+
+<style>
+    .landline_suggestion {
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+</style>

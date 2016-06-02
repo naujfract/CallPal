@@ -1,0 +1,50 @@
+<div class="modal MainModalOptions">
+
+    <ion-content class="padding-top">
+
+        <div class="row">
+            <div class="col text-center">
+                <p> Tell us something about the quality of this call </p>
+                <rating ng-model="rate" max="max" ng-change="rate_call.rate(rate)"></rating>
+                <button class="button button-clear button-positive dismiss" ng-click="rate_call.hide()">
+                    No, Thanks.
+                </button>
+            </div>
+        </div>
+    </ion-content>
+
+</div>
+
+
+<style>
+
+    .MainModalOptions {
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .MainModalOptions ul li {
+        float: left;
+        font-size: 50px;
+        color: white;
+    }
+
+    .MainModalOptions ul {
+        width: 220px;
+        display: block;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .MainModalOptions .dismiss {
+        float: none;
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    .MainModalOptions .row {
+        position: fixed; /* or absolute */
+        margin-top: 60%;
+    }
+
+</style>

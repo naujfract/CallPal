@@ -1,0 +1,21 @@
+<div class="SignUpPopUpCountries">
+
+  <label class="item-input-wrapper" style="background-color: #B2E66D">
+    <i class="icon ion-ios-search placeholder-icon"></i>
+    <input type="search" class="search" placeholder="Country" ng-model='search.caption'>
+  </label>
+
+  <div class="list">
+    <div class="item country" ng-repeat="country in countries | filter:search | usFirst"
+         ng-click="setCountryCodeFromItemInCountriesList(country)">
+
+        <!--img ng-src="http://www.geonames.org/flags/m/{{getCountryLowerCase(country.code)}}.png"
+           style="height: 51px; width: 36px; display: block; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;"-->
+
+      <img class="flag-mini" ng-src="{{ flag.url }}{{ country.code | lowercase }}.{{ flag.extension }}">
+
+      <div class="caption">{{ country.caption }}</div>
+    </div>
+  </div>
+
+</div>

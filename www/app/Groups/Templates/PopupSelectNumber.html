@@ -1,0 +1,22 @@
+<div ng-show="group.currentContact.extension.length > 4" ng-click="group.selectedPhone = group.currentContact.extension">
+    <ion-radio>
+        Callpal
+    </ion-radio>
+</div>
+
+<ion-list ng-repeat="phone in group.currentContact.phoneNumbers">
+
+    <div>
+
+        <div class="icon ion-edit" ng-show="!phone.fixed"
+             ng-click="group.openCorrectionTool(group.currentContact, $index)"
+             style="float: left; margin-top: 18px; margin-right: 16px; font-size: 30px; color: white;"></div>
+        <div>
+
+            <ion-radio ng-disabled="!phone.fixed" ng-mousedown="group.phoneSelectedIndex = $index" ng-model="group.selectedPhone" ng-value="phone.number">
+                {{phone.number}}
+            </ion-radio>
+        </div>
+    </div>
+
+</ion-list>

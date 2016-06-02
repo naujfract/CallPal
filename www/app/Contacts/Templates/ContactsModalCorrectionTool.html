@@ -1,0 +1,85 @@
+<div class="modal ContactsModalCorrectionTool">
+
+    <ion-content class="padding-top">
+
+        <div class="text-center">
+            <div class="h4">{{ 'w_contacts.correction_tool.title' | translate }}</div>
+            <div class="h3">{{ correctionTool.phoneNumber }}</div>
+        </div>
+
+        <div class="text-center country">
+
+            <div class="h5">{{ 'w_contacts.correction_tool.select_country' | translate }}</div>
+
+            <div class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon icon-200"></i>
+                <input type="search" class="search" placeholder="Country" ng-model='correctionTool.search.caption'>
+                <button class="button button-icon icon ion-ios-close-outline icon-200 black-font" 
+                   ng-click="correctionTool.clearSelectedCountry()"></button>
+            </div>
+
+            <ion-scroll class="country-list">
+                <div class="list">
+                    <div class="item item-avatar"
+                         ng-repeat="country in correctionTool.countries | filter:correctionTool.search"
+                         ng-click="correctionTool.select_country(country)">
+                        <img class="flag-mini" ng-src="{{ flag.url }}{{ country.code | lowercase }}.{{ flag.extension }}">
+                        <span class="col col-50 text-left country">{{country.caption}} (+{{ country.countryCode }})</span>
+                    </div>
+                </div>
+            </ion-scroll>
+
+        </div>
+
+        <!--div class="text-center number">
+            <div class="h5" ng-if="!correctionTool.validNumber">Select a country for:</div>
+            <label class="item-input-wrapper">
+                <input type="tel" ng-model="correctionTool.phoneNumber"
+                       only-numbers maxlength="16"
+                       ng-change="correctionTool.validatePhoneNumber()">
+            </label>
+        </div-->
+    </ion-content>
+
+    <button style="bottom: 100px;" class="float-button button  animated zoomIn danger hide-on-keyboard-open"
+            ng-click="correctionTool.hide()">
+        <i class="icon ion-close"> </i>
+    </button>
+
+    <button ng-show="correctionTool.validNumber"
+            class="float-button button  animated zoomIn important hide-on-keyboard-open"
+            ng-click="correctionTool.save()" ng-disabled="pendingRequests()">
+        <i class="icon ion-checkmark"> </i>
+    </button>
+
+</div>
+
+<style>
+
+    .ContactsModalCorrectionTool {
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .ContactsModalCorrectionTool .number {
+        margin: 15px;
+    }
+
+    .ContactsModalCorrectionTool .item-input-wrapper {
+        margin: 15px;
+    }
+
+    .ContactsModalCorrectionTool input {
+        background: transparent;
+        width: 100%;
+    }
+
+    .country {
+        margin: 7% 0 0 0;
+    }
+
+    .ContactsModalCorrectionTool .caption {
+        margin-top: -30px;
+        margin-left: 50px;
+    }
+
+</style>

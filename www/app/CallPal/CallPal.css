@@ -1,0 +1,562 @@
+@keyframes shake {
+  0% {transform: translateX(0);}
+  12.5% {transform: translateX(-6px) rotateY(-5deg)}
+  37.5% {transform: translateX(5px) rotateY(4deg)}
+  62.5% {transform: translateX(-3px) rotateY(-2deg)}
+  87.5% {transform: translateX(2px) rotateY(1deg)}
+  100% {transform: translateX(0)}
+}
+
+@-webkit-keyframes shake {
+  0% {-webkit-transform: translateX(0);}
+  12.5% {-webkit-transform: translateX(-6px) rotateY(-5deg)}
+  37.5% {-webkit-transform: translateX(5px) rotateY(4deg)}
+  62.5% {-webkit-transform: translateX(-3px) rotateY(-2deg)}
+  87.5% {-webkit-transform: translateX(2px) rotateY(1deg)}
+  100% {-webkit-transform: translateX(0)}
+}
+
+.shake {
+  -webkit-animation: shake 400ms ease-in-out;
+  animation: shake 400ms ease-in-out;
+}
+
+div.sms-error {
+  text-align: left;
+  margin-left: 10%;
+  font-size: 15px;
+  font-weight: 500;
+  color: #D42828;
+}
+
+
+
+/* Allow the buttons for accept sharing elements to be press */
+.slider-pager {
+  z-index: 0;
+}
+
+/* Image with the face of the parrots to express */
+img.express_elem {
+    height: 106px;
+    margin-left: -96%;
+    margin-top: -53%;
+}
+
+/* Video css */
+
+.video-hide {
+  display: none;
+}
+
+.platform-ios .video-show {
+  border-radius: 40%;
+  width: 19.9vw !important;
+  height: 15vh;
+  top: 4vh;
+  left: 4vh;
+}
+
+.video-show {
+  -webkit-clip-path: circle(12.5vw at center);
+  width: 33vw !important;
+  height: 15.2vh;
+  display: inline;
+  z-index: 99999999;
+  background: transparent;
+  position: absolute;
+  top: 3vh;
+  left: 0.5vh;
+}
+
+/*----------------------*/
+
+.CallPal.incoming {
+  /*background: #fff !important;*/
+}
+
+
+.CallPal .validating .spinner svg{
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-top: 35%;
+}
+
+.CallPal .validating p{
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 3%;
+}
+
+.CallPal .has-footer{
+  top: 20vh !important;
+  height: 72vh !important;
+  padding: 0 !important;
+}
+.CallPal  .slider-slides{
+  min-width: 100% !important;
+}
+.CallPal .slider-slide .media-card{
+  width: 100%;
+}
+.CallPal .slider-slide .card{
+  height: 65.4vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin: 0 0px;
+  /*transition: .5s linear all;*/
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.platform-ios .CallPal .slider-slide .card{
+  margin: 0;
+}
+
+.platform-android .CallPal .slider-slide .card{
+  margin: 0 0vw;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.CallPal .slider-slide .card img{
+  width: 100%;
+  height: 64.5vh;
+}
+
+.CallPal .bar-header{
+  height: 20vh !important;
+  border-color: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  padding: 0;
+  overflow: hidden;
+}
+
+.CallPal .bar-header .row{
+  padding: 3.5vh 1vw 0pt 1vw;
+}
+.CallPal .bar-header .row .col{
+  padding: 0;
+}
+
+.CallPal .bar-header .thumbs-box{
+  margin-top: 5px;
+}
+
+.CallPal .has-footer .user_avatar,
+.CallPal .bar-header .avatar{
+  background-size: cover;
+  background-position: center center;
+  /*-webkit-border-radius: 50%/60% 60% 40% 40%;*/
+  /*-moz-border-radius: 50%/60% 60% 40% 40%;*/
+  /*border-radius: 50%/60% 60% 40% 40%;*/
+  border-radius: 100px;
+  -webkit-box-shadow: 0px 0px 5px -1px #000 !important;
+  -moz-box-shadow: 0px 0px 5px -1px #000 !important;
+  box-shadow: 0px 0px 5px -1px #000 !important;
+  box-shadow: 0px 0px 5px -1px #000 !important;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.1);
+  margin-top: 0;
+  width: 23vw;
+  height: 12vh;
+}
+
+.CallPal .has-footer .user_avatar{
+  /*width: 55vw;*/
+  /*height: 52vh;*/
+  width: 61vw;
+  height: 91vw;
+}
+
+.platform-ios .CallPal .bar-header .avatar{
+  width: 21vw;
+  height: 21vw;
+}
+
+.platform-android .CallPal .bar-header .avatar{
+  width: 23vw;
+  height: 14vh;
+}
+
+.CallPal .bar-header .profile{
+  display:none;
+}
+
+.CallPal .bar-header .h2{
+  font-family: 'Brandon_bld';
+  text-transform: capitalize;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  font-size: 23pt;
+  padding: 0px 0px 0px 0px;
+  line-height: 18pt;
+  padding-bottom: 1.3vh;
+}
+
+.CallPal .bar-header .outgoing .h2,
+.CallPal .bar-header .outgoing .h3{
+  text-align: left;
+}
+
+.CallPal .bar-header .incoming .h2,
+.CallPal .bar-header .incoming .h3{
+  text-align: center;
+  color: #1F883C !important;
+}
+
+.CallPal .bar-header .h3{
+  font-family: 'Brandon_reg';
+  font-size: 14pt;
+  width: 100%;
+  margin: 0;
+  padding: 1vh 0 1.5vh 0;
+}
+
+.CallPal .bar-header .h4{
+  font-family: 'Brandon_reg';
+  font-size: 12pt;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+}
+
+.CallPal .scroll-content .call-actions{
+  height: 7vh;
+  padding: 0 1vw 0pt 1vw;
+  margin-top: 0 !important;
+}
+
+.CallPal .scroll-content .box-cards{
+  height: 64.6vh;
+  overflow: hidden;
+  margin: .8vh 0 0 0;
+  margin: .4vh 1.5vw 0 1.5vw;
+}
+
+.CallPal .scroll-content .box-cards.outgoing{
+  border: 1px solid #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+
+.CallPal .scroll-content .call-actions button{
+  width: 100%;
+  border: none;
+  height: 7vh;
+  min-height: 7vh;
+  line-height: 1pt;
+}
+
+.CallPal .scroll-content .call-actions .col{
+  padding: 0 2px;
+}
+
+.CallPal .scroll-content .call-actions .col button.button-opacity{
+  background-color: rgba(0,0,0,0.15);
+  color: #fff;
+  font-size: 25px;
+}
+.CallPal .scroll-content .call-actions .col button.mute{
+  background-image: url('../../web-assets/img/call/Mute.svg');
+  background-size: 3vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.CallPal .scroll-content .call-actions .col button.dial{
+  background-image: url('../../web-assets/img/call/Dialpad.svg');
+  background-size: 3vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.CallPal .scroll-content .call-actions .col button.add-user{
+  background-image: url('../../web-assets/img/call/AddCaller.svg');
+  background-size: 5vh;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.CallPal .scroll-content .call-actions .col button.end-call{
+  background-color: #E93B3C;
+  background-image: url('../../web-assets/img/call/Phone.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 5vh;
+}
+
+.CallPal .scroll-content .b2b-box .spinner svg{
+  width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-top: 20vh;
+}
+
+.CallPal .scroll-content .actions-container{
+  height: 64.4vh;
+  width: 96.8vw;
+  left: .1vw;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 9;
+  margin: 0 1.5vw;
+  border-radius: 5px;
+  top: 7vh;
+  display: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-animation-duration: .1s;
+  animation-duration: .1s;
+}
+
+.CallPal .scroll-content .actions-container.active{
+  display: block;
+  position: absolute;
+  top: 7vh;
+}
+
+.CallPal .scroll-content .actions-container ul{
+  margin-top: 5vh;
+}
+
+.CallPal .scroll-content .actions-container ul li{
+  width: 30vw;
+  float: left;
+  margin: 3vw 1vw 3vw 1vw;
+}
+
+.CallPal .scroll-content .actions-container ul li img{
+  width: 100%;
+}
+
+.CallPal .scroll-content .actions-container ul li i{
+  color: #5D5D5D;
+  font-size: 70pt;
+}
+
+.CallPal .scroll-content .actions-container ul li i:before{
+  display: block;
+  text-align: center;
+}
+
+.CallPal .scroll-content .actions-container ul li p{
+  color: #5D5D5D;
+  font-family: 'Brandon_reg';
+  font-size: 15pt;
+  text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+.CallPal .scroll-content .actions-container ul.share{
+  margin-top: 49vw;
+}
+
+.CallPal .scroll-content .actions-container ul li.share{
+  background-color: #fff;
+  width: 20vw;
+  padding: 2.5vh;
+  height: 10vh;
+  border-radius: 10px;
+  margin: 0 6vw;
+  box-shadow: -3px 3px 0px 1px rgba(255,255,255,0.19) !important;
+}
+
+.CallPal .scroll-content .actions-container ul li.share img{
+  vertical-align: middle;
+}
+
+.CallPal .scroll-content .actions-container ul li.share p{
+  display: none;
+}
+
+.CallPal .scroll-content .actions-container div.nest{
+  width: 100%;
+  margin-top: 20vh;
+}
+
+.CallPal .scroll-content .actions-container div.nest i{
+  color: #fff;
+  font-size: 90pt;
+  display: block;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.CallPal .scroll-content .actions-container div.nest p{
+  font-size: 15pt;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.CallPal .bar-footer{
+  height: 8.2vh !important;
+  background-color: transparent;
+  background-image: none;
+  padding: 0;
+}
+
+.CallPal .bar-footer button{
+  width: 100%;
+  border: none;
+  height: 7.5vh;
+  background-color: rgba(0,0,0,0.15);
+  color: #fff;
+  font-size: 25pt;
+}
+
+.CallPal .bar-footer .card-actions .col button.express{
+  background-image: url('../../web-assets/img/call/Expression.svg');
+  background-size: 4vh;
+  background-position: center 1.5vh;
+  background-repeat: no-repeat;
+}
+
+.CallPal .bar-footer .card-actions .col button.share{
+  background-image: url('../../web-assets/img/call/Share.svg');
+  background-size: 4vh;
+  background-position: center 1vh;
+  background-repeat: no-repeat;
+}
+
+.CallPal .bar-footer .card-actions .col button.nest{
+  background-image: url('../../web-assets/img/call/Nest.svg');
+  background-size: 4vh;
+  background-position: center 1.5vh;
+  background-repeat: no-repeat;
+}
+
+.CallPal .bar-footer .card-actions .col button.active{
+  background-color: rgba(0,0,0,0.3);
+}
+
+.CallPal .bar-footer .card-actions{
+  padding: 0;
+  margin: 0 1.5vw 1vh 1.5vw;
+  border: 1px solid #fff;
+  border-bottom-left-radius: 10px;
+  overflow: hidden;
+  border-bottom-right-radius: 10px
+}
+
+.CallPal .bar-footer .card-actions .col{
+  padding: 0 0;
+}
+
+.CallPal .bar-footer .card-actions .share-button-box{
+  border: 1px solid #fff;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.CallPal .bar-footer .call-actions{
+  padding: 0;
+}
+
+.CallPal .bar-footer .call-actions .col{
+  padding: 0 1vw;
+}
+
+.CallPal .bar-footer .call-actions .col button.end-call{
+  background-color: #E93B3C;
+  background-image: url('../../web-assets/img/call/end_call.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
+.CallPal .bar-footer .call-actions .col button.accept-call{
+  background-color: #25A749;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
+
+.blur{
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  filter: blur(3px);
+  -moz-filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+}
+
+
+.CallPal .accept-file.show {
+  bottom: 0;
+}
+
+.CallPal .accept-file.hide {
+  bottom: initial;
+}
+
+.CallPal .accept-file {
+  /*padding: 0;*/
+  /*margin: 0;*/
+  position: absolute;
+  /*bottom: 0;*/
+  background-color: rgba(0,0,0,0.5);
+  display: block;
+  padding-right: 1.7vw;
+  padding-left: 1.7vw;
+  background: none;
+  margin: 0;
+  transition: 0.1s linear all;
+}
+
+.CallPal .accept-file div.buttons {
+  padding: 1.5vw;
+  background-color: rgba(0,0,0,0.8);
+  overflow: hidden;
+}
+
+.CallPal .accept-file.hide div.message {
+  box-shadow: none !important;
+}
+
+.CallPal .accept-file div.message {
+  padding: 1.5vh;
+  background-color: rgba(0,0,0,0.8);
+  overflow: hidden;
+  color: #fff;
+  box-shadow: 0px -10px 35px rgba(0,0,0,0.6) !important;
+  padding-top: 2vh;
+  font-weight: bold;
+}
+
+.CallPal .accept-file .buttons button {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+  height: 6vh;
+  width: 49%;
+  border-radius: 5px;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+}
+
+.CallPal .accept-file .buttons button.accept {
+  background-color: #6FC04C;
+}
+.CallPal .accept-file .buttons button.reject {
+  background-color: #A92224;
+}
+/*
+21
+190
+240*/

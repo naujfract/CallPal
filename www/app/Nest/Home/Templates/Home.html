@@ -1,0 +1,75 @@
+<ion-view title="My Nest" class="nest-page home {{main.langClass}}">
+  <ion-header-bar align-title="left" ng-if="main.loaded" class="bar-callpal animated slideInDown">
+
+    <h1 class="title" translate="w_nest.title"></h1>
+    <div class="buttons">
+
+      <button class="button button-clear button-icon close" ui-sref="app.country">
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content padding="false" scroll="false" class="HomeNestPane has-header">
+    <hscroller ng-if="channels.channels" class="users hide-on-keyboard-open nav-down" id="nestUsersBox">
+      <hcard ng-repeat="channel in channels.channels"
+             index="{{$index}}"
+             title="{{channel.channel_name}}"
+             badge="{{channel.amount_local}}"
+             type="channel"
+             image="{{channel.channel_logo}}"
+             class="channel"
+             ng-click="channels.show(channel)"></hcard>
+    </hscroller>
+    <div ng-if="!channels.channels && main.loaded">
+      <p class="advice">You don't have channels yet.</p>
+      <button class="call-it" ui-sref="app.contacts">Start calling and interact with the content.</button>
+    </div>
+    <div class="subtitle-bar" ng-if="main.loaded">
+      <h2 translate="w_nest.home.my_interest"></h2>
+      <a ui-sref="nest-myinterest" class="button icon-right ion-ios-plus-empty button-clear button-light" translate="w_nest.home.edit"></a>
+    </div>
+
+    <div ng-if="!channels.channels && main.loaded">
+      <p class="advice">You don't have content yet.</p>
+      <button class="call-it" ui-sref="app.contacts">Start calling and interact with the content.</button>
+    </div>
+
+    <hscroller ng-if="main.loaded && interests.interested_loaded" class="categories" id="interestFilter">
+      <hcard ng-repeat="category in categories.list"
+             index="{{$index}}"
+             title="{{category.translated}}"
+             type="category"
+             image="{{category.image}}"
+             class="categories"
+             ng-click="interests.categoryFilter(category.title)"
+             ng-class="{active: category.title == interests.selected_category}"></hcard>
+    </hscroller>
+
+    <div class="list list-inset" ng-if="main.loaded && interests.interested_loaded">
+      <label class="item item-input">
+        <input type="text" placeholder="{{main.search_placeholder}}..." ng-model="interests.search.keywords" ng-change="main.search()">
+        <i class="icon ion-search placeholder-icon"></i>
+      </label>
+    </div>
+
+
+    <ion-scroll ng-if="main.loaded" delegate-handle="interests" zooming="false" direction="y" style="width: 100%; height:65vh;" class="interest-grid" on-scroll="contacts.hide()">
+
+      <ion-spinner ng-if="interests.interests_array.length == 0 && interests.interested_loaded"></ion-spinner>
+
+      <ion-list ng-if="interests.interests_array.length > 0 && interests.interested_loaded" masonry class="mansory-box">
+            <div class="masonry-brick" ng-repeat="content in interests.interests_array | filter: interests.search"
+                ng-click="detail.show(content, 'main')">
+                <img ng-src="{{ content.media_image_mobile_thumb }}">
+                <!--<p>{{brick.title}}</p>-->
+            </div>
+      </ion-list>
+      <!--<ion-infinite-scroll
+        on-infinite="interests.load_more()"
+        distance="1%"
+        icon="ion-loading-c"
+        immediate-check="false">
+      </ion-infinite-scroll>-->
+    </ion-scroll>
+
+  </ion-content>
+</ion-view>

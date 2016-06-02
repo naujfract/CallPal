@@ -1,0 +1,42 @@
+<div class="modal SignUpCountryModal" style="background: linear-gradient( to left bottom, #35b162, #cdd437);">
+
+  <ion-header-bar align-title="center">
+
+    <button class="button button-clear" ng-click="activate_phone_social_networks.hide()"
+            ng-hide="if_pending_phone_pin_verification()">{{ 'w_general_actions.back' | translate }}
+    </button>
+
+    <button class="button button-clear" ng-click="goBack()"
+            ng-show="if_pending_phone_pin_verification()">{{ 'w_general_actions.back' | translate }}
+    </button>
+
+    <h1 class="title" translate="w_login.activate_callpal"></h1>
+
+  </ion-header-bar>
+
+  <ion-content class="signupPane" style="background: linear-gradient( to left bottom, #35b162, #cdd437);">
+
+    <div class="list list-inset" style="background: transparent;">
+      <!-- sms error message -->
+      <div class="sms-error" ng-if="sms_error">{{ sms_error }}</div>
+
+      <div class="item item-input-inset phone-box">
+
+        <button class="button button-small phone-prefix" ng-click="list_countries.show()">
+          {{ signupData.pretty_country_dial }}
+        </button>
+
+        <label class="item-input-wrapper phone-number">
+          <input type="tel" placeholder="Phone number" ng-model="signupData.phone">
+        </label>
+
+      </div>
+
+      <button class="button SignUpButton" ng-click="activate_phone_social_networks.register_or_update_phone()"
+              translate="w_login.activate_number">
+      </button>
+
+    </div>
+
+  </ion-content>
+</div>

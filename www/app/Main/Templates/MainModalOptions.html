@@ -1,0 +1,75 @@
+<div class="modal MainModalOptions">
+
+  <ion-content class="padding-top">
+
+    <div class="row">
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.tellafriend')">
+          <i class="icon ion-person-add"> </i>
+        </button>
+        <p>Tell a Friend</p>
+      </div>
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.contacts')">
+          <i class="icon ion-person-stalker"> </i>
+        </button>
+        <p>Contacts</p>
+      </div>
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.voicemail')">
+          <i class="icon ion-ios-recording"> </i>
+        </button>
+        <p>Voice Mail</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.settings.menu')">
+          <i class="icon ion-gear-b"> </i>
+        </button>
+        <p>Settings</p>
+      </div>
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.country')">
+          <i class="icon ion-home"> </i>
+        </button>
+        <p>Home</p>
+      </div>
+      <div class="col text-center">
+        <button class=" button float-button  animated zoomIn important" ng-click="options.go('app.groups-create')">
+          <i class="icon ion-ios-people"> </i>
+        </button>
+        <p>Groups</p>
+      </div>
+    </div>
+
+  </ion-content>
+
+  <div style="position: fixed !important;text-align: center;width: 100%;bottom: 20px;">
+    <button class="float-button button  animated zoomIn important" ng-click="options.hide()"
+            style="position: relative !important;right: 0;">
+      <i class="icon icon ion-close"> </i>
+    </button>
+  </div>
+
+
+</div>
+
+
+<style>
+  .MainModalOptions {
+    background: rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .MainModalOptions button {
+    position: relative !important;
+    right: 0;
+    bottom: 0;
+  }
+
+  .MainModalOptions p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+</style>

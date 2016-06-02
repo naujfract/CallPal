@@ -1,0 +1,94 @@
+<div class="modal MainModalGroupCall">
+
+  <ion-content class="padding">
+
+    <div class="padding">
+      <div class="h4 text-center">Members</div>
+      <div style="font-weight: bold;font-size: 14px;color: white">
+        {{groupCall.members | joinByProperty:', ':'displayName' }}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <a href="#">
+          <img src="web-assets/img/ui/button-green.png">
+        </a>
+      </div>
+      <div class="col">
+        <a href="#">
+          <img src="web-assets/img/ui/button-orange.png">
+        </a>
+      </div>
+      <div class="col">
+        <a href="#" ng-click="groupCall.end()">
+          <img src="web-assets/img/ui/button-red.png">
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center h3" style="margin: 0;">
+      {{ groupCall.duration | timeToSecondAndMinutes}}
+    </div>
+
+    <div class="padding">
+      <img src="web-assets/img/ads/ad.png" style="width: 100%;">
+    </div>
+
+  </ion-content>
+
+  <div style="position: fixed !important;text-align: center;width: 100%;bottom: 0;">
+
+    <!--Share Buttons-->
+
+    <div style="margin-bottom: 40px;" ng-show="share.active">
+
+      <button class="float-button button  animated zoomIn important"
+              style="position: relative !important;right: 0;bottom: -10px;">
+        <i class="icon icon ion-images"> </i>
+      </button>
+
+      <button class="float-button button  animated zoomIn important"
+              style="position: relative !important;right: 0;margin-left: 20px;margin-right: 20px;">
+        <i class="icon icon ion-android-phone-portrait"> </i>
+      </button>
+
+      <button class="float-button button  animated zoomIn important"
+              style="position: relative !important;right: 0;bottom: -10px;">
+        <i class="icon icon ion-videocamera"> </i>
+      </button>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col">
+        <!--Nest-->
+        <button class="float-button button  animated zoomIn important"
+                style="position: relative !important;right: 0;">
+          <i class="icon icon ion-flag"> </i>
+        </button>
+      </div>
+
+      <div class="col">
+        <!--Share Button-->
+        <button class="float-button button  animated zoomIn danger" ng-click="share.toggle()"
+                style="position: relative !important;right: 0;">
+          <i class="icon icon ion-android-share-alt"> </i>
+        </button>
+      </div>
+
+      <div class="col">
+        <!--Express-->
+        <button class="float-button button  animated zoomIn important"
+                style="position: relative !important;right: 0;">
+          <i class="icon icon ion-happy-outline"> </i>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>

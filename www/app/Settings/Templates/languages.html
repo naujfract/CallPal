@@ -1,0 +1,37 @@
+  <ion-view title="Languages">
+    <ion-header-bar align-title="center" class="bar-callpal">
+
+    <div class="buttons" ng-hide="show">
+      <button class="button button-clear" ng-click="back()" translate="w_general_actions.back"></button>
+    </div>
+    <h1 class="title" ng-hide="show" translate="w_settings.options.languages.title"></h1>
+
+    <div class="buttons" ng-hide="show">
+      <button class="button button-clear button-icon ion-ios-search" ng-click="showSearch('search-language-input')"></button>
+    </div>
+
+    <div class="bar-header item-input-inset search-bar" ng-show="show">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input id="search-language-input" ng-model="search" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+      </label>
+      <button class="button button-clear button-icon" ng-click="cancelSearch()"><i class="icon ion-android-close"></i>
+      </button>
+    </div>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+  </ion-header-bar>
+
+  <ion-content padding="true" class="settingsPane settings-language" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+    <ion-list>
+        <ion-radio ng-repeat="lang in languages | filter:search" ng-click="selectLanguage(lang)" class="bootom-line" ng-model="current_language"              ng-value="lang.abbr" ng-check="lang.abbr == current_language" prevent-on-offline="click">
+          <img ng-src="{{ flag.url }}{{ lang.flag | lowercase }}.{{ flag.extension }}" class="flag-mini">
+          <div style="margin: -35px 0 0 45px;font-size: 17px;">
+            {{ lang.lang }}
+          </div>
+        </ion-radio>
+    </ion-list>
+  </ion-content>
+</ion-view>

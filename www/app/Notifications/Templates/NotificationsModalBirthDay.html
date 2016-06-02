@@ -1,0 +1,32 @@
+<div class="modal NotificationsModalBirthDay">
+
+  <ion-content class="padding-top">
+
+    <div class="text-center">
+      <div class="h3">{{ 'w_notifications.select_birthday' | translate }}</div>
+    </div>
+
+    <br>
+
+    <div class="text-center">
+      <div class="h4"><i class="icon ion-clock"></i> {{ birthday.date | dateFormat }}</div>
+      <div date-picker="birthday.date" class="date-picker" min-view="date" view="year"></div>
+    </div>
+
+  </ion-content>
+
+  <p class="float-button-caption animated zoomIn" hide-in-time>
+    {{ 'w_general_actions.save' | translate }}
+  </p>
+  <button class="float-button button  animated zoomIn important" ng-click="birthday.save()">
+    <i class="icon ion-checkmark"> </i>
+  </button>
+
+</div>
+
+
+<style>
+  .NotificationsModalBirthDay {
+    background: rgba(0, 0, 0, 0.8) !important;
+  }
+</style>

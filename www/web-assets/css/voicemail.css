@@ -1,0 +1,78 @@
+/* Contacts Section */
+.voicemailPane {
+    padding: 15px;
+}
+.voicemailPane .list .item {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.voicemailPane .list .item .info {
+    display: table;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.voicemailPane .list .item .info div {
+    display:table-row;
+}
+.voicemailPane .list .item .info span {
+    color: #fff;
+    font-size: 13px;
+    display: table-cell;
+}
+.voicemailPane .list .item .info span.name {
+    width: 45%;
+}
+.voicemailPane .list .item .info span.name span {
+    display: block;
+    max-width: 120px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.voicemailPane .list .item .info span.duration {
+    text-align: right;
+}
+.voicemailPane .list .item .actions .microphone,
+.voicemailPane .list .item .actions .play {
+    color: white;
+    border-radius: 28px;
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+    padding-top: 1px;
+    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.2), inset 0px 0px 10px -1px rgba(255,255,255,0.5);
+}
+.voicemailPane .list .item .actions .play::before {
+    padding-left: 2px;
+}
+.voicemailPane .list .item .actions .callpal,
+.voicemailPane .list .item .actions .delete {
+    color: #fff;
+    /*text-transform: uppercase;*/
+    background-image: -webkit-linear-gradient(top, #FDB575 0%, #FF831A 27%);
+    border-color: #bc8657;
+    letter-spacing: 1px;
+    /*max-width: 50px;*/
+    line-height:2;
+    min-height: 15px !important;
+    vertical-align: middle !important;
+    font-size:10px !important;
+    margin-top:-7px;
+    border: 1px solid #FF831A;
+}
+.voicemailPane .list .item .actions .delete {
+    background-image: -webkit-linear-gradient(top, #FDB575 0%, #EC0007 27%);
+    border-color: #EC0007;
+}
+.voicemailPane .list .item .actions {
+    text-align: right;
+}
+.voicemailPane .list .item .actions button {
+    margin-left: 8px;
+}

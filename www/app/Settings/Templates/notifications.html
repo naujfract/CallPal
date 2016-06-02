@@ -1,0 +1,27 @@
+<ion-view title="Notifications">
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+    <h1 class="title">{{ 'w_settings.options.notifications_sound.title' | translate }}</h1>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+  <ion-content padding="true" class="settingsPane notifications" ng-init="initNotification()" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+    <ion-list>
+      <ion-item class="item-button-right">
+        <ion-checkbox name="incomingCallAnimation" ng-model="settingsNotification['incomingCallAnimation']" ng-change="onChange()"
+                      prevent-on-offline="change">
+          <span>{{ 'w_settings.options.notifications_sound.show_incoming_call_animation' | translate }}</span>
+        </ion-checkbox>
+      </ion-item>
+      <ion-item class="item-button-right">
+        <ion-checkbox name="notifyNewVoicemail" ng-model="settingsNotification['notifyNewVoicemail']" ng-change="onChange()"
+                      prevent-on-offline="change">
+         <span>{{ 'w_settings.options.notifications_sound.notify_new_voicemail' | translate }}</span>
+        </ion-checkbox>
+      </ion-item>
+    </ion-list>
+    <!-- <a class="button" ng-click="changeSettingsNotification()">Save</a> -->
+  </ion-content>
+</ion-view>

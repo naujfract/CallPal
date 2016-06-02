@@ -1,0 +1,253 @@
+// Login page styles
+.pane {
+    /*background: linear-gradient( to left bottom, #35b162, #cdd437);*/
+    /*background: -webkit-linear-gradient( to left bottom, #35b162, #cdd437);*/
+}
+.dialpadPane {
+    /*background: linear-gradient( to left bottom, #35b162, #cdd437);*/
+    /*background: -webkit-linear-gradient( to left bottom, #35b162, #cdd437);*/
+    /*padding:20px;*/
+    text-align:center;
+    color: #fff;
+    padding-top:10px;
+}
+.dialpadPane a.button {
+    /*padding-top: 2px;*/
+    color: #fff;
+    text-transform: uppercase;
+    background-image: -webkit-linear-gradient(top, #FDB575 0%, #FF831A 27%);
+    border-color: #bc8657;
+    letter-spacing: 1px;
+    width: 225px;
+    /*line-height:43px;*/
+    min-height: 20px !important;
+    vertical-align: middle !important;
+}
+/*.callpal-icon {
+    height: 26px;
+    width: auto;
+    top: 3px;
+    position: relative;
+}*/
+.dialpadPane .wrapper {
+  width:252px;
+  margin:15px auto 0 auto;
+  overflow: hidden;
+  clear: both;
+}
+.dialpadPane .key {
+  border-radius: 50px 50px 50px 50px;
+  color:#fff;
+  width:70px;
+  height:70px;
+  text-align:center;
+  font-size:30px;
+  float:left;
+  box-sizing:border-box;
+  padding:5px 0 0 0;
+  margin:0 7px 10px 7px;
+  border:1px solid #fff;
+  cursor:pointer;
+  padding-top: 12px !important;
+}
+.dialpadPane .key span {
+  display:block;
+  color:#fff;
+  text-align:center;
+  font-size:12px;
+  text-transform:uppercase;
+  margin-top: 6px;
+}
+.dialpadPane .key.special {
+  line-height: 45px;
+}
+.dialpadPane .key.nb {
+  border:none;
+}
+.dialpadPane .key.phone {
+  background:#5CDB74;
+  border:none;
+  color:#FFF;
+  line-height:60px;
+  font-size:40px;
+}
+.dialpadPane .number {
+    padding-left: 42px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    position: relative;
+    /*left: 5%;*/
+}
+.dialpadPane .number .button-delete {
+/*    margin-top: 8px;
+    margin-left: 2%;
+    max-width: 42px;*/
+    /*position: absolute;*/
+    width: 42px;
+    margin-top: 8px;
+}
+.dialpadPane .number .tel {
+    height: 50px;
+    width: calc(95% - 42px);
+    box-shadow: inset 0px 0px 6px #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 17px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+/*    border: 1px solid;
+    border-color: rgba(255,255,255,0.5);*/
+}
+.dialpadPane span.header {
+    display:block;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.dialpadPane span.sub-header {
+    display: block;
+    clear: both;
+    text-align: left;
+    font-size: 10px;
+}
+.dialpadPane .call-button {
+    color: #fff;
+    letter-spacing: 1px;
+    width: 90%;
+    vertical-align: middle !important;
+    box-shadow: 0px 0px 4px #797979 !important;
+    border: 0;
+    margin-top: 15px;
+    min-height: 15px !important;
+    font-size: 14px !important;
+    line-height: 2;
+    margin-bottom: 5px;
+    background-image: url('../../web-assets/img/ui/glass-header.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+/* callPane */
+.callPane .tel {
+    height: 50px;
+    width: 85%;
+    box-shadow: inset 0px 0px 6px #fff;
+    border-radius: 5px;
+    background-color: transparent !important;
+    padding: 17px;
+    font-size: 22px;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: center;
+}
+.callPane .callClock {
+    display: block;
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.callPane nav.actions {
+    display: table;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.callPane nav.actions div {
+    text-align:center;
+    display: table-row;
+}
+.callPane .actions a {
+    display: table-cell;
+}
+.callPane .actions div a img {
+    /*width: 60%;*/
+}
+.callPane .muted-true {
+    opacity: 0.5;
+}
+.callPane .muted-false {
+    opacity: 1;
+}
+
+/* Ads */
+.callPane ul.ads {
+    width: 80% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+.callPane div.adwrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+/* Country Modal */
+#country-modal {
+    /*background-color: rgba(255,255,255,0.5);*/
+    padding: 20px;
+    text-align: center;
+    /*background-image: linear-gradient( to left bottom, #35b162, #cdd437);*/
+    color: #00662C;
+    background-color: rgba(0,0,0,0.2);
+    /*display: table;*/
+}
+#country-modal .scroll {
+    height: 100%;
+}
+#country-modal .modal-wrapper {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: linear-gradient( to left bottom, #35b162, #cdd437);
+    padding: 20px;
+}
+#country-modal select {
+    margin-bottom: 15px;
+    background-color: #a7d071;
+    border-radius: 1px;
+    box-shadow: 0px 0px 0px 1px #6E9033;
+    box-shadow: inset 0px 0px 1px 1px #6E9033;
+    padding: 10px;
+    color: #004D13;
+    border-radius: 2px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 10px;
+    border: none;
+}
+#country-modal h1 {
+    font-size: 14px;
+    color: #00662C;
+}
+#country-modal p {
+    font-size: 10px;
+}
+#country-modal a.button {
+    color: #fff;
+    letter-spacing: 1px;
+    width: 90%;
+    vertical-align: middle !important;
+    box-shadow: 0px 0px 4px #797979 !important;
+    border: 0;
+    margin-top: 15px;
+    min-height: 15px !important;
+    font-size: 14px !important;
+    line-height: 2;
+    margin-bottom: 5px;
+    background-image: url('../../web-assets/img/ui/glass-header.png');
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

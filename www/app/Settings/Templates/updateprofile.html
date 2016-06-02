@@ -1,0 +1,43 @@
+<ion-view title="Update Profile">
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <button class="button button-clear" ng-click="gotoSettings('accountinfo')" translate="w_general_actions.back"></button>
+    <h1 class="title">{{ 'w_settings.options.account_info.update_profile.title' | translate }}</h1>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+  <ion-content padding="true" class="settingsPane updateprofile" ng-init="init()" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+    <div class="list">
+
+      <h1 class="sub-header">{{ 'w_general_actions.name' | translate }}</h1>
+
+      <div id="name">
+        <input class="form-input" type="text" ng-change="onRelease()" ng-model="user_data.name">
+      </div>
+
+      <h1 class="sub-header">{{ 'w_general_actions.gender' | translate }}</h1>
+
+      <div id="sex">
+        <select ng-model="user_data.gender" class="gender" ng-change="onRelease()">
+          <option value="female">{{ 'w_general_actions.female' | translate }}</option>
+          <option value="male">{{ 'w_general_actions.male' | translate }}</option>
+        </select>
+      </div>
+
+      <div>{{ screen_message }}</div>
+
+      <h1 class="sub-header">{{ 'w_settings.options.account_info.update_profile.date_birth' | translate }}</h1>
+
+      <div id="birth">
+
+        <div date-picker="user_data.dob" class="date-picker" 
+             min-date="minDate"
+             max-date="maxDate" view="year" min-view="date"
+             format="YYYY-MM-DD" date-change="onRelease"></div>
+
+        <div class="h5">{{ user_data.dob | dateFormat }}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

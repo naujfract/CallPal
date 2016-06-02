@@ -1,0 +1,82 @@
+<ion-view title="Voicemail">
+
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <h1 class="title" translate="w_voice_mail.title">{{ 'w_voice_mail.title' | translate }}</h1>
+
+    <div class="buttons" ng-hide="search.isEnabled">
+      <!--<button class="button button-clear button-icon ion-ios-trash" ng-show="voiceMailResp.data.length > 0" ng-click="deleteAll()"-->
+              <!--prevent-on-offline="click"></button>-->
+      <button class="button button-clear button-icon ion-ios-search" ng-show="voiceMailResp.data.length > 0" ng-click="search.enable('search-voicemail-input')"></button>
+    </div>
+
+    <div class="bar-header item-input-inset search-bar" ng-show="search.isEnabled">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input id="search-voicemail-input" ng-model="search.query" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+      </label>
+
+      <button class="button button-clear cancel" ng-click="search.disable()">{{ 'w_general_actions.cancel' | translate }}</button>
+    </div>
+    <div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">
+      <h3 class="title" translate="w_general_actions.offline"></h3>
+    </div>
+
+
+    <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online || !phone_status.goodConnection">-->
+      <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+    <!--</div>-->
+
+    <check-connection></check-connection>
+
+  </ion-header-bar>
+  <ion-content ng-init="" padding="true" class="voicemailPane" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+    <ion-refresher pulling-text="Pull to update" on-refresh="refresh()" refreshing-text="Loading VoiceMail"></ion-refresher>
+    <!--<ion-spinner ng-if="reloading.voicemails" class="spinner-right-margin  "></ion-spinner>-->
+
+    <div class="list" ng-if="voiceMailResp.data.length > 0">
+
+      <div class="item" ng-repeat="voiceMail in voiceMailResp.data | filter:search.query | orderBy:'-timestamp'">
+
+        <div class="info" ng-class="{'voice-mail-new' : ! voiceMail.audio.listened}">
+          <div class="info-detail">
+            <span style="font-size: 12px">{{voiceMail.timestamp | timestampToDate}}</span>
+            <span style="font-size: 12px" class="duration">{{ voiceMail.length | timeToSecondAndMinutesFromMilisecondsString:true}}</span>
+          </div>
+
+          <span class="name"><span ng-bind="voiceMail.displayName"></span></span>
+          <!-- <span class="number" ng-bind="voiceMail.phone"></span> -->
+
+          <div class="actions"
+               ng-if="(phone_status.online || voiceMail.audio.listened) && !voiceMail.audio.isReproducing()">
+            <!-- <button class="icon ion-mic-a" on-hold="startRecording()" ng-hide="!phone_status.online"></button> -->
+            <button class="icon ion-ios-trash" on-tap="deleteVoiceMail(voiceMail)" ng-hide="!phone_status.online"></button>
+            <button class="play ion-play" ng-click="reproduce(voiceMail)"></button>
+            <button class="button button-callpal small important" ng-click="callContact(voiceMail)" ng-hide="!phone_status.online">CallPal</button>
+          </div>
+          <div class="actions" ng-if="!phone_status.online && !voiceMail.audio.listened">
+            <small>{{ 'w_voice_mail.content_offline' | translate }}</small>
+          </div>
+
+          <div class="range volume" ng-show="voiceMail.audio.isReproducing()">
+            <i>{{voiceMail.audio.progress | getFirstRange}}</i>
+            <input type="range" ng-model="voiceMail.audio.progress" min="0" max="{{voiceMail.length | getIntSeconds}}" ng-change="voiceMail.audio.media.move()">
+            <i>{{voiceMail.length | getLastRange:voiceMail.audio.progress}}</i>
+          </div>
+
+          <div class="actions" ng-show="voiceMail.audio.isReproducing()" style="text-align: center">
+            <button class="play ion-play" ng-click="voiceMail.audio.play()" ng-show="voiceMail.audio.paused"></button>
+            <button class="icon ion-pause" ng-click="voiceMail.audio.pause()" ng-hide="voiceMail.audio.paused"></button>
+            <button class="icon ion-stop" ng-click="voiceMail.audio.stop(voiceMail)" ng-show="voiceMail.audio.reproducing"></button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>    
+      <p style="text-align: center; font-size:initial;" ng-if="!voiceMailResp || voiceMailResp.data.length === 0">
+        {{ 'w_voice_mail.empty' | translate }}
+      </p>
+
+  </ion-content>
+
+</ion-view>

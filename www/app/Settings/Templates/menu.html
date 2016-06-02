@@ -1,0 +1,49 @@
+<ion-view title="Settings">
+  <ion-header-bar align-title="center" class="bar-callpal">
+     <!--<button class="button button-clear" ng-click="back()">Back</button>-->
+    <h1 class="title" translate="w_settings.title">{{ 'w_settings.title' | translate }}</h1>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+  <ion-content padding="true" class="settingsPane" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+      <br>
+      <div class="row">
+                <button class="edit-profile-avatar no-border-button" ng-click="switchOptions()" prevent-on-offline="click">
+                    <i class="icon ion-ios-camera-outline"></i>
+                </button>
+                <div ng-if="showOptions" class="list camera-from-options">
+                    <span ng-click="changeProfileAvatar('camera')" translate="w_settings.camera.from_camera"></span>
+                    <span ng-click="changeProfileAvatar('library')" translate="w_settings.camera.from_library"></span>
+                </div>
+                <img ng-if="!user_data.avatar" ng-src="img/egg-outline.png"
+                     class="no-profile-avatar col-30" non-loaded-image>
+
+                     <div ng-click="showProfileAvatar()" ng-if="user_data.avatar" class="avatar" style="background-image:url('{{ user_data.avatar }}');" bgimage="{{ user_data.avatar }}" no-profile-image>
+                     </div>
+
+                     <!-- <div class="imgwrap">
+                        <img ng-if="user_data.userInfo.avatar" ng-src="{{ user_data.userInfo.avatar}}" no-image
+                       class="profile-avatar col-30" ng-click="showProfileAvatar()" non-loaded-image>
+                       <div class="img-overlay"></div>
+                     </div> -->
+
+                <!--div class="profile-avatar-frame" ng-click="showProfileAvatar()"></div-->
+            </div>
+    <ion-list>
+        <ion-item ng-click="gotoSetting('aboutus')"><abbr translate="w_settings.options.about_us.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item ng-click="gotoSetting('accountinfo')"><abbr translate="w_settings.options.account_info.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item ng-click="gotoSetting('languages')" prevent-on-offline="click"><abbr translate="w_settings.options.languages.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <!--<ion-item ng-click="open_profile_avatar_window()">Profile Avatar <i class="ion-ios-arrow-forward"></i></ion-item>-->
+      <!--<ion-item ng-click="gotoSetting('notifications')" prevent-on-offline="click">{{ 'w_settings.options.notifications_sound.title' | translate }} <i class="ion-ios-arrow-forward"></i></ion-item>-->
+      <!--<ion-item ng-click="gotoSetting('audio')">Call Audio <i class="ion-ios-arrow-forward"></i></ion-item>-->
+      <ion-item ng-click="gotoSetting('background')" prevent-on-offline="click"><abbr translate="w_settings.options.background.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item ng-click="gotoSetting('callhistory')"><abbr translate="w_settings.options.call_history.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item ng-click="gotoSetting('ringtones')" prevent-on-offline="click"><abbr translate="w_settings.options.ringtones.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item onclick="window.open('http://callpalapp.com/privacy/', '_system')"><abbr translate="w_settings.options.terms_conditions.title"></abbr> <i class="ion-ios-arrow-forward"></i></ion-item>
+      <ion-item ng-show="debug == true" ng-click="logout()" prevent-on-offline="click"><abbr translate="w_settings.options.logout.title"></abbr> <i class="ion-close-circled"></i></ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

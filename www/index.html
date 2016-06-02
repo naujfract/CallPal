@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html ng-app="callpal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <!--<meta http-equiv="Content-Security-Policy"-->
+  <!--content="default-src * data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';">-->
+  <meta http-equiv="Content-Security-Policy"/>
+  <meta name="format-detection" content="telephone=no">
+
+  <title>CallPal</title>
+
+
+
+  <!-- Web Assets -->
+  <!-- -------------------- STYLESHEETS ------------------------ -->
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="lib/carousel/bootstrap.css" rel="stylesheet">
+  <link href="web-assets/css/style.css" rel="stylesheet">
+
+  <!--Animate CSS-->
+  <link href="lib/animate/animate.css" rel="stylesheet">
+  <!--Swiper-->
+  <link href="lib/Swiper/dist/css/swiper.min.css" rel="stylesheet">
+  <!--CssShake-->
+  <link href="lib/csshake/dist/csshake.min.css" rel="stylesheet">
+  <!--jr-crop-->
+  <link href="lib/jr-crop/dist/jr-crop.css" rel="stylesheet">
+
+  <script type='application/javascript' src='lib/fastclick/fastclick.js'></script>
+
+  <script>
+    //document.getElementById("imageOverWhite").innerHTML = '<img style="background-image: url(img/splash.png); width: '+ (screen.width + 2 )+'px; height: '+ (screen.height + 2) +'px; background-size: cover; background-position: center; margin-top:-1px; margin-left: -1px;" />';
+  </script>
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above -->
+  <!--<link href="web-assets/css/ionic.app.css" rel="stylesheet">-->
+
+  <!---------------------- JAVASCRIPT ------------------------ -->
+
+  <!--Jquery-->
+  <script src="lib/jquery/jquery.min.js"></script>
+
+  <!-- Ionic/Angular -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- Angular things -->
+  <script src="lib/angular-base64/angular-base64.min.js" defer></script>
+  <script src="lib/angular-load/angular-load.min.js" defer></script>
+  <script src="lib/angular-sanitize/angular-sanitize.min.js" defer></script>
+  <script src="lib/angular-animate/angular-animate.min.js" defer></script>
+  <script src="lib/angular-md5/angular-md5.min.js" defer></script>
+  <script src="lib/angular-filter/dist/angular-filter.min.js" defer></script>
+  <script src="lib/angular-ui-router-styles/ui-router-styles.js" defer></script>
+  <script src="lib/angular-css/angular-css.js" defer></script>
+  <script src="lib/angular-lazy-img/release/angular-lazy-img.js"></script>
+  <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+  <script src="web-assets/js/animation-test.js"></script>
+
+
+
+
+  <!-- Langs -->
+  <script src="i18n/es.js"> </script>
+  <script src="i18n/en.js"></script>
+  <!--script src="i18n/fr.js"></script>
+  <script src="i18n/pt.js"></script-->
+  <script src="i18n/ru.js"></script>
+
+  <!-- Cordova -->
+
+  <script src="lib/ng-cordova.js"></script>
+  <script src="cordova.js"></script>
+  <script src="lib/openfb/openfb.js" defer></script>
+  <script src="lib/openfb/ngopenfb.js" defer></script>
+
+
+
+  <!-- i18n -->
+  <script src="lib/angular-translate/angular-translate.js" defer></script>
+
+  <!--Swiper-->
+  <script src="lib/Swiper/dist/js/swiper.min.js" defer></script>
+
+  <!-- For the toast -->
+  <link href="lib/ionic-toast/dist/style.css" rel="stylesheet">
+  <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js" defer></script>
+
+  <!--Draggability-->
+  <script src="lib/draggabilly/dist/draggabilly.pkgd.min.js" defer></script>
+
+  <!-- Rating -->
+  <script src="lib/ionic-rating/ionic-rating.min.js" defer></script>
+
+  <!--Angular PickDate-->
+  <link href="lib/angular-datepicker/dist/angular-datepicker.min.css" rel="stylesheet">
+  <script src="lib/angular-datepicker/dist/angular-datepicker.min.js" defer></script>
+
+  <!--Config-->
+  <script src="config.js"></script>
+
+  <!-- Phone Number Format -->
+  <script src="lib/number-format/phone-format-global.js" defer></script>
+
+  <!-- Chart Creation >
+  <script src="lib/chart/piechart.js" defer></script>
+  <script src="lib/chart/d3.js" defer></script>
+
+  <!-- Moment -->
+  <script src="lib/momentjs/moment.min.js" defer></script>
+
+  <!-- jr-Crop -->
+  <script src="lib/jr-crop/dist/jr-crop.min.js" defer></script>
+
+  <!-- App.js -->
+  <script src="app.js"></script>
+  <link href="app.css" rel="stylesheet">
+
+  <!--SiP -->
+  <script src="app/Sip/Sip.js"></script>
+  <script src="app/Sip/SIPService.js"></script>
+
+  <!--Ionic Horizontal Scroll Cards -->
+  <script src="lib/ionic-ion-horizontal-scroll-cards/ionic.hscrollcards.js" defer></script>
+
+  <!-- canvas to blob -->
+  <script src="lib/canvas-to-blob/js/canvas-to-blob.min.js" defer></script>
+
+  <!-- Angular File System -->
+  <!--<script src="lib/angular-file-system/angular-file-system.js"></script>-->
+
+<!-- Mansory -->
+<script src="lib/jquery-bridget/jquery-bridget.js" defer></script>
+<script src="lib/ev-emitter/ev-emitter.js" defer></script>
+<script src="lib/desandro-matches-selector/matches-selector.js" defer></script>
+<script src="lib/fizzy-ui-utils/utils.js" defer></script>
+<script src="lib/get-size/get-size.js" defer></script>
+<script src="lib/outlayer/item.js" defer></script>
+<script src="lib/outlayer/outlayer.js" defer></script>
+<script src="lib/masonry/masonry.js" defer></script>
+<script src="lib/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+<script src="lib/angular-masonry/angular-masonry.js" defer></script>
+<script src="lib/ionic-ion-imageCacheFactory/ionic.ion.imagecachefactory.js" defer></script>
+
+  <!--Login-->
+
+  <link href="app/Login/Login.css" rel="stylesheet">
+  <script src="app/Login/Login.js"></script>
+  <script src="app/Login/LoginController.js"></script>
+  <script src="app/Login/LoginService.js"></script>
+
+  <!--SignUp-->
+
+  <link href="app/SignUp/SignUp.css" rel="stylesheet">
+  <script src="app/SignUp/SignUp.js"></script>
+  <script src="app/SignUp/SignUpController.js"></script>
+  <script src="app/SignUp/SignUpService.js"></script>
+
+  <!--TellAFriend-->
+
+  <link href="app/TellAFriend/TellAFriend.css" rel="stylesheet">
+  <script src="app/TellAFriend/TellAFriend.js"></script>
+  <script src="app/TellAFriend/TellAFriendController.js"></script>
+  <script src="app/TellAFriend/TellAFriendService.js"></script>
+
+  <!--Contacts-->
+
+  <link href="app/Contacts/Contacts.css" rel="stylesheet">
+  <script src="app/Contacts/Contacts.js"></script>
+  <script src="app/Contacts/ContactsFilter.js"></script>
+  <script src="app/Contacts/Controllers/ContactDetailsController.js"></script>
+  <script src="app/Contacts/Controllers/ContactsController.js"></script>
+  <script src="app/Contacts/Services/ContactsService.js"></script>
+  <script src="app/Contacts/Services/SpeedDialService.js"></script>
+  <script src="app/Contacts/Services/ContactsServiceFavorites.js"></script>
+  <script src="app/Contacts/Services/ContactsServiceBlocked.js"></script>
+
+  <!--VoiceMail-->
+
+  <link href="app/VoiceMail/VoiceMail.css" rel="stylesheet">
+  <script src="app/VoiceMail/VoiceMail.js"></script>
+  <script src="app/VoiceMail/VoiceMailController.js"></script>
+  <script src="app/VoiceMail/Services/VoiceMailService.js"></script>
+  <script src="app/VoiceMail/VoiceMailFilter.js"></script>
+  <script src="app/VoiceMail/Services/AudioRecordService.js"></script>
+  <script src="app/VoiceMail/Services/AudioReproduceService.js"></script>
+
+  <!--Tour-->
+
+  <link href="app/Tour/Tour.css" rel="stylesheet">
+  <script src="app/Tour/Tour.js"></script>
+  <script src="app/Tour/TourController.js"></script>
+
+  <!--Main-->
+
+  <script src="app/Main/Main.js"></script>
+  <script src="app/Main/Controllers/MainController.js"></script>
+  <script src="app/Main/Controllers/ThreeDeeTouchController.js"></script>
+  <script src="app/Main/ModalsManagerService.js"></script>
+  <script src="app/Main/Services/ScrollPositions.js"></script>
+  <script src="app/Main/KeepScrollDirective.js"></script>
+
+
+  <!--Call-->
+
+  <link href="app/Home/Home.css" rel="stylesheet">
+  <script src="app/Home/Home.js"></script>
+  <script src="app/Home/HomeController.js"></script>
+  <script src="app/Home/Services/CallService.js"></script>
+  <script src="app/Home/Services/CallDBService.js"></script>
+
+  <!--CallPal-->
+
+  <link href="app/CallPal/CallPal.css" rel="stylesheet">
+  <script src="app/CallPal/CallPal.js"></script>
+  <script src="app/CallPal/CallPalController.js"></script>
+  <script src="app/CallPal/Services/CallPalService.js"></script>
+  <script src="app/CallPal/Services/CallPalFileService.js"></script>
+  <script src="app/CallPal/Services/B2BCallPalService.js"></script>
+  <script src="app/CallPal/Services/CallPalHistoryService.js"></script>
+
+  <!--User-->
+
+  <script src="app/User/User.js"></script>
+  <script src="app/User/UserService.js"></script>
+
+  <!--Auth-->
+
+  <script src="app/Auth/Auth.js"></script>
+  <script src="app/Auth/AuthService.js"></script>
+
+  <!--Settings-->
+
+  <script src="app/Settings/Settings.js"></script>
+
+  <link href="app/Settings/Settings.css" rel="stylesheet">
+  <link href="app/Settings/SettingsPieChart.css" rel="stylesheet">
+
+  <script src="app/Settings/Controllers/SettingsController.js"></script>
+  <script src="app/Settings/Controllers/AudioController.js"></script>
+  <script src="app/Settings/Controllers/BackgroundController.js"></script>
+  <script src="app/Settings/Controllers/BlockedContactsController.js"></script>
+  <script src="app/Settings/Controllers/NotificationController.js"></script>
+  <script src="app/Settings/Controllers/SettingsCallHistoryController.js"></script>
+  <script src="app/Settings/Controllers/SettingsController.js"></script>
+  <script src="app/Settings/Controllers/SettingsUpdateProfileController.js"></script>
+  <script src="app/Settings/Controllers/SettingsLanguagesController.js"></script>
+  <script src="app/Settings/Controllers/SettingsRingTonesController.js"></script>
+
+  <script src="app/Settings/Services/SettingsService.js"></script>
+  <script src="app/Settings/Services/AudioMicroService.js"></script>
+  <script src="app/Settings/Services/NotificationSoundService.js"></script>
+  <script src="app/Settings/Services/ConfigurationService.js"></script>
+  <script src="app/Settings/Services/SettingsLanguageService.js"></script>
+  <script src="app/Settings/Services/RingTonesService.js"></script>
+  <script src="app/Settings/Services/CameraService.js"></script>
+
+
+  <!--Utils-->
+
+  <script src="app/Utils/Utils.js"></script>
+  <script src="app/Utils/Services/InterceptorSvc.js"></script>
+  <script src="app/Utils/Services/UtilsService.js"></script>
+  <script src="app/Utils/Services/UtilsMonkeyPatching.js"></script>
+  <script src="app/Utils/UtilsDirective.js"></script>
+  <script src="app/Utils/UtilsFilter.js"></script>
+  <script src="app/Utils/Services/DBService.js"></script>
+  <script src="app/Utils/Services/CachingService.js"></script>
+
+  <!--Groups-->
+
+  <link href="app/Groups/Groups.css" rel="stylesheet">
+  <script src="app/Groups/Groups.js"></script>
+  <script src="app/Groups/GroupsController.js"></script>
+  <script src="app/Groups/GroupsService.js"></script>
+
+  <!--Notifications and Reminders -->
+
+  <link href="app/Notifications/Notifications.css" rel="stylesheet">
+  <script src="app/Notifications/Notifications.js"></script>
+  <script src="app/Notifications/Controllers/NotificationsController.js"></script>
+  <script src="app/Notifications/Controllers/LocalNotificationsController.js"></script>
+  <script src="app/Notifications/Services/NotificationsService.js"></script>
+  <script src="app/Notifications/Services/LocalNotificationsService.js"></script>
+
+
+  <!--Nest-->
+
+  <link href="app/Nest/Nest.css" rel="stylesheet">
+  <script src="app/Nest/Nest.js"></script>
+  <script src="app/Nest/Home/Controllers/NestHomeController.js"></script>
+  <script src="app/Nest/Home/Services/NestHomeService.js"></script>
+
+  <!--Nest My Interest-->
+
+  <link href="app/Nest/MyInterest/Assets/css/MyInterest.css" rel="stylesheet">
+  <script src="app/Nest/MyInterest/MyInterest.js"></script>
+  <script src="app/Nest/MyInterest/Controllers/MyInterestController.js"></script>
+  <script src="app/Nest/MyInterest/Services/MyInterestService.js"></script>
+
+</head>
+
+<body>
+  <!--<div id="imageOverWhite"></div>-->
+<ion-nav-view></ion-nav-view>
+
+
+  <audio id="tone" style="display: none"></audio>
+
+  <!--Media-->
+  <video id="remoteAudio" class="video-hide" autoplay playsinline webkit-playsinline></video>
+
+
+</body>
+
+<script>
+  var video = document.getElementById("remoteAudio");
+  video.removeAttribute("controls");
+  console.log(video);
+</script>
+
+</html>

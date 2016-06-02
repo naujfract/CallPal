@@ -1,0 +1,36 @@
+<ion-view title="login" class="login-page">
+  <ion-header-bar align-title="left" class="bar-positive">
+
+    <div class="logo">
+      <img class="logo" ng-src="web-assets/img/logo-new.png" />
+    </div>
+  </ion-header-bar>
+  <ion-content padding="true" class="loginPane has-header">
+
+
+
+    <!--<a class="button button-callpal important" ng-click="navigate_to_tour()">Take a tour</a>-->
+
+    <div class="loginForm">
+      <img class="glass" ng-src="web-assets/img/login-glass.png">
+
+      <h2 translate="w_login.title"></h2>
+
+      <input type="email" name="username" autocapitalize="none" ng-model="signinData.username" 
+             placeholder="{{ usernameLabel }}">
+      <input type="password" name="password" ng-model="signinData.password" placeholder="{{ passwordLabel }}">
+
+      <a class="button button-callpal" ng-click="login.login()" ion-nav-animation="slide-in-up" href="#" translate="w_login.login_btn">Log in</a>
+
+      <a class="facebook" href="#"></a>
+      <a class="button button-callpal important" ng-click="navigate_to_signup()" translate="w_login.signin_callpal"></a>
+      <a class="facebook" href="#" ng-click="signin_up_facebook.login_or_signup()"><img
+        ng-src="web-assets/img/login-facebook.png"></a>
+      <a class="google" href="#" ng-click="signin_up_google.login_or_signup()"><img
+        ng-src="web-assets/img/login-google.png"></a>
+    </div>
+
+    <a class="forgotPassword" href="#" ng-click="forgotPassword()" translate="w_login.forgot"></a><br>
+    <a class="forgotPassword" href="#" onclick="window.open('http://callpalapp.com/privacy/', '_system')" translate="w_settings.options.terms_conditions.title"></a>
+  </ion-content>
+</ion-view>

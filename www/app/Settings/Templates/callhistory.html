@@ -1,0 +1,84 @@
+<ion-view title="Call History">
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+        <h1 class="title">{{ 'w_settings.options.call_history.title' | translate }}</h1>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+        <button class="button button-clear button-icon ion-ios-trash"
+                ng-if="calls.length && calls.length > 0 || calls.length === 0" ng-click="clear()"
+                ng-disabled="pendingRequests()" style='position:absolute; right: 0;'
+                prevent-on-offline="click"></button>
+      <check-connection></check-connection>        
+    </ion-header-bar>
+
+    <ion-content padding="true" class="settingsPane callhistory list" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+        <ion-scroll style="height:100%">
+        <ion-list class="">
+            <ion-item class="item-container" item-height="70px" ng-repeat="record in calls">
+                <a class="item item-avatar" href="#" on-tap="call(record.members)">
+
+                    <div ng-if="!record.members[0].extension" class="no-callpal-egg">
+                        {{ contact.displayName | getInitials }}
+                        <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                    </div>
+
+                    <div ng-if="record.members[0].extension && !record.members[0].avatar" class="no-callpal-egg">
+                        <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                        <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image style="height: 20px">
+                    </div>
+
+
+                    <img class="small-avatar" ng-if="record.members[0].avatar" ng-src="{{ record.members[0].avatar }}"/>
+                    <span class="col text-left" ng-if="record.members[0].displayName">
+                        {{record.members| joinByProperty:', ':'displayName'}}
+                        <br>
+                        <small> {{record.date| date: 'MMM d h:mm a' }}</small>
+
+                        <div class="call-time right">
+                            <i class="icon ion-android-call" ng-class="{ 'col-offset-20': phone_platform == 'ios', 'col-offset-33' : phone_platform != 'ios' }"></i>&nbsp; {{record.duration| timeToSecondAndMinutes:true}}
+                            <i class="col-bottom icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"></i>
+                        </div>
+
+                        <!-- <i class="icon ion-android-call col-offset-20"></i>&nbsp; {{record.duration| timeToSecondAndMinutes:true}}
+                        <i class="col-bottom icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"></i> -->
+                    </span>
+                    <span class="text-left" ng-if="!record.members[0].displayName">
+                        {{record.members| joinByProperty:', ':'landline_number'}}
+                        <br>
+                        <small> {{record.date| date: 'MMM d h:mm a' }}</small>
+                        <i class="icon ion-android-call col-offset-20"></i>&nbsp; {{record.duration| timeToSecondAndMinutes:true}}
+                        <i class="col-bottom icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"></i>
+                    </span>
+                </a>
+            </ion-item>
+        </ion-list>
+            </ion-scroll>
+        <!--div ng-if="calls.length" class="list">
+            <ion-item class="item" ng-repeat="record in calls"
+                    on-tap="call(record.members)">
+                <div ng-if="record" class="avatar"></div>
+                <div class="text-left" style="white-space: normal;margin-right: 50px;" stop-event>
+                    {{record.members | joinByProperty:', ':'displayName'}}
+                </div>
+                <small class="text-left"> {{record.date | date }}</small>
+                <div class="text-right" style="font-weight: bold">
+                    <i class="icon ion-android-call"></i> {{record.duration | timeToSecondAndMinutes:true}}
+                    <br>
+                    <i class="icon {{ record.status == 'connecting' ? 'ion-android-close' :  record.type == 'outgoing' ? 'ion-android-arrow-forward' : 'ion-android-arrow-back' }}"
+                       style="text-align: left;display: block;"></i>
+                </div>
+            </ion-item>
+        </div-->
+        <p style="text-align: center" ng-if="!calls.length || calls.length === 0">
+            {{ 'w_settings.options.call_history.empty' | translate }}
+        </p>
+    </ion-content>
+    <!-- <p ng-if="calls.length && calls.length > 0" class="float-button-caption animated zoomIn" hide-in-time>
+      {{ 'w_settings.options.call_history.clear' | translate }}
+    </p> -->
+    <!-- <button ng-if="calls.length && calls.length > 0" class="float-button button  animated zoomIn important" ng-click="clear()">
+        <i class="icon ion-trash-a"> </i>
+    </button> -->
+
+</ion-view>

@@ -1,0 +1,126 @@
+<ion-view title="Groups" class="groupsPane">
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+
+        <div class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear" ng-click="navigate_to('app.country')">{{ 'w_general_actions.back' | translate }}</button>
+        </div>
+
+        <h1 class="title" translate="w_groups.group_call_title"> </h1>
+
+        <div class="buttons">
+            <button class="button button-clear button-icon ion-edit" ng-click="group.edit()"></button>
+            <button class="button button-clear button-icon ion-ios-trash" ng-click="group.edit_destroy()"></button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content class="showGroup">
+
+        <!-- <div class="list"> -->
+
+            <a href="#" class="item item-icon-left"
+               style="padding-top: 20px; padding-bottom: 20px; padding-left: 79px; min-height: 110px; background: none; color: #fff;">
+                <i class="icon">
+                    <div class="numberCircle" ng-click="group.edit()" ng-show="!group.editable">G</div>
+                    <span class="numberCircle ion-checkmark" ng-show="group.editable" ng-click="group.edit()"></span>
+                    <!-- <div class="numberCircle" ng-show="group.editable">E</div> -->
+                </i>
+
+                <div ng-hide="group.editable" class="group-header">
+                    {{ group.name }}
+                    <!--<i class="icon ion-clock"></i>-->
+                    <div class="h4">{{ group.timestamp | datetimeFormat }}</div>
+                </div>
+
+                <div ng-show="group.editable">
+                    <div class="text-center" ng-show="group.editable">
+                        <label class="item item-input" id="group_name">
+                            <input type="text" ng-model="group.name" ng-change="group.edit_set_pending_changes()"
+                                   style="border-radius: 5px; padding: 4px; background: white !important; color: #6D675F; height: 27px;">
+                        </label>
+                    </div>
+
+                    <div class="text-center" ng-show="group.editable" ng-click="group.edit_change_date()">
+                        <label class="item item-input" id="group_name">
+                            <input type="text" ng-value=" group.timestamp | datetimeFormat" style="border-radius: 5px;  padding: 4px; background: white !important; color: #6D675F;">
+                        </label>
+                    </div>
+                </div>
+            </a>
+
+            <ion-toggle id="reminder" class="reminder-item" ng-change="group.notifyScheduleChange()" ng-checked="group.reminder" ng-model="group.reminder">{{ 'w_groups.enable_reminder' | translate }}</ion-toggle>
+
+            <!-- <a href="#" class="item item-icon-left"
+               style="padding-top: 20px; padding-bottom: 20px; padding-left: 84px;">
+                <i ng-hide="group.editable" ng-click="group.edit_change_members()" class="icon ion-person-add"
+                   style="font-size: 40px;  margin-left: 12px;"></i>
+                <i ng-show="group.editable" ng-click="group.edit_change_members()" class="icon ion-ios-plus-outline"
+                   ng-click="group.edit_add_members()" style="font-size: 47px; margin-left: 12px;"></i>
+
+                <div class="h4" ng-click="group.edit_change_members()">{{ 'w_groups.members' | translate }}</div>
+            </a> -->
+
+        <!-- </div> -->
+
+
+        <ion-list class="list">
+
+            <ion-item class="item">
+                Group Members
+                <span class="ion-ios-plus add" ng-click="group.edit_change_members()"></span>
+            </ion-item>
+
+            <ion-item class="item-container-call-history member"
+                      collection-repeat="contact in group.edit_current_members | filter:search.query | unique: 'displayName' track by $index">
+                <!--<ion-checkbox id="{{ $index }}" ng-model="contact.isChecked"-->
+                              <!--ng-click="group.edit_remove_from_numbers(contact, $index)">-->
+                    <a class="item item-avatar item-icon-right" href="#">
+
+                        <div ng-if="!contact.extension" class="no-callpal-egg">
+                            {{ contact.displayName | getInitials }}
+                            <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                        </div>
+
+                        <div ng-if="contact.extension && !contact.avatar" class="no-callpal-egg">
+                            <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                            <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image style="height: 20px">
+                        </div>
+
+                        <img class="small-avatar" ng-if="contact.avatar" ng-src="{{ contact.avatar }}"/>
+                        <span class="col col-90 text-left">
+                          {{ contact.displayName || contact.phoneNumbers[0].number }}
+                            <!-- <br>
+                            {{ contact.phoneNumbers[0].number }} -->
+                        </span>
+                    </a>
+                    <button ng-show="group.editable" class="button remove-from-group ion-minus" ng-click="group.edit_remove_from_numbers(contact, $index)"></button>
+                <!--</ion-checkbox>-->
+
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+
+
+    <!-- There is members previosly -->
+    <div ng-show="group.pending_changes" >
+        <p style="bottom: 105px;" class="float-button-caption animated zoomIn" hide-in-time>
+            {{ 'w_general_actions.save' | translate }}
+        </p>
+
+        <button style="bottom:100px;" class="float-button button animated zoomIn important hide-on-keyboard-open"
+                ng-click="group.edit_update()">
+            <i class="icon ion-android-done"> </i>
+        </button>
+    </div>
+
+    <p style="bottom: 25px;" class="float-button-caption animated zoomIn" hide-in-time>
+        CallPal
+    </p>
+    <button class="float-button button  animated zoomIn important hide-on-keyboard-open"
+            ng-click="group.call()">
+        <i class="icon ion-android-call"> </i>
+    </button>
+
+</ion-view>

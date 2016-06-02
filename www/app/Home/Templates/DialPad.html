@@ -1,0 +1,58 @@
+<ion-view title="Make a Call" cache-view="false">
+
+  <ion-header-bar align-title="center" class="bar-callpal">
+    <button class="button button-clear" ng-click="back()">{{ 'w_general_actions.back' | translate }}</button>
+    <h1 class="title">CallPal</h1>
+
+
+    <div class="buttons" ng-show="showAddContactButton">
+      <button class="button button-clear button-icon ion-plus-round" ng-click="addContact()"></button>
+    </div>
+
+  </ion-header-bar>
+
+  <ion-content padding="true" class="dialpadPane">
+    <span class="header" translate="w_dial_pad.you_are_calling" translate-value-country="{{countryObj['caption']}}"></span>
+
+    <div class="number">
+      <input type="tel" id="tel" class="tel left" ng-readonly="true" ng-model="number" ng-change="manageAddButton()">
+      <input type="image" class="button-delete" on-hold="clearNumber()" ng-click="deleteDigit()" src="web-assets/img/ui/button-delete.png">
+      <span class="sub-header">{{ 'w_dial_pad.dial_phone_number' | translate }}</span>
+    </div>
+
+    <div class="wrapper">
+      <a href="" ng-click="enterDigit('1', 'item_1')">
+        <div id="item_1" class="key" rel="1">1</div>
+      </a>
+
+      <div id="item_2" class="key" rel="2" data-ng-click="enterDigit('2', 'item_2')">2<span>abc</span></div>
+      <div id="item_3" class="key" rel="3" data-ng-click="enterDigit('3', 'item_3')">3<span>def</span></div>
+      <br>
+
+      <div id="item_4" class="key" rel="4" data-ng-click="enterDigit('4', 'item_4')">4<span>ghi</span></div>
+      <div id="item_5" class="key" rel="5" data-ng-click="enterDigit('5', 'item_5')">5<span>jkl</span></div>
+      <div id="item_6" class="key" rel="6" data-ng-click="enterDigit('6', 'item_6')">6<span>mno</span></div>
+      <br>
+
+      <div id="item_7" class="key" rel="7" data-ng-click="enterDigit('7', 'item_7')">7<span>pqrs</span></div>
+      <div id="item_8" class="key" rel="8" data-ng-click="enterDigit('8', 'item_8')">8<span>tuv</span></div>
+      <div id="item_9" class="key" rel="9" data-ng-click="enterDigit('9', 'item_9')">9<span>wxyz</span></div>
+      <br>
+
+      <div id="item_aster" class="key special" data-ng-click="enterDigit('*', 'item_aster')" rel="*">*</div>
+      <div id="item_0" class="key" rel="1" data-ng-click="enterDigit('0', 'item_0')">0<span>oper</span></div>
+      <div id="item_number" class="key special" data-ng-click="enterDigit('#', 'item_number')" rel="#">#</div>
+    </div>
+
+    <button class="call-button" ng-click="call()">
+      <i class="icon icon ion-android-call"> </i> CallPal
+    </button>
+
+  </ion-content>
+
+  <!-- <button class="float-button button  animated zoomIn important" ng-click="call()">
+    <i class="icon icon ion-android-call"> </i>
+  </button> -->
+
+
+</ion-view>

@@ -1,0 +1,59 @@
+<ion-view title="Background">
+    <ion-header-bar align-title="center" class="bar-callpal">
+        <button class="button button-clear" ng-click="gotoSetting('menu')" translate="w_general_actions.back"></button>
+        <h1 class="title">{{ 'w_settings.options.background.title' | translate }}</h1>
+
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+            <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+    </ion-header-bar>
+    <ion-content padding="true" class="settingsPane background" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+
+        <ion-list>
+            <ion-radio ng-click="settings_background.changeBackground('default-green')" class="bootom-line"
+                       ng-model="current_background" value="default-green" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg green"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.green' | translate }}
+                </div>
+            </ion-radio>
+            <ion-radio ng-click="settings_background.changeBackground('yellow')" class="bootom-line"
+                       ng-model="current_background" value="yellow" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg yellow"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.yellow' | translate }}
+                </div>
+            </ion-radio>
+            <ion-radio ng-click="settings_background.changeBackground('orange')" class="bootom-line"
+                       ng-model="current_background" value="orange" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg orange"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.orange' | translate }}
+                </div>
+            </ion-radio>
+            <ion-radio ng-click="settings_background.changeBackground('blue')" class="bootom-line"
+                       ng-model="current_background" value="blue" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg blue"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.blue' | translate }}
+                </div>
+            </ion-radio>
+            <ion-radio ng-click="settings_background.changeBackground('purple-pink')" class="bootom-line"
+                       ng-model="current_background" value="purple-pink" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg pink"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.purple_pink' | translate }}
+                </div>
+            </ion-radio>
+            <ion-radio ng-click="settings_background.changeBackground('red-yellow')" class="bootom-line"
+                       ng-model="current_background" value="red-yellow" prevent-on-offline="click">
+                <div ng-if="!contact.extension" class="no-callpal-egg red"></div>
+                <div class="background-label">
+                    {{ 'w_settings.options.background.red_yellow' | translate }}
+                </div>
+            </ion-radio>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

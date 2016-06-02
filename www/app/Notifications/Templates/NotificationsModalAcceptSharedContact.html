@@ -1,0 +1,72 @@
+<div class="modal NotificationsModalGender">
+
+    <ion-content class="padding-top">
+
+        <div class="text-center">
+            <div class="h3">{{ 'w_notifications.sharing_title' | translate }}</div>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+            <div class="row">
+                <div class="col-10"></div>
+                <div class="col">
+                    <p translate="w_notifications.share_contact_text" 
+                       translate-value-sender="{{ NotificatorManager.sharing_contact.from.name || NotificatorManager.sharing_contact.from.username }}"
+                       translate-value-contact="{{ NotificatorManager.sharing_contact.contact.displayName }}"></p>
+                </div>
+                <div class="col-10"></div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <div class="h4">{{ NotificatorManager.sharing_contact.contact.displayName }}</div>
+            <img id='parrot_elem1' src="./web-assets/img/logo-parrot.png" style="max-width: 30% !important;"/>
+        </div>
+
+        <div ng-repeat="phone in NotificationManager.sharing_contact.contact.phoneNumbers">
+            <div class="text-center BoxInformationPhoneNumber">
+                <div class="h4">
+                    <i class="icon-4x " ng-class=" phone.type.toUpperCase() == 'HOME'  ? 'ion-home' : 'ion-iphone' "></i>
+                    {{ phone.normalizedNumber || phone.number }}
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <button style="bottom:100px;" class="float-button button animated zoomIn important" ng-click="NotificatorManager.sharing_contact.save()">
+            <i class="icon ion-checkmark-round"> </i>
+        </button>
+
+
+        <button class="float-button button animated zoomIn danger" ng-click="NotificatorManager.sharing_contact.hide()">
+            <i class="icon ion-close"> </i>
+        </button>
+
+    </ion-content>
+
+</div>
+
+<style>
+    .NotificationsModalGender {
+        background: rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .BoxInformationPhoneNumber {
+        background: #0A130A;
+        margin: 30px;
+        margin-top: 5px;
+        margin-bottom: 6px;
+        border-radius: 30px;
+        padding: 6px;
+        box-shadow: 1px 1px 5px #342D2A !important;
+        font-weight: bold;
+    }
+
+    .icon-4x {
+        font-size: 23px;
+    }
+
+</style>

@@ -1,0 +1,58 @@
+<div class="modal ContactsModalShare">
+
+  <ion-header-bar align-title="center" class="bar-callpal">
+
+    <div class="buttons" ng-hide="share.search">
+      <button class="button button-clear" ng-click="share.close()">{{ 'w_general_actions.back' | translate }}</button>
+    </div>
+
+    <h1 class="title" ng-hide="share.search">{{ 'w_contacts.select_contact' | translate }}</h1>
+
+    <div class="buttons" ng-hide="share.search">
+      <button class="button button-clear button-icon ion-ios-search" ng-click="share.enableSearch('search-input')"></button>
+    </div>
+
+    <div class="bar-header item-input-inset search-bar" ng-show="share.search">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input id="search-input" ng-model="share.query" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+      </label>
+      <button class="button button-clear button-icon cancel" ng-click="share.disableSearch()"><i
+        class="icon ion-android-close"></i></button>
+    </div>
+
+  </ion-header-bar>
+
+  <ion-content class="padding">
+
+    <ion-list class="list">
+
+      <ion-item ng-click="share.share(contact)"
+                collection-repeat="contact in share.list | filter:share.query | orderBy: ['displayName'] | unique: 'displayName' track by $index" item-height="50px">
+            <a class="item item-avatar" href="#" ng-click="open_contact(contact)" on-hold="goToContactWithOptions(contact)">
+
+                <div ng-if="!contact.extension" class="no-callpal-egg">
+                    {{ contact.displayName | getInitials }}
+                    <!-- Need to place real initials (user does not have callpal and therefore no avatar) -->
+                </div>
+
+                <div ng-if="contact.extension && !contact.avatar" class="no-callpal-egg">
+                    <!--GL &lt;!&ndash; user has callpal, but no avatar &ndash;&gt;-->
+                    <img ng-src="./web-assets/img/logo-parrot.png" non-loaded-image style="height: 20px">
+                </div>
+
+                <img class="small-avatar" ng-if="contact.avatar" ng-src="{{ contact.avatar}}"/>
+                <span class="col col-70 text-left">
+                    {{ contact.displayName}}
+                    <!-- <br>
+                    {{ contact.phoneNumbers | joinByProperty:', ':'number' }} -->
+                </span>
+            </a>
+
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+
+</div>

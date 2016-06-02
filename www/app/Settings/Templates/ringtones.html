@@ -1,0 +1,33 @@
+<ion-view title="Ringtone">
+  <ion-header-bar align-title="center" class="bar-callpal">
+
+    <div class="buttons" ng-hide="show">
+      <button class="button button-clear" ng-click="back()">{{ 'w_general_actions.back' | translate }}</button>
+    </div>
+    <h1 class="title" ng-hide="show" translate="w_settings.options.ringtones.title"></h1>
+
+    <!--<div class="buttons" ng-hide="show">-->
+      <!--<button class="button button-clear button-icon ion-ios-search" ng-click="showSearch()"></button>-->
+    <!--</div>-->
+
+    <div class="bar-header item-input-inset search-bar" ng-show="show">
+      <label class="item-input-wrapper">
+        <i class="icon ion-ios-search placeholder-icon"></i>
+        <input ng-model="search" type="search" placeholder="Search">
+      </label>
+      <button class="button button-clear button-icon" ng-click="cancelSearch()"><i class="icon ion-android-close"></i>
+      </button>
+    </div>
+<!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+
+  <ion-content padding="true" class="settingsPane settings-ring-tones" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+      <ion-list style="background-color: transparent">
+          <ion-radio class="bootom-line" prevent-on-offline="click"
+               ng-repeat="ringTone in ringTones" ng-click="play(ringTone.fileName)" ng-model="userRingTone" ng-value="ringTone.fileName">{{ringTone.visualName}}</ion-radio>
+      </ion-list>
+  </ion-content>
+</ion-view>

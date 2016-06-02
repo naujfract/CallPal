@@ -1,0 +1,82 @@
+<ion-view title="My Nest" class="nest-page my-interest {{main.langClass}}">
+  <ion-header-bar align-title="left" class="bar-callpal animated slideInDown">
+    <div class="buttons">
+      <button class="button button-clear button-icon back" ui-sref="nest-home">
+      </button>
+    </div>
+    <h1 class="title" translate="w_nest.title"></h1>
+    <div class="buttons">
+      <button class="button button-clear button-icon close" ui-sref="app.country">
+      </button>
+    </div>
+  </ion-header-bar>
+  <ion-content padding="true" class="content animated slideInUp">
+    <div class="box-bar" ng-if="main.searchBox.show">
+      <div class="tabs-bar">
+        <h2 ng-class="main.sections[0].animated" class="animated">{{main.sections[0].transalated_name}}</h2>
+        <ul>
+          <!--<li ng-click="main.change(main.sections[1], 1)" ng-class="main.sections[1].animated" class="animated">{{main.sections[1].name}}</li>
+          <li ng-click="main.change(main.sections[2], 2)" ng-class="main.sections[2].animated" class="animated">{{main.sections[2].name}}</li>-->
+          <li ng-class="main.sections[1].animated" class="animated">{{main.sections[1].transalated_name}}</li>
+          <li ng-class="main.sections[2].animated" class="animated">{{main.sections[2].transalated_name}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="list list-inset">
+      <label class="item item-input animated" ng-if="main.searchBox.show" ng-class="main.searchBox.class">
+        <input type="text" placeholder="{{main.searchBox.title}} {{main.sections[0].transalated_search}}.." ng-model="main.searchBox.name" ng-change="main.search()">
+        <i class="icon ion-search placeholder-icon"></i>
+      </label>
+    </div>
+
+    <div id="interestsBox">
+
+      <ion-scroll id="contentScroll" ng-if="interestsActions.show" ng-class="main.searchBox.class" zooming="false" direction="y" style="width: 100%;" class="interest-grid" on-scroll="contacts.hide()">
+
+        <ion-list masonry class="mansory-box">
+          <div class="masonry-brick {{main.sections[0].search}}  animated"
+               ng-repeat="interest in main.searchBox.filterInterests = (main.sections[0].childs | filter:main.searchBox.name) | unique: 'translated' track by $index"
+               ng-class="[interest.style, main.sections[0].childs_class]"
+               ng-click="interestsActions.addInterest(interest, main.sections[0].search)"
+               ng-if="interest.type != 'coming'" style="width: {{main.categories_width}} !important; margin: 2px;">
+            <div ng-if="main.sections[0].search == 'interests'">
+              <p ng-if="interest.name">{{interest.translated}}</p>
+              <img ng-if="interest.image" ng-src="{{ interest.image }}">
+            </div>
+            <div ng-if="main.sections[0].search == 'key words'">
+              <p ng-if="interest.translated">{{interest.translated}}</p>
+              <p ng-if="interest.key  && !interest.translated">{{interest.key}}</p>
+            </div>
+            <div ng-if="main.sections[0].search == 'languages' && interest.type == 'now'">
+              <div class="flag-box">
+                <img ng-src="{{ flag.url }}{{ interest.flag  | lowercase }}.{{ flag.extension }}" class="flag">
+              </div>
+              <p ng-if="interest.title">{{interest.title}}</p>
+            </div>
+          </div>
+          <button class="add-key" ng-if="main.addKeyBox.show" ng-click="main.addKey()">Add "{{ main.searchBox.name }}" to my Key Words.</button>
+        </ion-list>
+        <span class="coming-title" ng-if="main.sections[0].search == 'languages'">Coming Soon!</span>
+        <ion-list ng-if="main.sections[0].search == 'languages'" masonry class="mansory-box">
+          <div class="masonry-brick {{main.sections[0].search}}  animated"
+               ng-repeat="interest in main.searchBox.filterInterests = (main.sections[0].childs | filter:main.searchBox.name) track by $index"
+               ng-class="[interest.style, main.sections[0].childs_class]"
+               ng-click="interestsActions.addInterest(interest, main.sections[0].search)"
+               ng-if="main.sections[0].search == 'languages' && interest.type == 'coming'">
+            <div>
+              <div class="flag-box">
+                <img ng-src="{{ flag.url }}{{ interest.flag | lowercase }}.{{ flag.extension }}" class="flag">
+              </div>
+              <p ng-if="interest.title">{{interest.title}}</p>
+            </div>
+          </div>
+          <button class="add-key" ng-if="main.addKeyBox.show" ng-click="main.addKey()">Add "{{ main.searchBox.name }}" to my Key Words.</button>
+        </ion-list>
+      </ion-scroll>
+    </div>
+    <div class="buttons actions">
+      <button class="button button-icon icon accept" ng-click="interestsActions.continue()"></button>
+      <button class="button button-icon icon cancel" ng-click="interestsActions.back()"></button>
+    </div>
+  </ion-content>
+</ion-view>

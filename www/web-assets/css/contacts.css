@@ -1,0 +1,326 @@
+/* Contacts Section */
+.contactsPane {
+  padding: 15px;
+}
+
+.contactsPane ion-refresher {
+  color: #fff;
+}
+
+.contactsPane .list .item {
+  min-height: 52px;
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: transparent;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.contactsPane .list .item span {
+  display: block;
+  margin-right: 90px;
+  margin-left: 45px;
+}
+
+.contactsPane .list .item div.avatar-noImage {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+
+  /* Egg */
+  background-image: url('/web-assets/img/contacts/egg.png');
+  background-size: 72%;
+  background-repeat: no-repeat;
+  background-position: 6px 2px;
+}
+
+.contactsPane .list .item div.avatar {
+  height: 45px;
+  width: 45px;
+  position: absolute;
+}
+
+div.no-callpal {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.contactsPane .list .item div.avatar img,
+.contactsPane .list .item div.avatar-noImage img {
+  width: auto;
+  height: auto;
+  max-width: 45px;
+  max-height: 45px;
+}
+
+.contactsPane .list .item span.number {
+  font-size: 10px;
+  margin-bottom: 0px;
+}
+
+.contactsPane .list .item span.name {
+  font-size: 13px;
+  margin-top: 3px;
+  text-overflow: ellipsis;
+}
+
+.contactsPane .list .item button {
+  right: 0px;
+  background: transparent;
+  border: none;
+  width: 98px;
+  height: auto;
+  padding: 0;
+}
+
+.contactsPane .list .item button img {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 85px;
+}
+
+/* CallPal css3 buttons */
+.contactsPane .list .item .contact-button-active {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 3px;
+  box-shadow: inset 0px 0px 9px -2px rgba(255, 255, 255, 0.8), 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  max-width: 90px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 25px;
+  margin-right: 3px;
+  font-size: 12px;
+  padding-top: 4px;
+}
+
+.contactsPane .list .item .contact-button-inactive {
+  border: 1px solid #4f8568;
+  background-color: #4f8568;
+  border-radius: 10px;
+  padding: 3px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 90px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 25px;
+  margin-right: 3px;
+  font-size: 12px;
+  padding-top: 4px;
+  box-shadow: inset 0px 0px 9px -2px #305240;
+}
+
+.contactsPane .list .item-divider {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 5px 10px;
+  font-size: 18px;
+  min-height: 20px;
+}
+
+/* Contact Popup */
+.contactPopup {
+  background-image: linear-gradient(to left bottom, #35b162, #cdd437);
+  box-shadow: 0px 0px 10px -1px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 11px;
+}
+
+.popup-border {
+  padding: 10px;
+  box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.4), inset 0px 0px 10px -3px rgba(255, 255, 255, 1);
+  border-radius: 3px;
+}
+
+.contactPopup span.name {
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.contactPopup select {
+  margin-bottom: 15px;
+  background-color: #a7d071;
+  border-radius: 1px;
+  /*box-shadow: 0px 0px 0px 1px #6E9033;*/
+  box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 10px;
+  border: none;
+}
+
+.contactPopup input {
+  display: inline-block;
+  background-color: #a7d071 !important;
+  /*box-shadow: 0px 0px 0px 1px #6E9033;*/
+  box-shadow: inset 0px 0px 1px 1px #6E9033;
+  padding: 10px;
+  color: #004D13;
+  border-radius: 2px;
+  font-size: 12px;
+  border: none;
+  text-align: center;
+}
+
+.contactPopup div.code input {
+  width: 50px;
+}
+
+.contactPopup div.code {
+  margin-bottom: 15px;
+}
+
+.contactPopup div.number span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.contactPopup div.number {
+  margin-bottom: 15px;
+}
+
+.contactPopup a.button {
+  color: #fff;
+  text-transform: uppercase;
+  background-image: -webkit-linear-gradient(top, #FDB575 0%, #FF831A 27%);
+  border-color: #bc8657;
+  letter-spacing: 1px;
+  line-height: 3;
+  min-height: 15px !important;
+  vertical-align: middle !important;
+  font-size: 9px !important;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.speedDialPopup .popup .popup-head {
+  display: none;
+}
+
+.speedDialPopup .popup .popup-body {
+  padding: 0;
+}
+
+a.ion-close {
+  font-size: 16px;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  color: #afdc4a;
+  cursor: pointer;
+}
+
+h1 {
+  left: 0 !important;
+  right: 0 !important;
+}
+
+.bar-header {
+  width: 100%;
+  padding-left: 3px;
+}
+
+.popover-arrow {
+  left: 182px !important;
+}
+
+button.ion-more, button.ion-ios-search {
+  width: 46px;
+  font-size: 25px !important;
+}
+
+ion-popover-view .item {
+  padding: 15px;
+}
+
+/*.platform-ios.platform-cordova:not(.fullscreen) .search-bar {
+    margin-top: 0px !important;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .search-bar button {
+      margin-top: 12px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) > * {
+  margin-top: 0px;
+  top: -7px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) button.cancel {
+  margin-top: 15px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 0px !important;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader) {
+    height: 44px !important;
+}
+.platform-ios.platform-cordova:not(.fullscreen) .has-header, .platform-ios.platform-cordova:not(.fullscreen) .bar-subheader {
+    top: 0 !important;
+}
+*/
+
+/*.platform-ios.platform-cordova:not(.fullscreen) .bar-header:not(.bar-subheader).item-input-inset .item-input-wrapper {
+    margin-top: 0px !important;
+}*/
+
+.platform-ios.platform-cordova:not(.fullscreen) .search-bar {
+  margin-top: 0px !important;
+  top: -8px;
+}
+
+.platform-ios.platform-cordova:not(.fullscreen) ion-header-bar h1 {
+  margin-top: 20px !important;
+}
+
+/*Contact Modal*/
+
+.modal .title,
+.modal .button,
+.modal .white{
+  color : white !important;
+}
+
+.modal .contact-phone {
+  margin-left: 10px;
+  line-height: 3;
+  color: white;
+}
+
+.modal .contact-button {
+  background-color: transparent;
+  border-color: white;
+}
+
+.modal .contact-tab {
+  background-color: transparent;
+  border: none;
+}
+
+.modal .contact-item {
+  padding: 0 16px 8px 16px;
+  background-color: transparent;
+  border: none;
+}
+

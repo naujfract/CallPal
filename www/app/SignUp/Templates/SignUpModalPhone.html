@@ -1,0 +1,48 @@
+<div class="modal SignUpCountryModal">
+
+  <ion-header-bar align-title="center">
+
+    <button class="button button-clear" ng-click="hidePhoneCountryModal()"
+            ng-hide="if_pending_phone_pin_verification()">{{ 'w_general_actions.back' | translate }}
+    </button>
+
+    <button class="button button-clear" ng-click="goBack()"
+            ng-show="if_pending_phone_pin_verification()">{{ 'w_general_actions.back' | translate }}
+    </button>
+
+      <h1 class="title" translate="w_general_actions.phone"></h1>
+
+  </ion-header-bar>
+
+  <ion-content class="signupPane">
+
+    <div class="list list-inset">
+
+      <div class="sms-error" ng-if="sms_error">{{ sms_error }}</div>
+
+      <div class="item item-input-inset phone-box">
+
+        <button class="button button-small phone-prefix" ng-click="showCountries()">
+          {{ signupData.pretty_country_dial }}
+        </button>
+
+        <label class="item-input-wrapper phone-number">
+          <input type="tel" placeholder="Phone number" ng-model="signupData.phone" only-numbers>
+        </label>
+
+      </div>
+
+      <button class="button SignUpButton"
+              ng-click="registerAccount()"
+              ng-hide="sms_error" translate="w_login.create_account">
+      </button>
+
+      <button class="button SignUpButton"
+              ng-click="updateAccountPhoneNumberResendPin()"
+              ng-show="sms_error" translate="w_login.update_phone">
+      </button>
+
+    </div>
+
+  </ion-content>
+</div>

@@ -1,0 +1,249 @@
+<ion-view class="CallPal {{callProperties.type}}" cache-view="false">
+  <canvas id="canvas" width="800" height="800" style="background-color:#FFFFFF"></canvas>
+    <!-- outgoing calls sessions and connected calls -->
+
+    <div ng-if="callProperties.type != 'incoming' || callProperties.active == true">
+
+        <ion-header-bar align-title="left" class="bar-positive">
+            <div class="row outgoing">
+                {{member.avatar }}
+                <div class="col col-33" class="thumbs-box">
+                    <div ng-repeat="member in members">
+                        <div class="avatar" id="user_avatar"
+                             style="background-image:url({{member.avatar || defaultAvatar }});" alt=""></div>
+                        <div class="profile" ng-src="web-assets/img/call/avatar_mask.png" alt=""></div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+
+                <div class="col col-67">
+
+                    <div class="text-center h2" style="margin: 0;" stop-event>
+                        {{ members | joinByProperty:', ':'displayName' }}
+                    </div>
+
+                    <!--<div stop-event class="text-center h5" style="margin: 0;" ng-hide="members.length > 1" ng-show="(members[0].phoneNumbers[0].landline_number != members[0].phoneNumbers[0].displayName)">-->
+                    <div stop-event style="margin: 0;" ng-hide="members.length > 1">
+                        <div class="text-center h3" ng-repeat="member in members" ng-if="!dialedNumber">
+                            {{ member.phoneNumbers[0].number}}
+                        </div>
+                        <div class="text-center h3" ng-repeat="member in members" ng-if="dialedNumber">
+                            {{ dialedNumber }}
+                        </div>
+                        {{ members | joinByProperty:', ': phoneNumbers[0] }}
+                    </div>
+
+                    <div class="text-center h4" style="margin: 0;">
+                        {{ status }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </ion-header-bar>
+
+
+        <ion-content class="padding has-header has-footer" scroll="false">
+
+            <div class="row call-actions" style="display:none">
+                <div class="col col-33">
+                    <button class="button ion-ios-telephone disabled" enable-after-sip-connected="enableAfterSIPConnected" ng-click="end()"></button>
+                </div>
+
+                <div class="col">
+                </div>
+                <div class="col" ng-show="!landline">
+                </div>
+            </div>
+
+            <!-- connected call -->
+            <div class="row call-actions">
+                <div class="col">
+                    <button class="button button-opacity"
+                            disable-action="disableAction"
+                            ng-class="(video_camera.isMicActive() == true) ? 'ion-android-microphone-off' : 'ion-android-microphone'"
+                            ng-click="video_camera.toggleMic()"></button>
+                </div>
+
+                <div class="col">
+                    <button class="button button-opacity"
+                            ng-class="(video_camera.isSpeakerActive() == true) ? 'ion-android-volume-up' : 'ion-android-volume-off'"
+                            disable-action="disableAction"
+                            ng-click="video_camera.toggleSpeaker()"></button>
+                </div>
+
+                <div class="col">
+                    <button class="button button-opacity dial" disable-action="disableAction" ng-click="showComingSoon()"></button>
+                </div>
+                <div class="col" ng-show="!landline">
+                    <button class="button button-opacity"
+                            ng-class="(video_camera.isVideoCall() == true) ? 'ion-ios-videocam' : 'ion-ios-videocam-outline'"
+                            ng-click="video_camera.toggle()"
+                            disable-action="disableAction"></button>
+                </div>
+                <!--<div class="col">
+                  <button class="button button-opacity add-user" ng-click="addMembers.open(members)"></button>
+                </div>-->
+                <div class="col col-33">
+                    <button class="button end-call disabled" enable-after-sip-connected="enableAfterSIPConnected" ng-click="end()"></button>
+                </div>
+
+            </div>
+
+            <div class="box-cards" ng-class="main.cardsBorder">
+                <div id="media_content_space" class="b2b-box">
+                    <ion-spinner ng-if="main.cards.length == 0" icon="ripple" class="spinner-energized"></ion-spinner>
+                    <ion-slide-box ng-if="main.cards.length == 0"
+                                   on-slide-changed="main.get_next_slide($index)"
+                                   delegate-handle="cardsSlide"
+                                   auto-play="false"
+                                   does-continue="true">
+                        <ion-slide ng-repeat="card in main.cards track by $index">
+                            <div class="card" ng-class="main.boxCardsClass" lazy-img="{{card.media_image_mobile}}"
+                                 style="background-image:url({{card.media_image_mobile}});">
+                            </div>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div>
+            </div>
+
+            <!-- accept file -->
+
+            <div id="accept-file" class="accept-file row hide">
+                <div class="message">
+          <span>New content shared.
+            <p ng-if="share.type == 'file'">
+                Size: {{ share.remoteFile.size }}
+            </p>
+          </span>
+
+                </div>
+                <div class="buttons">
+                    <button class="reject right" ng-click="share.rejectRemoteElement()">Reject</button>
+                    <button class="accept left" ng-click="share.acceptRemoteElement()">Accept</button>
+                </div>
+            </div>
+
+            <div ng-class="main.boxActions.class" class="actions-container">
+                <div>
+                    <ul class="{{main.actions[0].type}}">
+                        <li ng-if="main.actions[0].type != 'nest'" ng-repeat="action in main.actions"
+                            class="{{action.type}}" ng-click="manage_actions.send(action)">
+                            <img ng-src="{{action.icon}}"/>
+
+                            <p>{{action.name}}</p>
+                        </li>
+                    </ul>
+                    <div ng-if="main.actions[0].type == 'nest'" class="{{main.actions[0].type}}">
+                        <i class="icon ion-checkmark-round"></i>
+
+                        <p>Saved to your nest</p>
+                    </div>
+                </div>
+            </div>
+
+        </ion-content>
+
+
+        <ion-footer-bar class="bar-primary">
+
+            <!-- connected call -->
+            <div class="row card-actions">
+                <div class="col">
+                    <button class="button disabled button-opacity express" ng-class="{'active': main.activeAction == 'express'}"
+                            ng-click="main.card_express_actions('express')"></button>
+                </div>
+                <div class="col share-button-box" ng-show="!landline && !group_call">
+                    <input type="file" id="file" custom-on-change="uploadFile($event)" style="display: none;"/>
+                    <button class="button button-opacity share"
+                            ng-click="main.card_share_actions('share')"
+                            disable-action="disableAction"
+                            ng-class="main.active.share"></button>
+                </div>
+                <div class="col">
+                    <button class="button disabled button-opacity nest" ng-class="{'active': main.activeAction == 'nest'}"
+                            ng-click="manage_actions.save_on_nest()"></button>
+                </div>
+            </div>
+
+        </ion-footer-bar>
+
+    </div>
+
+
+    <!---->
+    <!---->
+
+
+    <!-- incoming calls sessions -->
+
+
+    <div ng-if="callProperties.type == 'incoming' && callProperties.active == false">
+
+
+        <ion-header-bar align-title="left" class="bar-positive">
+
+            <!-- Incoming call -->
+            <div class="row incoming">
+                <div class="col">
+                    <div class="text-center h2" style="margin: 0;" stop-event>
+                        {{members | joinByProperty:', ':'displayName' }}
+                    </div>
+                    <div stop-event style="margin: 0;" ng-hide="members.length > 1">
+                        <div class="text-center h3" ng-repeat="member in members">
+                            {{member.phoneNumbers[0].number}}
+                        </div>
+                        {{members | joinByProperty:', ': phoneNumbers[0] }}
+                    </div>
+                </div>
+            </div>
+        </ion-header-bar>
+
+        <ion-content class="padding has-header has-footer" scroll="false">
+
+            <div class="box-cards" ng-class="main.cardsBorder">
+                <div class="row">
+                    <div class="col text-center">
+                        <div id="user_avatar"
+                             class="user_avatar animated swing infinite"
+                             ng-style="{'background-image':'url(' + (user_avatar || defaultAvatar) + ')'}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-class="main.boxActions.class" class="actions-container animated">
+                <div ng-repeat="action in main.actions">
+                    <ul>
+                        <li ng-click="manage_actions.send(action)">
+                            <img ng-src="{{action.icon}}"/>
+
+                            <p>{{action.name}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </ion-content>
+
+        <ion-footer-bar class="bar-primary">
+
+            <!-- incoming call -->
+            <div class="row call-actions">
+                <div class="col col-50">
+                    <button class="button end-call disabled" enable-after-seconds="enableAfterSeconds" ng-click="end()"></button>
+                </div>
+                <div class="col col-50">
+                    <button class="button  button accept-call ion-ios-videocam disabled" enable-after-seconds="enableAfterSeconds" ng-if="video_camera.isVideoCall()"
+                            ng-click="accept()"></button>
+                    <button class="button  button accept-call ion-ios-telephone disabled" enable-after-seconds="enableAfterSeconds" ng-if="!video_camera.isVideoCall()"
+                            ng-click="accept()"></button>
+                </div>
+            </div>
+
+        </ion-footer-bar>
+    </div>
+
+</ion-view>

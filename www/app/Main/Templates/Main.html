@@ -1,0 +1,39 @@
+<ion-nav-view class="callpal-tab-view" id="mainNav"></ion-nav-view>
+<div class="tabs tabs-callpal tabs-icon-top hide-on-keyboard-open {{$root.hideTabs}}">
+
+  <a class="tab-item" ui-sref="app.tellafriend" ui-sref-active="current">
+    <i class="icon ion-person-add"></i>
+
+    <p translate="t_menu.tell_a_friend"> Tell a Friend </p>
+  </a>
+  <a class="tab-item border" ui-sref="app.contacts" ui-sref-active="current">
+    <i class="icon ion-person-stalker"></i>
+
+    <p translate="t_menu.contacts"> Contacts </p>
+  </a>
+  <a class="tab-item border" ng-click="goToCallPal()" ui-sref-active="current">
+    <i class="icon">
+      <i class="icon ion-egg" ng-class="{'super-index-recording' : missingCallNotNotified > 0}">
+        <p class="super-index" ng-show="missingCallNotNotified > 0" ng-bind="missingCallNotNotified"></p>
+      </i>
+
+      <!--<img class="callpal-icon" src="web-assets/img/icons/callpal.png">  background-color: #FF831A;-->
+    </i>
+    <p>Call Pal</p>
+  </a>
+  <a class="tab-item border" ui-sref="app.voicemail" ui-sref-active="current">
+    <i class="icon ion-ios-recording" ng-class="{'super-index-recording' : newVoiceMailCount > 0}">
+      <p class="super-index" ng-show="newVoiceMailCount > 0" ng-bind="newVoiceMailCount"></p>
+    </i>
+    <p translate="t_menu.voice_mail"> Voice Mail </p>
+  </a>
+  <a class="tab-item border" ui-sref="app.settings.menu" ui-sref-active="current">
+    <i class="icon ion-gear-b"></i>
+
+    <p translate="t_menu.settings"> Settings </p>
+  </a>
+</div>
+
+<!--Notifications-->
+
+<div ng-controller="NotificationsCtrl"></div>

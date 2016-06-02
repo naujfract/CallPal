@@ -1,0 +1,136 @@
+<!--?d-->
+
+
+<!--<div class="modal" style="background-image: linear-gradient( to left bottom, #47C47A, #128CB5) !important;" ng-if="!if_is_group_call(call)">-->
+
+<!--<ion-header-bar style="background-image: linear-gradient( to left bottom, #47C47A, #128CB5) !important;">-->
+<!--<h1 class="title">{{ call.members[0].name }}</h1>-->
+<!--</ion-header-bar>-->
+
+<!--<ion-content>-->
+
+<!--<div>-->
+<!--<b>Phone: </b>-->
+<!--{{ call.members[0].phone }}-->
+<!--</div>-->
+
+<!--<span class="time">{{ call.start_date }}<br>{{ call.start_time }}</span>-->
+<!--<i ng-class="draw_phone_icon(call.call_type)"></i>-->
+<!--<i ng-class="draw_phone_arrow(call.call_type)"></i>-->
+
+<!--<div>-->
+<!--<b> End call information: </b>-->
+<!--<span class="">{{ call.end_date }}<br>{{ call.end_time }}</span>-->
+<!--</div>-->
+
+
+<!--<div>-->
+<!--<b> Quality: </b>-->
+<!--<span class="">{{ call.quality }}</span>-->
+<!--</div>-->
+
+<!--<button class="button button-full button-reverse" ng-click="deleteCall(call)">-->
+<!--Remove from history-->
+<!--</button>-->
+
+<!--<button class="button button-full" ng-click="changeQuality(call)">-->
+<!--Change quality-->
+<!--</button>-->
+
+<!--<button class="button button-full button-reverse" ng-click="exportCall(call)">-->
+<!--Export call-->
+<!--</button>-->
+
+<!--<button class="button button-full button-inverse" ng-click="closeCallDetailsModal()">Close</button>-->
+
+<!--</ion-content>-->
+
+<!--</div>-->
+
+
+<!--Group call-->
+
+
+<!--<div class="modal" style="background-image: linear-gradient( to left bottom, #47C47A, #128CB5) !important;" ng-if="if_is_group_call(call)">-->
+<!--<ion-header-bar style="background-image: linear-gradient( to left bottom, #47C47A, #128CB5) !important;">-->
+<!--<h1 class="title">{{ "Group call" }} ({{ call.members.length }}) members</h1>-->
+<!--</ion-header-bar>-->
+<!--<ion-content>-->
+
+<!--<b> Start call information XXX: </b>-->
+<!--<span class="time">{{ call.start_date }}<br>{{ call.start_time }}</span>-->
+<!--<i ng-class="draw_phone_icon(call.call_type)"></i>-->
+<!--<i ng-class="draw_phone_arrow(call.call_type)"></i>-->
+
+<!--<div ng-repeat="member in members">-->
+<!--{{ member.name }}-->
+<!--{{ member.phone }}-->
+<!--{{ member.gender }}-->
+<!--</div>-->
+
+<!--<button class="button button-full button-positive" ng-click="deleteCall(call)">-->
+<!--Remove from history-->
+<!--</button>-->
+
+<!--<button class="button button-full" ng-click="changeQuality(call)">-->
+<!--Change quality-->
+<!--</button>-->
+
+<!--<button class="button button-full button-reverse" ng-click="exportCall(call)">-->
+<!--Export call-->
+<!--</button>-->
+
+
+<!--<button class="button button-full button-inverse" ng-click="closeCallDetailsModal()">Close</button>-->
+
+<!--</ion-content>-->
+<!--</div>-->
+
+<div class="modal">
+
+  <ion-header-bar style="background-color:transparent">
+    <h1 class="title">{{ "Group call" }} ({{ call.members.length }}) members</h1>
+    <button class="button button-clear button-positive button-icon ion-close"
+            ng-click="closeCallDetailsModal()" prevent-on-offline="click"></button>
+      <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+    <check-connection></check-connection>
+  </ion-header-bar>
+
+  <ion-content ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }">
+
+    <div class="padding" style="color:white; font-size: 16px;">
+
+      <i ng-class="draw_phone_icon(call.call_type)"></i>
+      <i ng-class="draw_phone_arrow(call.call_type)"></i>
+      <span class="time">{{ call.start_date }}<br>{{ call.start_time }}</span>
+
+    </div>
+
+    <div class="list ">
+
+      <div class="item" ng-repeat="member in members" style="padding: 16px;background-color: transparent;border: none">
+
+        <p style="color: white !important;">
+          {{ member.name }} {{ member.phone }} {{ member.gender }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+
+  <div class="tabs tabs-icon-top" style="background-color: transparent;color: white">
+    <button class="tab-item contact-tab" ng-click="deleteCall(call)" prevent-on-offline="click">
+      <i class="icon ion-trash-a"></i>
+      {{ 'w_general_actions.delete' | translate }}
+    </button>
+    <button class="tab-item contact-tab" ng-click="exportCall(call)" prevent-on-offline="click">
+      <i class="icon ion-android-download"></i>
+      {{ 'w_general_actions.export' | translate }}
+    </button>
+  </div>
+
+</div>

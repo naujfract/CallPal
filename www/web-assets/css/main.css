@@ -1,0 +1,130 @@
+/* to apply mater classes, class .pane is highest in DOM */
+
+/* Helper classes */
+body {
+  font-family: 'Brandon_reg' !important;
+}
+
+img .center {
+    display:block;
+    margin-left:50%;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.current{
+  background: rgba(255,255,255,0.3);
+}
+.callpal-tab-view {
+    height: 100%;
+    height: calc(100% - 60px);
+}
+.callpal-icon {
+	background-repeat: no-repeat;
+	background-position: 50%;
+    height: 100%;
+    background-image: url('/web-assets/img/icons/callpal.png');
+    background-size: 29px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+}
+
+* {
+    box-shadow: none !important;
+}
+
+
+.background-default { background-image: linear-gradient( to left bottom, #35b162, #cdd437) !important; }
+.background-red-yellow { background-image: linear-gradient( to left bottom, #FB444C, #AFE002) !important; }
+.background-purple-pink { background-image: linear-gradient( to left bottom, #C491EA, #DC6BD3) !important; }
+.background-blue { background-image: linear-gradient( to left bottom, #47C47A, #128CB5) !important; }
+.background-orange { background-image: linear-gradient( to left bottom, #F3B528, #F48A36) !important; }
+.background-yellow { background-image: linear-gradient( to left bottom, #F3CF26, #CBDA23) !important; }
+
+/*Home Page*/
+
+.widget {
+  border-radius: 5px;
+  overflow-x: auto;
+  margin: 10px 10px 20px;
+  padding: 10px;
+  /*-webkit-box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.75) !important;*/
+  /*-moz-box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.75) !important;*/
+  /*box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.75) !important;*/
+  background-image: linear-gradient(to left bottom, #35b162, #cdd437);
+}
+
+.widget .widget-header {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.widget p {
+  font-size: 14px !important;
+  color: white !important;
+  margin-top: 0;
+}
+
+.widget.widget-clock h1 {
+  font-size: 4.5em !important;
+  color: white !important;
+  margin-bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+.widget.widget-clock p {
+  font-size: 14px !important;
+  color: white !important;
+  margin-top: 0;
+  text-align: right;
+}
+
+.widget.widget-favorites {
+  height: 140px;
+}
+
+.widget.widget-favorites .favorite {
+  display: inline-table;
+  margin: 10px;
+}
+
+.widget.widget-favorites .favorite  p{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  bottom: -5px !important;
+}

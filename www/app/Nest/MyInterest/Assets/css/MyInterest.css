@@ -1,0 +1,271 @@
+.nest-page.my-interest .bar-callpal button.back{
+  background-image: url('../../../../../web-assets/img/nest/back.png');
+  width: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: 5px;
+}
+
+.nest-page.my-interest .bar-callpal h1{
+  margin-left: 35px;
+}
+
+.nest-page.my-interest .scroll.padding{
+  height: 100%;
+}
+
+.nest-page.my-interest .content{
+  margin: 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  background-color: rgba(93,93,93,0.21) !important;
+}
+
+.nest-page.my-interest .content .tabs-bar{
+  padding: 5px 0px 15px 10px;
+  height: 40px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.nest-page.my-interest .content .box-bar{
+  height: 40px;
+  overflow: hidden;
+}
+
+.nest-page.my-interest .content .tabs-bar h2{
+  text-align: left;
+  float: left;
+  font-family: 'Brandon_bld';
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  padding-bottom: 7px;
+
+  animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+}
+
+.nest-page.my-interest.ru .tabs-bar h2{
+  font-size: 1.2em;
+  line-height: 26px;
+  padding-bottom: 7px;
+  padding-left: 0;
+}
+
+.nest-page.my-interest .content .tabs-bar ul{
+  float: right;
+}
+
+.nest-page.my-interest .content .tabs-bar ul li{
+  float: left;
+  color: #fff;
+  opacity: .5;
+  font-family: 'Brandon_reg';
+  font-size: 1.3em;
+  margin-right: 15px;
+  line-height: 29px;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+}
+
+.my-interest.ru .content .tabs-bar ul li{
+    font-size: 1em;
+}
+
+.nest-page.my-interest .list-inset{
+  margin: 10px;
+}
+
+.nest-page.my-interest .list-inset label{
+  border-top-left-radius: 0px  !important;
+  border-bottom-right-radius: 0px  !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  border-bottom-left-radius: 4px  !important;
+  border-top-right-radius: 4px  !important;
+  min-height: 40px !important;
+  height: 40px !important;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: 1;
+}
+
+.nest-page.my-interest .list-inset label input{
+  line-height: 2.5em;
+  padding-right: 44px;
+  padding-top: 0px;
+}
+
+.nest-page.my-interest .interest-grid{
+   height:70vh;
+}
+
+.platform-ios .nest-page.my-interest .interest-grid{
+   height:61vh;
+}
+
+.platform-android .nest-page.my-interest .interest-grid{
+  height:60vh;
+}
+
+.nest-page.my-interest .content .masonry-brick {
+  display: none;
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: .6;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  width: 21.9vw;
+  margin: .3vh;
+  height: auto;
+  float: left;
+}
+
+.nest-page.my-interest .content .masonry-brick.interests{
+  width: 29.5vw;
+}
+
+.platform-android .nest-page.my-interest .content .masonry-brick{
+  width: 21.7vw;
+}
+
+.platform-android .nest-page.my-interest .content .masonry-brick.interests{
+  width: 29vw;
+}
+
+.platform-android .nest-page.my-interest .content .masonry-brick.word{
+  width: 20vw;
+}
+
+.platform-ios .nest-page.my-interest .content .masonry-brick{
+  width: 21.3vw;
+}
+
+.platform-ios .nest-page.my-interest .content .masonry-brick.interests{
+  width: 28.8vw;
+}
+
+.nest-page.my-interest .content .interest-grid ion-list{
+  display: block;
+  position: relative;
+}
+
+.nest-page.my-interest .content .masonry-brick img{
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
+}
+
+.nest-page.my-interest .content .masonry-brick p{
+  margin: 0;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  font-family: 'Brandon_reg';
+  text-transform: uppercase;
+  font-size: .8em;
+  text-align: center;
+  height: 100%;
+}
+
+.nest-page.my-interest .content .masonry-brick.interests p{
+  background: none;
+}
+
+.nest-page.my-interest .content .masonry-brick.loaded {
+    display: block;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+/**
+* Languages
+* start
+*/
+
+.nest-page.my-interest .content .masonry-brick.languages {
+    width: 100%
+}
+
+.nest-page.my-interest .content .masonry-brick.languages .flag-box{
+  display: block;
+  height: 55px;
+  width: 15vw;
+  position: relative;
+  float: left;
+}
+.nest-page.my-interest .content .masonry-brick.languages img.flag{
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.nest-page.my-interest .content .masonry-brick.languages p{
+  width: 73vw;
+  float: right;
+  height: 55px;
+  font-size: 1.3em;
+  line-height: 2.7em;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.nest-page.my-interest .content span.coming-title{
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: .5em 0;
+}
+
+.nest-page.my-interest .content .active{
+  opacity: 1;
+}
+
+.nest-page.my-interest .actions{
+  position: absolute;
+  bottom: 0;
+  display: block;
+  left: 50%;
+  margin-left: -65px;
+  margin-bottom: 1em;
+}
+
+.nest-page.my-interest .content button.add-key{
+  display: block;
+  width: 100%;
+  height: 5vh;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  font-family: 'Brandon_reg';
+  text-transform: uppercase;
+  font-size: .9em;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.nest-page.my-interest .content button.add-key.activated{
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.nest-page.my-interest .actions button.accept{
+  background-image: url('../../../../../web-assets/img/nest/accept.png');
+  width: 47px;
+  height: 47px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: 5px;
+}
+
+.nest-page.my-interest .actions button.cancel{
+  background-image: url('../../../../../web-assets/img/nest/cancel.png');
+  width: 47px;
+  height: 47px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-left: 5px;
+}

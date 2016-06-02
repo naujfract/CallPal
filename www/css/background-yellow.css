@@ -1,0 +1,74 @@
+body {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+.pane {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+ion-nav-view {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+.callpal-tab-view .view-container {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+.popup {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+.contactPopup {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="number"],
+input[type='email'],
+select {
+  background-color: rgba(255,255,255,0.5) !important;
+}
+
+h2, h3 {
+  color: #fff !important;
+}
+
+.popup button.button-positive {
+  background-color: rgba(0,0,0,0.3) !important;
+}
+
+.modal-wrapper {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}
+
+.loginPane a.button,
+.contactsPane a.button,
+.speedDialPopup a.button,
+.voicemailPane button,
+.contactsPane .list .item .contact-button-inactive {
+	background-image: none !important;
+	border: none !important;
+	background-color: rgba(0,0,0,0.3) !important;
+}
+
+.voicemailPane button {
+	border-radius: 3px;
+}
+
+.ion-close {
+	color: #fff !important;
+}
+
+p {
+	color: #fff !important;
+    font-weight: normal !important;
+    /*font-size: 11px !important;*/
+}
+
+/*Modal*/
+
+.modal {
+  background-image: linear-gradient( to left bottom, #ECC922, #C2D024) !important;
+}

@@ -1,0 +1,77 @@
+<ion-view>
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+
+        <h1 class="title" translate="w_tell_a_friend.title" ng-hide="search.isEnabled">
+            {{ 'w_tell_a_friend.title' | translate }}
+        </h1>
+
+        <div ng-if="tell_a_friend.friends.length != 0" class="buttons" ng-hide="search.isEnabled">
+            <button class="button button-clear button-icon ion-ios-search" ng-click="search.enable('search-tell-input')"></button>
+        </div>
+
+        <div class="bar-header item-input-inset search-bar" ng-show="search.isEnabled">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input id="search-tell-input" ng-model="search.query" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+            </label>
+            <button class="button button-clear button-icon" ng-click="search.disable()"><i
+                    class="icon ion-android-close"></i>
+            </button>
+        </div>
+        <!--<div class="bar bar-subheader bar-offline" ng-if="!phone_status.online">-->
+           <!--<h3 class="title" translate="w_general_actions.offline"></h3>-->
+        <!--</div>-->
+      <check-connection></check-connection>
+    </ion-header-bar>
+
+
+    <ion-content class="tellafriendPane" ng-class="{ 'has-subheader': !phone_status.online || phone_status.poorConnection }" overflow-scroll='true'>
+
+        <!-- <ion-scroll ng-if="tell_a_friend.friends.length != 0">
+            <div class="list">
+                <div class="item item-button-right" ng-show="tell_a_friend.friends.length">
+                    <ion-checkbox ng-click="toggleSelection()" ng-model="select.all">
+                        <span>{{ 'w_general_actions.select_all' | translate }}</span>
+                    </ion-checkbox>
+                </div>
+                <div class="item item-button-right"
+                     ng-repeat="contact in tell_a_friend.friends | filter:search.query | orderBy:'displayName'">
+                    <ion-checkbox id="{{$index}}" ng-model="contact.checked">
+                        <span class="name">{{contact.displayName}}</span>
+                    </ion-checkbox>
+                </div>
+            </div>
+        </ion-scroll> -->
+
+        <ion-list ng-if="tell_a_friend.friends.length != 0">
+            <div class="item item-button-right">
+                <ion-checkbox ng-click="toggleSelection()" ng-model="select.all">
+                    <span>{{ 'w_general_actions.select_all' | translate }}</span>
+                </ion-checkbox>
+            </div>
+            <ion-item class="item item-button-right"
+                      collection-repeat="contact in tell_a_friend.friends | filter:search.query"
+                      >
+                <ion-checkbox id="{{$index}}" ng-model="contact.checked">
+                    <span class="name">{{ contact.displayName ? contact.displayName : contact.phoneNumbers[0].number }}</span>
+                </ion-checkbox>
+            </ion-item>
+        </ion-list>
+
+
+        <ion-list ng-if="!tell_a_friend.friends.length || tell_a_friend.friends.length === 0">
+            <div class="text-center"><p>{{ 'w_tell_a_friend.empty' | translate }} :(</p></div>
+        </ion-list>
+
+    </ion-content>
+
+    <p ng-if="tell_a_friend.friends.length != 0" class="float-button-caption animated zoomIn" hide-in-time>
+        {{ 'w_tell_a_friend.send_invitation' | translate }}
+    </p>
+    <button ng-if="tell_a_friend.friends.length != 0"
+            class="float-button button  animated zoomIn important hide-on-keyboard-open" ng-click="invite()">
+        <i class="icon ion-paper-airplane"> </i>
+    </button>
+
+</ion-view>
