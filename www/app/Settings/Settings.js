@@ -143,6 +143,15 @@ angular.module('callpal.settings', [
       }
     },
   })
+  .state('app.settings.avatarapp', {
+    url: "/avatarapp",
+    views: {
+      'settings-tab': {
+        templateUrl: "app/Settings/Templates/AvatarApp/avatarapp.html",
+        controller: "SettingsLanguagesController"
+      }
+    },
+  })
   .state('app.settings.ringtones', {
     url: "/ringtones",
     views: {
@@ -155,6 +164,3 @@ angular.module('callpal.settings', [
   });
 
 });
-
-
-

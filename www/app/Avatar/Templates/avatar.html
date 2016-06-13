@@ -1,0 +1,119 @@
+<ion-view title="Notifications">
+<!-- comment -->
+
+    <ion-header-bar align-title="center" class="bar-callpal">
+
+        <div class="buttons" ng-hide="NotificatorManager.search.isEnabled">
+            <button class="button button-clear" ng-click="navigate_to('app.country')">
+                {{ 'w_general_actions.back' | translate }}
+            </button>
+        </div>
+
+        <h1 class="title" ng-hide="NotificatorManager.search.isEnabled" translate="w_notifications.title"></h1>
+
+        <div class="buttons" ng-hide="NotificatorManager.search.isEnabled">
+            <button class="button button-clear button-icon ion-ios-trash" ng-click="NotificatorManager.clearNotifications()"
+                    prevent-on-offline="click"></button>
+            <button class="button button-clear button-icon ion-ios-search" ng-click="NotificatorManager.search.enable('search-notifications-input')"></button>
+        </div>
+
+        <div class="bar-header item-input-inset search-bar" ng-show="NotificatorManager.search.isEnabled">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input id="search-notifications-input" ng-model="search.query" type="search" placeholder="{{ 'w_general_actions.search' | translate }}">
+            </label>
+
+            <button class="button button-clear cancel" ng-click="NotificatorManager.search.disable()">
+                {{ 'w_general_actions.cancel' | translate }}</button>
+        </div>
+
+    </ion-header-bar>
+
+    <ion-content padding="true" class="ion-content">
+        <ion-refresher pulling-text="Pull to update" on-refresh="notifications.refresh(true)" refreshing-text="Updating Notifications"></ion-refresher>
+
+        <ion-list ng-if="notifications.list.length != 0" class="list">
+
+            <ion-item item-height="70px" collection-repeat="notification in notifications.list | filter:search.query  track by $index">
+                <div class="row">
+                    <a class="col item item-icon-left" href="#" ng-if="notification.additionalData.payload.type == 'missed_call'"
+                       ng-click="NotificatorManager.interact(notification)" prevent-on-offline="click">
+                        <i class="icon ion-ios-telephone-outline"></i>
+                        <i class="icon ion-ios-close-empty" style="margin-left: 6px; margin-top: -8px;"></i>
+
+                        <span class="col-offset-20">
+                            Missed call
+                        </span>
+                        <br>
+                        <span class="col-offset-20" style="font-size: 11px;">
+                            Missed call from:
+                            {{ notification.additionalData.payload.member.name }} |
+                            {{ notification.additionalData.payload.member.phone }}
+                        </span>
+                    </a>
+                    <a class="col item item-icon-left" href="#" ng-if="notification.additionalData.payload.type == 'shared_contact'"
+                       ng-click="NotificatorManager.interact(notification)" prevent-on-offline="click">
+                        <i class="icon ion-android-share-alt"></i>
+                        <span class="col-offset-20">
+                            {{ 'w_notifications.new_contact' | translate }}
+                        </span>
+                        <br>
+                        <span class="col-offset-20" style="font-size: 11px;">
+                            {{ 'w_notifications.accept_contact' | translate }}
+                            {{ notification.additionalData.payload.contact.displayName }}
+                        </span>
+                    </a>
+                    <a class="col item item-icon-left" href="#" ng-if="notification.additionalData.payload.type == 'new_voicemail'"
+                       ng-click="NotificatorManager.interact(notification)" prevent-on-offline="click">
+                        <i class="icon ion-ios-recording-outline"></i>
+                        <span class="col-offset-20">
+                            {{ 'w_notifications.new_voicemail' | translate }}
+                            {{notification.additionalData.payload.phone}}
+                        </span>
+                        <br>
+                        <span class="col-offset-20" style="font-size: 11px;">
+                            {{ 'w_notifications.press_to_listen' | translate }}
+                        </span>
+                    </a>
+                    <a class="col item item-icon-left" href="#" ng-if="notification.additionalData.payload.type == 'call_from_blocked_contact'"
+                       ng-click="NotificatorManager.interact(notification)" prevent-on-offline="click">
+                        <!--{{ notification }}-->
+                        <i class="icon ion-ios-telephone-outline"></i>
+                        <span class="col-offset-20">
+                            {{ "Call from blocked contact " }}
+                        </span>
+                        <br>
+                        <span class="col-offset-20" style="font-size: 11px;">
+                            Call from: {{notification.additionalData.payload.displayName}}
+                        </span>
+                    </a>
+                    <a class="col item item-icon-left" href="#" ng-if="notification.additionalData.payload.type == 'shared_content'"
+                       ng-click="NotificatorManager.interact(notification)" prevent-on-offline="click">
+                        <i class="icon ion-cube"></i>
+                        <span class="col-offset-20">
+                          {{notification.additionalData.message}}
+                        </span>
+                        <br>
+                        <span class="col-offset-20" style="font-size: 11px;">
+                            Press to open your nest
+                        </span>
+                    </a>
+                    <!--<a class="button button-icon icon ion-ios-close-outline" style="color: #fff;"-->
+                       <!--ng-click="NotificatorManager.clearNotification(notification)" prevent-on-offline="click"></a>-->
+                </div>
+
+            </ion-item>
+
+        </ion-list>
+
+        <ion-list>
+            <div class="text-center" ng-if="!notifications || !notifications.list.length || notifications.list.length === 0">
+                <p>{{ 'w_notifications.empty' | translate }}</p>
+            </div>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
+
+
+@davidrivasro07 @pikitgb

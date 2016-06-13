@@ -32,6 +32,7 @@ angular.module('callpal', [
       , 'callpal.notifications'
       , 'callpal.nest'
       , 'callpal.nest.myinterest'
+      //, 'callpal.avatar'
 
     ])
 
